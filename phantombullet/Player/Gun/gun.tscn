@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://csu4gsjdxpuhm"]
 
-[ext_resource type="Script" path="res://Player/Gun/Gun.cs" id="1_by1yx"]
-[ext_resource type="Script" path="res://Player/Gun/Loader.cs" id="2_amtoi"]
+[ext_resource type="Script" uid="uid://c68n26bn60i0u" path="res://Player/Gun/Gun.cs" id="1_by1yx"]
+[ext_resource type="Script" uid="uid://b7ynjy1tlrpnl" path="res://Player/Gun/Loader.cs" id="2_amtoi"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_rlxxl"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_3pf5a"]
