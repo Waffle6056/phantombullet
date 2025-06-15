@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ynb80ubs6un"]
+
+[ext_resource type="Script" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
+[ext_resource type="Script" path="res://Player/Player.cs" id="1_8d2l0"]
+[ext_resource type="PackedScene" uid="uid://csu4gsjdxpuhm" path="res://Player/Gun/gun.tscn" id="3_i70jt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jsmy"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 0
+script = ExtResource("1_8d2l0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_6jsmy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+top_level = true
+script = ExtResource("1_1pbhj")
+DPI = 0.1
+
+[node name="Gun" parent="Camera3D" instance=ExtResource("3_i70jt")]

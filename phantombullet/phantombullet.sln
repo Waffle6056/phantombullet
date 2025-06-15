@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "phantombullet", "phantombullet.csproj", "{2D278B67-FA62-4F82-84D6-03770E72B733}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D278B67-FA62-4F82-84D6-03770E72B733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D278B67-FA62-4F82-84D6-03770E72B733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D278B67-FA62-4F82-84D6-03770E72B733}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{2D278B67-FA62-4F82-84D6-03770E72B733}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{2D278B67-FA62-4F82-84D6-03770E72B733}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{2D278B67-FA62-4F82-84D6-03770E72B733}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BFF81CD-CBD2-45B4-BBA5-92C8D9F42873}
+	EndGlobalSection
+EndGlobal
