@@ -24,7 +24,7 @@ public partial class Player : CharacterBody3D
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
-			velocity += GetGravity() * (float)delta;
+			velocity += GetGravity() * (float)delta * BulletTime.TimeScale;
 		}
 
 		// Handle Jump.
@@ -49,6 +49,8 @@ public partial class Player : CharacterBody3D
 		}
 		//GD.Print(velocity);
 		Velocity = velocity;
+		Velocity *= BulletTime.TimeScale;
 		MoveAndSlide();
-	}
+        Velocity /= BulletTime.TimeScale;
+    }
 }

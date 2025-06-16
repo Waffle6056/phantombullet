@@ -45,12 +45,12 @@ public partial class Bullet : AnimatableBody3D
 	}
     public override void _PhysicsProcess(double delta)
     {
-		TrackingArea.Scale += Vector3.One * HomingScaling * (float)delta;
+		TrackingArea.Scale += Vector3.One * HomingScaling * (float)delta * BulletTime.TimeScale;
 		Node3D t = closestTarget();
 		if (t != null)
             homeTowards(t);
 
-		Vector3 motion = (float)delta * -GlobalBasis[2] * ProjectileSpeed;
+		Vector3 motion = (float)delta * BulletTime.TimeScale * -GlobalBasis[2] * ProjectileSpeed;
 		KinematicCollision3D col = MoveAndCollide(motion);
 		//GD.Print(motion);
 		if (col != null)
