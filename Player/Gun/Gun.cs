@@ -7,13 +7,18 @@ public partial class Gun : Node3D
 {
 	[Signal]
 	public delegate void SuccessfulFireEventHandler();
+
 	[Export]
-	public Loader preloadedLoader;
+	public Loader PreloadedLoader;
+
+	[Export]
+	public Node Clip;
+
 	List<Bullet> Bullets = new List<Bullet>();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Load(preloadedLoader);
+		Load(PreloadedLoader);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,7 +45,20 @@ public partial class Gun : Node3D
 	{
 		// right now, replace the current bullets with the new ones
 		int ocount = Bullets.Count;
-		Bullets = new List<Bullet>(loader.HeldBullets);
+
+		// *copy* over the bullets
+		Bullets = new List<Bullet>(loader.HeldBullets.Length);
+
+		for (int i = 0; i < loader.HeldBullets.Length; i++)
+		{
+			var bullet = loader.HeldBullets[i];
+			Bullet clonedBullet = (Bullet)bullet.Duplicate();
+
+			// add to clip, to store 'local' references to the bullets
+			Bullets.Add(clonedBullet);
+			Clip.AddChild(clonedBullet);
+		}
+
 		GD.Print("Loaded from loader. ∆" + (Bullets.Count - ocount) + ". (+" + Bullets.Count + ", -" + ocount + ")");
 	}
     public void Load(Bullet bullet)
