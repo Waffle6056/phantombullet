@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://csu4gsjdxpuhm"]
+
+[ext_resource type="Script" uid="uid://c68n26bn60i0u" path="res://Player/Gun/Gun.cs" id="1_by1yx"]
+[ext_resource type="Script" uid="uid://b7ynjy1tlrpnl" path="res://Player/Gun/Loader.cs" id="2_amtoi"]
+[ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="3_6uoou"]
+[ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_rlxxl"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_3pf5a"]
+size = Vector3(0.08, 0.19, 1)
+
+[node name="Gun" type="Node3D" node_paths=PackedStringArray("preloadedLoader")]
+script = ExtResource("1_by1yx")
+preloadedLoader = NodePath("Loader")
+
+[node name="Loader" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
+script = ExtResource("2_amtoi")
+HeldBullets = [NodePath("Bullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet4")]
+
+[node name="Bullet" parent="Loader" instance=ExtResource("3_6uoou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89989, 0, 0.446242)
+visible = false
+
+[node name="Bullet2" parent="Loader" instance=ExtResource("3_rlxxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Bullet3" parent="Loader" instance=ExtResource("3_rlxxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Bullet4" parent="Loader" instance=ExtResource("3_rlxxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.105804, 0.521096)
+mesh = SubResource("PrismMesh_3pf5a")
