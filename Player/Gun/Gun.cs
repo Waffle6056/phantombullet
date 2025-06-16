@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 
 public partial class Gun : Node3D
 {
@@ -37,7 +38,10 @@ public partial class Gun : Node3D
 	}
 	public void Load(Loader loader)
 	{
+		// right now, replace the current bullets with the new ones
+		int ocount = Bullets.Count;
 		Bullets = new List<Bullet>(loader.HeldBullets);
+		GD.Print("Loaded from loader. ∆" + (Bullets.Count - ocount) + ". (+" + Bullets.Count + ", -" + ocount + ")");
 	}
     public void Load(Bullet bullet)
     {

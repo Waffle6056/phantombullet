@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqird0gga88bc"]
+
+[ext_resource type="Script" uid="uid://2pbpjotqshpl" path="res://Level/LevelAsset/Ammo/Ammo.cs" id="1_7bfsc"]
+[ext_resource type="Script" uid="uid://b7ynjy1tlrpnl" path="res://Player/Gun/Loader.cs" id="2_vr11n"]
+[ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_lq326"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jfn8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7bfsc"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7bfsc"]
+albedo_color = Color(0.738411, 0.185013, 0.357114, 1)
+
+[node name="Ammo" type="Area3D" node_paths=PackedStringArray("Storage")]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_7bfsc")
+Storage = NodePath("StoredBullets")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4jfn8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7bfsc")
+surface_material_override/0 = SubResource("ORMMaterial3D_7bfsc")
+
+[node name="StoredBullets" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
+script = ExtResource("2_vr11n")
+HeldBullets = [NodePath("Bullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet4"), NodePath("Bullet5"), NodePath("Bullet6")]
+
+[node name="Bullet" parent="StoredBullets" instance=ExtResource("3_lq326")]
+
+[node name="Bullet2" parent="StoredBullets" instance=ExtResource("3_lq326")]
+
+[node name="Bullet3" parent="StoredBullets" instance=ExtResource("3_lq326")]
+
+[node name="Bullet4" parent="StoredBullets" instance=ExtResource("3_lq326")]
+
+[node name="Bullet5" parent="StoredBullets" instance=ExtResource("3_lq326")]
+
+[node name="Bullet6" parent="StoredBullets" instance=ExtResource("3_lq326")]
+
+[connection signal="body_entered" from="." to="." method="IsEntered"]

@@ -4,6 +4,9 @@ using System;
 public partial class Player : CharacterBody3D
 {
 	[Export]
+	public Gun Gun;
+
+	[Export]
 	public float Speed = 5.0f;
     [Export]
     public float JumpVelocity = 4.5f;

@@ -6,9 +6,11 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jsmy"]
 
-[node name="Player" type="CharacterBody3D"]
-collision_layer = 0
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun")]
+collision_layer = 8
+collision_mask = 9
 script = ExtResource("1_8d2l0")
+Gun = NodePath("Camera3D/Gun")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6jsmy")
