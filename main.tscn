@@ -27,4 +27,4 @@ LevelList = Array[PackedScene]([ExtResource("3_h2yge")])
 
 [node name="BulletTime" type="Node" parent="."]
 script = ExtResource("4_1bvp3")
-SlowedScale = 0.1
+SlowedScale = 0.02

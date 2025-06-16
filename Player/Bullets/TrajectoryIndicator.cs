@@ -18,9 +18,15 @@ public partial class TrajectoryIndicator : Node3D
 	{
 		Vector3 start = GlobalPosition;
 		Vector3 end =  Raycast.GlobalTransform * Raycast.TargetPosition;
-		if (Raycast.IsColliding())
+		if (Raycast.IsColliding()) {
 			end = Raycast.GetCollisionPoint();
-
+			//GD.Print(Raycast.GetCollider());
+			if (Raycast.GetCollider() is Target)
+			{
+				BulletTime.IndicatorMarked = true;
+				GD.Print("SLOW");
+			}
+		}
 		//GD.Print(start + " " + end);
 
 

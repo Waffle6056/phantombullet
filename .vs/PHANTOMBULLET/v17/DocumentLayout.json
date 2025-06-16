@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\godot\\phantombullet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\gun\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\gun\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\ontriggerturningbullet\\ontriggerturningbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,46 +70,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BulletTime.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\BulletTime.cs",
               "RelativeDocumentMoniker": "BulletTime.cs",
               "ToolTip": "D:\\godot\\phantombullet\\BulletTime.cs",
               "RelativeToolTip": "BulletTime.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-16T22:36:24.711Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Ammo.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
-              "RelativeDocumentMoniker": "Level\\LevelAsset\\Ammo\\Ammo.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
-              "RelativeToolTip": "Level\\LevelAsset\\Ammo\\Ammo.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wCQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T22:18:32.659Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "TrajectoryIndicator.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
               "RelativeDocumentMoniker": "Player\\Bullets\\TrajectoryIndicator.cs",
               "ToolTip": "D:\\godot\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
               "RelativeToolTip": "Player\\Bullets\\TrajectoryIndicator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-16T21:55:29.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "Ammo.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "RelativeDocumentMoniker": "Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "RelativeToolTip": "Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T22:18:32.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Bullet.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
               "RelativeDocumentMoniker": "Player\\Bullets\\BaseBullet\\Bullet.cs",
@@ -117,8 +117,7 @@
               "RelativeToolTip": "Player\\Bullets\\BaseBullet\\Bullet.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T21:12:41.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T21:12:41.581Z"
             },
             {
               "$type": "Document",
@@ -146,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Player\\Player.cs",
@@ -207,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Gun.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Gun\\Gun.cs",
               "RelativeDocumentMoniker": "Player\\Gun\\Gun.cs",
@@ -215,8 +214,7 @@
               "RelativeToolTip": "Player\\Gun\\Gun.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T20:47:56.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T20:47:56.574Z"
             }
           ]
         }
