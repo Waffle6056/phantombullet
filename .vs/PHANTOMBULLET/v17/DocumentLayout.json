@@ -1,0 +1,215 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\godot\\phantombullet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\ontriggerturningbullet\\ontriggerturningbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\ontriggerturningbullet\\ontriggerturningbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\gun\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\gun\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\levelasset\\target\\target.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelasset\\target\\target.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\firstpersoncamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\firstpersoncamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\gun\\loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\gun\\loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ammo.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "RelativeDocumentMoniker": "Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "RelativeToolTip": "Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T22:18:32.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TrajectoryIndicator.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
+              "RelativeDocumentMoniker": "Player\\Bullets\\TrajectoryIndicator.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
+              "RelativeToolTip": "Player\\Bullets\\TrajectoryIndicator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T21:55:29.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
+              "RelativeDocumentMoniker": "Player\\Bullets\\BaseBullet\\Bullet.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
+              "RelativeToolTip": "Player\\Bullets\\BaseBullet\\Bullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T21:12:41.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OnTriggerTurningBullet.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
+              "RelativeDocumentMoniker": "Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
+              "RelativeToolTip": "Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T20:47:11.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FirstPersonCamera.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\FirstPersonCamera.cs",
+              "RelativeDocumentMoniker": "Player\\FirstPersonCamera.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Player\\FirstPersonCamera.cs",
+              "RelativeToolTip": "Player\\FirstPersonCamera.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T21:07:28.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Player.cs",
+              "RelativeDocumentMoniker": "Player\\Player.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Player\\Player.cs",
+              "RelativeToolTip": "Player\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T21:06:50.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Target.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Target\\Target.cs",
+              "RelativeDocumentMoniker": "Level\\LevelAsset\\Target\\Target.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Target\\Target.cs",
+              "RelativeToolTip": "Level\\LevelAsset\\Target\\Target.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T21:06:24.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Level.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\Level.cs",
+              "RelativeDocumentMoniker": "Level\\Level.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Level\\Level.cs",
+              "RelativeToolTip": "Level\\Level.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T21:01:42.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LevelManager.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelManager.cs",
+              "RelativeDocumentMoniker": "Level\\LevelManager.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Level\\LevelManager.cs",
+              "RelativeToolTip": "Level\\LevelManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T21:01:38.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Loader.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Gun\\Loader.cs",
+              "RelativeDocumentMoniker": "Player\\Gun\\Loader.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Player\\Gun\\Loader.cs",
+              "RelativeToolTip": "Player\\Gun\\Loader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T20:48:00.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Gun.cs",
+              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Gun\\Gun.cs",
+              "RelativeDocumentMoniker": "Player\\Gun\\Gun.cs",
+              "ToolTip": "D:\\godot\\phantombullet\\Player\\Gun\\Gun.cs",
+              "RelativeToolTip": "Player\\Gun\\Gun.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T20:47:56.574Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkhouf71rhm5m"]
+
+[ext_resource type="Script" uid="uid://d3tb07lbqrcci" path="res://Player/Bullets/TrajectoryIndicator.cs" id="1_gexr7"]
+[ext_resource type="Shader" uid="uid://ecnurp228vt0" path="res://Player/Bullets/OnTriggerTurningBullet/DottedIndicator.tres" id="1_r5qtb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ey72"]
+render_priority = 0
+shader = ExtResource("1_r5qtb")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gexr7"]
+material = SubResource("ShaderMaterial_4ey72")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 1.0
+
+[node name="TrajectoryIndicator" type="Node3D" node_paths=PackedStringArray("Visuals", "Raycast")]
+script = ExtResource("1_gexr7")
+Visuals = NodePath("MeshInstance3D")
+Raycast = NodePath("RayCast3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00400972, 2.98023e-08, -0.000147104)
+mesh = SubResource("CylinderMesh_gexr7")
+skeleton = NodePath("../..")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1000)
+collide_with_areas = true

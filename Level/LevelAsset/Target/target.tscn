@@ -14,7 +14,6 @@ radius = 0.675
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mnbwq"]
 
 [node name="Target" type="Area3D" node_paths=PackedStringArray("HitIndicator")]
-collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_8p6v7")
 HitIndicator = NodePath("MeshInstance3D2")
