@@ -55,6 +55,7 @@ visible = false
 collision_layer = 2
 sync_to_physics = false
 script = ExtResource("1_btk87")
+ProjectileSpeed = 90.0
 TrackingArea = NodePath("TrackingArea")
 IsHoming = false
 
