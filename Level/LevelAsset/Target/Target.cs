@@ -23,7 +23,10 @@ public partial class Target : Area3D
 	}
 	public void IsShot(Node3D body)
 	{
-		Hit = true;
-		body.QueueFree();
+		if (body is Bullet)
+		{
+			Hit = true;
+			(body as Bullet).OnCollision();
+		}
 	}
 }

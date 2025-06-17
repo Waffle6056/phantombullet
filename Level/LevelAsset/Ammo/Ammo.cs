@@ -16,13 +16,13 @@ public partial class Ammo : Area3D
 
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
+    {
         Visible = !Used;
         if (Used)
         {
-            CollectedTime += (long)(delta*1000);
+            CollectedTime += (long)(delta * 1000);
         }
 
         if (CollectedTime > 5000 && Used)
