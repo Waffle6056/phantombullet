@@ -28,7 +28,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_7bfsc")
 
 [node name="StoredBullets" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
 script = ExtResource("2_vr11n")
-HeldBullets = [NodePath("TeleporterBullet"), NodePath("OnTriggerTurningBullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet5"), NodePath("Bullet6")]
+HeldBullets = [NodePath("OnTriggerTurningBullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet5"), NodePath("Bullet6")]
 
 [node name="TeleporterBullet" parent="StoredBullets" instance=ExtResource("3_mkgtg")]
 IsHoming = true

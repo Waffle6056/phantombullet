@@ -36,6 +36,12 @@ public partial class Bullet : AnimatableBody3D
 		float closestDistance = -1;
 		foreach (Node3D t in TrackingArea.GetOverlappingAreas())
 		{
+			PhysicsDirectSpaceState3D state = GetWorld3D().DirectSpaceState;
+			PhysicsRayQueryParameters3D p = PhysicsRayQueryParameters3D.Create(GlobalPosition, t.GlobalPosition, CollisionMask);
+
+            if (state.IntersectRay(p).Count > 0 || (t as Target).Hit)
+				continue;
+			//GD.Print(MoveAndCollide(t.GlobalPosition - GlobalPosition));
 			if (target == null || GlobalPosition.DistanceTo(t.GlobalPosition) < closestDistance)
 			{
 				target = t;
