@@ -9,6 +9,12 @@ public partial class Bullet : AnimatableBody3D
 	public Area3D TrackingArea;
 	[Export]
 	public float HomingScaling = 1f;
+
+	[Export]
+	public bool IsHoming = true;
+
+	public Player MyPlayer;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -41,23 +47,28 @@ public partial class Bullet : AnimatableBody3D
 	}
 	void homeTowards(Node3D Target)
 	{
-		GlobalBasis = Basis.LookingAt(Target.GlobalPosition - GlobalPosition);
+		if (IsHoming)
+			GlobalBasis = Basis.LookingAt(Target.GlobalPosition - GlobalPosition);
 	}
-    public override void _PhysicsProcess(double delta)
-    {
+	public override void _PhysicsProcess(double delta)
+	{
 		TrackingArea.Scale += Vector3.One * HomingScaling * (float)delta * BulletTime.TimeScale;
 		Node3D t = closestTarget();
 		if (t != null)
-            homeTowards(t);
+			homeTowards(t);
 
 		Vector3 motion = (float)delta * BulletTime.TimeScale * -GlobalBasis[2] * ProjectileSpeed;
 		KinematicCollision3D col = MoveAndCollide(motion);
 		//GD.Print(motion);
 		if (col != null)
 		{
-            //GD.Print(col.GetCollider());
+			//GD.Print(col.GetCollider());
+			OnCollision();
+		}
+	}
 
-            QueueFree();
-        }
-    }
+	public virtual void OnCollision()
+	{
+		QueueFree();
+	}
 }

@@ -14,10 +14,21 @@ public partial class Gun : Node3D
 	[Export]
 	public Node Clip;
 
+	[Export]
+	public Player Bearer;
+
 	List<Bullet> Bullets = new List<Bullet>();
+
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// check if bearer is set
+		if (Bearer == null)
+		{
+			GD.PrintErr("WARNING: Gun's 'Bearer' property is set to null.");
+		}
+
 		Load(PreloadedLoader);
 	}
 
@@ -54,15 +65,19 @@ public partial class Gun : Node3D
 			var bullet = loader.HeldBullets[i];
 			Bullet clonedBullet = (Bullet)bullet.Duplicate();
 
-			// add to clip, to store 'local' references to the bullets
-			Bullets.Add(clonedBullet);
-			Clip.AddChild(clonedBullet);
+			Load(clonedBullet);
 		}
 
 		GD.Print("Loaded from loader. ∆" + (Bullets.Count - ocount) + ". (+" + Bullets.Count + ", -" + ocount + ")");
 	}
-    public void Load(Bullet bullet)
+
+    private void Load(Bullet bullet)
     {
-        Bullets.Add(bullet);
+		// set the owner
+		bullet.MyPlayer = Bearer;
+		
+		// add to clip, to store 'local' references to the bullets
+		Bullets.Add(bullet);
+		Clip.AddChild(bullet);
     }
 }
