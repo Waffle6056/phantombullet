@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\godot\\phantombullet\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +19,8 @@
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\gun\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "BulletTime.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\BulletTime.cs",
               "RelativeDocumentMoniker": "BulletTime.cs",
@@ -83,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TrajectoryIndicator.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
               "RelativeDocumentMoniker": "Player\\Bullets\\TrajectoryIndicator.cs",
@@ -96,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Ammo.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
               "RelativeDocumentMoniker": "Level\\LevelAsset\\Ammo\\Ammo.cs",
@@ -104,20 +104,20 @@
               "RelativeToolTip": "Level\\LevelAsset\\Ammo\\Ammo.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T22:18:32.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T22:18:32.659Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Bullet.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
               "RelativeDocumentMoniker": "Player\\Bullets\\BaseBullet\\Bullet.cs",
               "ToolTip": "D:\\godot\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
               "RelativeToolTip": "Player\\Bullets\\BaseBullet\\Bullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAABZAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T21:12:41.581Z"
+              "WhenOpened": "2025-06-16T21:12:41.581Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -145,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Player\\Player.cs",
@@ -153,8 +153,7 @@
               "RelativeToolTip": "Player\\Player.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwBoAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T21:06:50.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T21:06:50.747Z"
             },
             {
               "$type": "Document",

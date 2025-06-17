@@ -31,6 +31,7 @@ script = ExtResource("2_vr11n")
 HeldBullets = [NodePath("TeleporterBullet"), NodePath("OnTriggerTurningBullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet5"), NodePath("Bullet6")]
 
 [node name="TeleporterBullet" parent="StoredBullets" instance=ExtResource("3_mkgtg")]
+IsHoming = true
 
 [node name="OnTriggerTurningBullet" parent="StoredBullets" instance=ExtResource("3_mlm2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.918527, 0, 2.83989)
