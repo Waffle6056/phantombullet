@@ -28,6 +28,9 @@ public partial class Gun : Node3D
 	[Export]
 	public RayCast3D Ray;
 
+	[Export]
+	public AnimationPlayer photonAnimator;
+
 	private Vector2 LookDelta = Vector2.Zero;
 	private Vector3 TargetOffset = Vector3.Zero;
 	private Vector3 CurrentOffset = Vector3.Zero;
@@ -56,8 +59,7 @@ public partial class Gun : Node3D
 		// set rotation to 90, 0, 0 (x, y, z)
 		Ray.CollideWithAreas = true;
 		Ray.CollideWithBodies = true;
-		// Ray.Enabled = false;
-		Ray.Enabled = true;
+		Ray.Enabled = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -88,14 +90,15 @@ public partial class Gun : Node3D
 			if (bullet is PhotonBullet)
 			{
 				GD.Print("Firing photon bullet...");
-				// bullet.QueueFree();
+				photonAnimator.Play("Fire");
+				bullet.QueueFree();
 				FirePhoton();
 			}
 			else
 			{
 				bullet.Fired(this);
 			}
-			// Bullets.RemoveAt(0);
+			Bullets.RemoveAt(0);
 		}
 	}
 
@@ -147,7 +150,7 @@ public partial class Gun : Node3D
 
 		}
 
-		// Ray.Enabled = false; // disable raycast after firing
+		Ray.Enabled = false; // disable raycast after firing
 	}
 
 	public void Load(Loader loader)

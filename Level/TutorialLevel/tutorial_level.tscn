@@ -4,17 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="2_udhqn"]
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="2_x2m5e"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udhqn"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_udhqn"]
+size = Vector3(1, 6.78168, 2.90308)
 
 [node name="TutorialLevel" type="Node3D" node_paths=PackedStringArray("Targets")]
 script = ExtResource("1_ugmoc")
 Targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3")]
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68209, 1.33897, -3.70836)
-use_collision = true
-size = Vector3(1.08063, 6.91638, 2.0732)
-material = SubResource("StandardMaterial3D_udhqn")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="collision" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68209, 1.0525, -3.65868)
+shape = SubResource("BoxShape3D_udhqn")
+
+[node name="CSGMesh3D" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66515, 0.222143, -3.61388)
+size = Vector3(1, 4.89056, 2.68848)
 
 [node name="Ammo" parent="." instance=ExtResource("2_x2m5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.45572, -1.31027, -1.33886)
