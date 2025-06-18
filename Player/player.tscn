@@ -1,11 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=11 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
 [ext_resource type="PackedScene" uid="uid://csu4gsjdxpuhm" path="res://Player/Gun/gun.tscn" id="3_i70jt"]
-[ext_resource type="PackedScene" uid="uid://bsnfhxf7cifbb" path="res://Player/Gun/revolver_cylinder.glb" id="4_gwnis"]
+[ext_resource type="PackedScene" uid="uid://dr7uh8wi0quat" path="res://Player/Gun/revolver_cylinder.glb" id="4_gwnis"]
+[ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jsmy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwnis"]
+albedo_color = Color(0.798366, 0.798366, 0.798366, 1)
+emission_enabled = true
+emission = Color(2.11775e-06, 0.907704, 0.00478651, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k53q1"]
+emission_enabled = true
+emission = Color(0.462291, 0.462291, 0.462291, 1)
 
 [sub_resource type="Animation" id="Animation_gwnis"]
 resource_name = "Fire"
@@ -54,6 +64,21 @@ transform = Transform3D(0.905033, -0.0759164, 0.418511, -0.0338031, 0.967993, 0.
 
 [node name="revolver_cylinder" parent="Camera3D/hud/cylinder_origin" instance=ExtResource("4_gwnis")]
 transform = Transform3D(0.14, 0, 0, 0, 0.14, 0, 0, 0, 0.14, 0, 0, -1.188)
+
+[node name="stamina_origin" type="Node3D" parent="Camera3D/hud"]
+transform = Transform3D(0.492785, -0.00873353, 0.165791, 0.0223939, 0.518031, -0.0392731, -0.164504, 0.0443575, 0.491295, 0, 0, 0)
+
+[node name="curr_stamina" type="CSGCylinder3D" parent="Camera3D/hud/stamina_origin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.029)
+radius = 0.074
+height = 0.278
+material = SubResource("StandardMaterial3D_gwnis")
+script = ExtResource("5_k53q1")
+
+[node name="full_stamina" type="CSGCylinder3D" parent="Camera3D/hud/stamina_origin/curr_stamina"]
+radius = 0.047
+height = 0.278
+material = SubResource("StandardMaterial3D_k53q1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

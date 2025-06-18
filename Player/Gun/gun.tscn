@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_rlxxl"]
 [ext_resource type="PackedScene" uid="uid://diomba6mxnssq" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tscn" id="5_53e7j"]
 [ext_resource type="PackedScene" uid="uid://diaatub6287aj" path="res://Player/Bullets/PhotonBullet/photonbullet.tscn" id="6_fuihc"]
-[ext_resource type="PackedScene" uid="uid://do5ij33flsadh" path="res://Player/Gun/revolver_gun.glb" id="7_iu1ju"]
-[ext_resource type="PackedScene" uid="uid://bsnfhxf7cifbb" path="res://Player/Gun/revolver_cylinder.glb" id="8_eq5df"]
+[ext_resource type="PackedScene" uid="uid://cjrw53s1jvpch" path="res://Player/Gun/revolver_gun.glb" id="7_iu1ju"]
+[ext_resource type="PackedScene" uid="uid://dr7uh8wi0quat" path="res://Player/Gun/revolver_cylinder.glb" id="8_eq5df"]
 [ext_resource type="Script" uid="uid://cak6uh5jo1qmc" path="res://Player/Gun/hit_indicator.cs" id="9_eq5df"]
 
 [sub_resource type="Animation" id="Animation_iu1ju"]
