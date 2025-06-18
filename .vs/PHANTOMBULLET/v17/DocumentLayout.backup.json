@@ -1,54 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\godot\\phantombullet\\",
+  "WorkspaceRootPath": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\trajectoryindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelasset\\ammo\\ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:bullettime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\basebullet\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\gun\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\player\\gun\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\gun\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\bullets\\ontriggerturningbullet\\ontriggerturningbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\bullets\\ontriggerturningbullet\\ontriggerturningbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\levelasset\\target\\target.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\level\\levelasset\\target\\target.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelasset\\target\\target.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\firstpersoncamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\player\\firstpersoncamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\firstpersoncamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\level\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\level\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\level\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:level\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|d:\\godot\\phantombullet\\player\\gun\\loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|c:\\users\\tvmcc\\onedrive\\dev\\projects\\phantombullet\\player\\gun\\loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D278B67-FA62-4F82-84D6-03770E72B733}|phantombullet.csproj|solutionrelative:player\\gun\\loader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Player\\Bullets\\TrajectoryIndicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Level\\LevelAsset\\Ammo\\Ammo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,74 +62,78 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-17T21:06:40.571Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "BulletTime.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\BulletTime.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\BulletTime.cs",
               "RelativeDocumentMoniker": "BulletTime.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\BulletTime.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\BulletTime.cs",
               "RelativeToolTip": "BulletTime.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-16T22:36:24.711Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "TrajectoryIndicator.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
               "RelativeDocumentMoniker": "Player\\Bullets\\TrajectoryIndicator.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Bullets\\TrajectoryIndicator.cs",
               "RelativeToolTip": "Player\\Bullets\\TrajectoryIndicator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T21:55:29.902Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T21:55:29.902Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "Ammo.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
               "RelativeDocumentMoniker": "Level\\LevelAsset\\Ammo\\Ammo.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\LevelAsset\\Ammo\\Ammo.cs",
               "RelativeToolTip": "Level\\LevelAsset\\Ammo\\Ammo.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T22:18:32.659Z",
+              "WhenOpened": "2025-06-16T22:18:32.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
+              "RelativeDocumentMoniker": "Player\\Bullets\\BaseBullet\\Bullet.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
+              "RelativeToolTip": "Player\\Bullets\\BaseBullet\\Bullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T21:12:41.581Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Bullet.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
-              "RelativeDocumentMoniker": "Player\\Bullets\\BaseBullet\\Bullet.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Player\\Bullets\\BaseBullet\\Bullet.cs",
-              "RelativeToolTip": "Player\\Bullets\\BaseBullet\\Bullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T21:12:41.581Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "OnTriggerTurningBullet.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
               "RelativeDocumentMoniker": "Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
               "RelativeToolTip": "Player\\Bullets\\OnTriggerTurningBullet\\OnTriggerTurningBullet.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -133,11 +141,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "FirstPersonCamera.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\FirstPersonCamera.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\FirstPersonCamera.cs",
               "RelativeDocumentMoniker": "Player\\FirstPersonCamera.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Player\\FirstPersonCamera.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\FirstPersonCamera.cs",
               "RelativeToolTip": "Player\\FirstPersonCamera.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -147,22 +155,21 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Player.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Player.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Player\\Player.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Player\\Player.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Player.cs",
               "RelativeToolTip": "Player\\Player.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwBoAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T21:06:50.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-16T21:06:50.747Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "Target.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Target\\Target.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\LevelAsset\\Target\\Target.cs",
               "RelativeDocumentMoniker": "Level\\LevelAsset\\Target\\Target.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Level\\LevelAsset\\Target\\Target.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\LevelAsset\\Target\\Target.cs",
               "RelativeToolTip": "Level\\LevelAsset\\Target\\Target.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -170,11 +177,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "Level.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\Level.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\Level.cs",
               "RelativeDocumentMoniker": "Level\\Level.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Level\\Level.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\Level.cs",
               "RelativeToolTip": "Level\\Level.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -182,11 +189,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "LevelManager.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Level\\LevelManager.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\LevelManager.cs",
               "RelativeDocumentMoniker": "Level\\LevelManager.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Level\\LevelManager.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Level\\LevelManager.cs",
               "RelativeToolTip": "Level\\LevelManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -194,11 +201,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "Loader.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Gun\\Loader.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Gun\\Loader.cs",
               "RelativeDocumentMoniker": "Player\\Gun\\Loader.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Player\\Gun\\Loader.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Gun\\Loader.cs",
               "RelativeToolTip": "Player\\Gun\\Loader.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -206,11 +213,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Gun.cs",
-              "DocumentMoniker": "D:\\godot\\phantombullet\\Player\\Gun\\Gun.cs",
+              "DocumentMoniker": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Gun\\Gun.cs",
               "RelativeDocumentMoniker": "Player\\Gun\\Gun.cs",
-              "ToolTip": "D:\\godot\\phantombullet\\Player\\Gun\\Gun.cs",
+              "ToolTip": "C:\\Users\\TVMCC\\OneDrive\\Dev\\projects\\phantombullet\\Player\\Gun\\Gun.cs",
               "RelativeToolTip": "Player\\Gun\\Gun.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

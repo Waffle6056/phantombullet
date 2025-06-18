@@ -19,6 +19,24 @@ public partial class Gun : Node3D
 
 	List<Bullet> Bullets = new List<Bullet>();
 
+	[Export]
+	public float SwayAmount = 0.003f;
+
+	[Export]
+	public float SwaySmoothness = 16.0f;
+
+	private Vector2 LookDelta = Vector2.Zero;
+	private Vector3 TargetOffset = Vector3.Zero;
+	private Vector3 CurrentOffset = Vector3.Zero;
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event is InputEventMouseMotion motion)
+		{
+			LookDelta = motion.Relative;
+		}
+	}
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -35,22 +53,31 @@ public partial class Gun : Node3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		// Alter gun rotation to simulate sway
+		TargetOffset = new Vector3(LookDelta.Y * SwayAmount, LookDelta.X * SwayAmount, 0.0f);
+		CurrentOffset = CurrentOffset.Lerp(TargetOffset, (float)delta * SwaySmoothness);
+		Rotation = CurrentOffset;
+
 		if (Input.IsActionJustPressed("Fire") && Bullets.Count > 0)
 		{
 			Fire(Bullets[0]);
-			Bullets.RemoveAt(0);
 		}
 	}
 	public void Fire(Bullet bullet)
     {
-        EmitSignal(SignalName.SuccessfulFire);
-        bullet.ProcessMode = ProcessModeEnum.Inherit;	
-        bullet.GlobalPosition = GlobalPosition;
-        bullet.GlobalRotation = GlobalRotation;
-        //GD.Print(bullet.GlobalTransform + " " + GlobalTransform);
-		bullet.Visible = true;
-		//GD.Print("FIRED "+bullet);
-		bullet.Fired(this);
+		if (!GetNode<AnimationPlayer>("AnimationPlayer").IsPlaying())
+		{
+			EmitSignal(SignalName.SuccessfulFire);
+			bullet.ProcessMode = ProcessModeEnum.Inherit;
+			bullet.GlobalPosition = GetNode<Node3D>("BulletEmitter").GlobalPosition;
+			bullet.GlobalRotation = GetNode<Node3D>("BulletEmitter").GlobalRotation;
+			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
+			//GD.Print(bullet.GlobalTransform + " " + GlobalTransform);
+			bullet.Visible = true;
+			//GD.Print("FIRED "+bullet);
+			bullet.Fired(this);
+			Bullets.RemoveAt(0);
+		}
 	}
 	public void Load(Loader loader)
 	{
