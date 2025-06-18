@@ -1,0 +1,26 @@
+shader_type canvas_item;
+uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
+uniform float blurring_scale = 25.0;
+uniform float blurring_percent = 0;
+uniform float zoom_offset_percentage = .2f;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+	vec2 centered_uv = SCREEN_UV-vec2(.5,.5);
+	float dis_to_mid = length(centered_uv);
+	float blur_level = pow(dis_to_mid,2) * blurring_scale * blurring_percent;
+
+
+	vec2 zoomed_uv = SCREEN_UV - centered_uv * zoom_offset_percentage * blurring_percent;
+
+	COLOR.rgb = textureLod(screen_texture, zoomed_uv, blur_level).rgb;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}

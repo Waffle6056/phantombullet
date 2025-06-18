@@ -78,7 +78,7 @@ Clip = NodePath("Clip")
 
 [node name="DefaultLoader" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
 script = ExtResource("2_amtoi")
-HeldBullets = [NodePath("photon"), NodePath("Bullet"), NodePath("TeleporterBullet"), NodePath("Bullet2"), NodePath("TeleporterBullet2"), NodePath("Bullet3"), NodePath("Bullet4")]
+HeldBullets = [NodePath("Bullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet4")]
 
 [node name="Bullet" parent="DefaultLoader" instance=ExtResource("3_6uoou")]
 
