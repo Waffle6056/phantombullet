@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyh5et2rptwvl"]
+[gd_scene load_steps=14 format=3 uid="uid://cyh5et2rptwvl"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_ugmoc"]
 [ext_resource type="PackedScene" uid="uid://dbhas7yl7wcqu" path="res://Level/LevelAsset/TimedTarget/timed_target.tscn" id="2_pwb6u"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="2_x2m5e"]
 [ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="3_uvbfj"]
 [ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="5_uvbfj"]
+[ext_resource type="Texture2D" uid="uid://cxufxavdftq6k" path="res://Assets/Bullet Symbols/normal.svg" id="7_qmk5l"]
+[ext_resource type="Texture2D" uid="uid://cl45hwxiay7dn" path="res://Assets/Bullet Symbols/turny.svg" id="8_auquo"]
+[ext_resource type="Texture2D" uid="uid://dm0w5g10hyvg4" path="res://Assets/Bullet Symbols/teleport.svg" id="9_654rf"]
+[ext_resource type="Texture2D" uid="uid://benrpl1vh4ssi" path="res://Assets/Bullet Symbols/boom.svg" id="10_2sw4s"]
+[ext_resource type="Texture2D" uid="uid://ctdq701u3m4ce" path="res://Assets/Bullet Symbols/photon.svg" id="11_ptvah"]
+[ext_resource type="Texture2D" uid="uid://bb3a2hg6votfy" path="res://Assets/Bullet Symbols/deadshot.svg" id="12_nejl4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_udhqn"]
 size = Vector3(1, 6.78168, 2.90308)
@@ -15,10 +21,10 @@ script = ExtResource("1_ugmoc")
 Targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6"), NodePath("Target7"), NodePath("Target8")]
 
 [node name="TimedTarget" parent="." instance=ExtResource("2_pwb6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69483, -1.31908, 1.42245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17195, -1.31908, 1.42245)
 
 [node name="Door" parent="TimedTarget" node_paths=PackedStringArray("Target") instance=ExtResource("3_uvbfj")]
-transform = Transform3D(-2.96319e-07, 0, 1, 0, 2.565, 0, -6.779, 0, -4.37114e-08, -6.55903, 0.399597, -0.347456)
+transform = Transform3D(-2.96319e-07, 0, 1, 0, 2.565, 0, -6.779, 0, -4.37114e-08, -2.07134, 0.399597, -0.347456)
 Target = NodePath("..")
 
 [node name="Target9" parent="." instance=ExtResource("2_udhqn")]
@@ -117,3 +123,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9258, -1.12005, -3.79841)
 
 [node name="Target8" parent="." instance=ExtResource("2_udhqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300301, -1.12005, -3.79841)
+
+[node name="Decals" type="Node3D" parent="."]
+
+[node name="Normal" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -0.758902, -0.225526)
+texture_albedo = ExtResource("7_qmk5l")
+texture_emission = ExtResource("7_qmk5l")
+emission_energy = 1.61
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Turny" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -0.758902, 0.657307)
+texture_albedo = ExtResource("8_auquo")
+texture_emission = ExtResource("8_auquo")
+emission_energy = 1.61
+modulate = Color(0.52549, 1, 0.556863, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Teleport" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -0.758902, 1.51142)
+texture_albedo = ExtResource("9_654rf")
+texture_emission = ExtResource("9_654rf")
+emission_energy = 1.61
+modulate = Color(0.372549, 0.764706, 0.858824, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Boom" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -1.6464, -0.190875)
+texture_albedo = ExtResource("10_2sw4s")
+texture_emission = ExtResource("10_2sw4s")
+emission_energy = 1.61
+modulate = Color(0.937255, 0.368627, 0.380392, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Photon" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -1.66603, 0.793875)
+texture_albedo = ExtResource("11_ptvah")
+texture_emission = ExtResource("11_ptvah")
+emission_energy = 1.61
+modulate = Color(0.909804, 1, 0.27451, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Deadshot" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -1.67531, 1.66319)
+texture_albedo = ExtResource("12_nejl4")
+texture_emission = ExtResource("12_nejl4")
+emission_energy = 1.61
+modulate = Color(1, 0.376471, 0.705882, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
