@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cre3mkc42tyds"]
+
+[ext_resource type="Texture2D" uid="uid://b6ow2ll0ca2yo" path="res://Assets/Bullet Textures/Turny Bullet Base Color.png" id="1_fwgnq"]
+
+[resource]
+albedo_texture = ExtResource("1_fwgnq")

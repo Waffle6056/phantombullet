@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjdac8b1ujjmi"]
+
+[ext_resource type="PackedScene" uid="uid://11vvxrapjv6n" path="res://BulletDisplays/RevolverBullet.glb" id="1_75kti"]
+[ext_resource type="Material" uid="uid://bymhstq3q5rb7" path="res://Assets/Bullet Materials/DeadshotBulletMaterial.tres" id="2_i3t4j"]
+
+[node name="DeadshotBullet" instance=ExtResource("1_75kti")]
+
+[node name="Revolver Bullet" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_i3t4j")
