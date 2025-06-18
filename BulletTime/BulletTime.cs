@@ -10,9 +10,10 @@ public partial class BulletTime : Node
 	public float NormalScale = 1f;
 	[Export]
 	public float SlowedScale = .25f;
-	[Export]
-	public float DurationMax = 3;
-    public float DurationCurrent = 3;
+
+	public static float DurationMax = 3;
+    public static float DurationCurrent = 3;
+
     [Export]
     public float DurationRegen = .5f;
 	bool BulletTimeManual = false;
