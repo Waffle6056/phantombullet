@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dir2ai2fhxmgs"]
+[gd_scene load_steps=4 format=3 uid="uid://dir2ai2fhxmgs"]
 
-[ext_resource type="PackedScene" uid="uid://11vvxrapjv6n" path="res://BulletDisplays/RevolverBullet.glb" id="1_i4t1a"]
+[ext_resource type="PackedScene" uid="uid://clhm0twhbmvk8" path="res://BulletDisplays/RevolverBullet.glb" id="1_i4t1a"]
 [ext_resource type="Material" uid="uid://ccdht0kpfgleg" path="res://Assets/Bullet Materials/BoomBulletMaterial.tres" id="2_2skn5"]
+[ext_resource type="Texture2D" uid="uid://benrpl1vh4ssi" path="res://Assets/Bullet Symbols/boom.svg" id="3_b1sr6"]
 
 [node name="BoomBullet" instance=ExtResource("1_i4t1a")]
 
 [node name="Revolver Bullet" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_2skn5")
+
+[node name="Decal" type="Decal" parent="." index="1"]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, -0.384, 0)
+texture_albedo = ExtResource("3_b1sr6")
+texture_emission = ExtResource("3_b1sr6")
+emission_energy = 2.0
+modulate = Color(0.937255, 0.368627, 0.380392, 1)
+upper_fade = 1e-05
+lower_fade = 1e-05

@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjdac8b1ujjmi"]
+[gd_scene load_steps=4 format=3 uid="uid://bjdac8b1ujjmi"]
 
-[ext_resource type="PackedScene" uid="uid://11vvxrapjv6n" path="res://BulletDisplays/RevolverBullet.glb" id="1_75kti"]
+[ext_resource type="PackedScene" uid="uid://clhm0twhbmvk8" path="res://BulletDisplays/RevolverBullet.glb" id="1_75kti"]
 [ext_resource type="Material" uid="uid://bymhstq3q5rb7" path="res://Assets/Bullet Materials/DeadshotBulletMaterial.tres" id="2_i3t4j"]
+[ext_resource type="Texture2D" uid="uid://bb3a2hg6votfy" path="res://Assets/Bullet Symbols/deadshot.svg" id="3_85k8q"]
 
 [node name="DeadshotBullet" instance=ExtResource("1_75kti")]
 
 [node name="Revolver Bullet" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_i3t4j")
+
+[node name="Decal" type="Decal" parent="." index="1"]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, -0.384, 0)
+texture_albedo = ExtResource("3_85k8q")
+texture_emission = ExtResource("3_85k8q")
+emission_energy = 2.0
+modulate = Color(1, 0.376471, 0.705882, 1)
+upper_fade = 1e-05
+lower_fade = 1e-05
