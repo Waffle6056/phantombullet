@@ -53,15 +53,18 @@ public partial class Bullet : AnimatableBody3D
 	}
 	void homeTowards(Node3D Target)
 	{
-		if (IsHoming)
-			GlobalBasis = Basis.LookingAt(Target.GlobalPosition - GlobalPosition);
+		GlobalBasis = Basis.LookingAt(Target.GlobalPosition - GlobalPosition);
 	}
 	public override void _PhysicsProcess(double delta)
 	{
-		TrackingArea.Scale += Vector3.One * HomingScaling * (float)delta * BulletTime.TimeScale;
-		Node3D t = closestTarget();
-		if (t != null)
-			homeTowards(t);
+		if (IsHoming)
+		{
+			TrackingArea.Scale += Vector3.One * HomingScaling * (float)delta * BulletTime.TimeScale;
+
+			Node3D t = closestTarget();
+			if (t != null)
+				homeTowards(t);
+		}
 
 		Vector3 motion = (float)delta * BulletTime.TimeScale * -GlobalBasis[2] * ProjectileSpeed;
 		KinematicCollision3D col = MoveAndCollide(motion);

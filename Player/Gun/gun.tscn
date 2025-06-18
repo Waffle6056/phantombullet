@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://csu4gsjdxpuhm"]
+[gd_scene load_steps=14 format=3 uid="uid://csu4gsjdxpuhm"]
 
 [ext_resource type="Script" uid="uid://c68n26bn60i0u" path="res://Player/Gun/Gun.cs" id="1_by1yx"]
 [ext_resource type="Script" uid="uid://b7ynjy1tlrpnl" path="res://Player/Gun/Loader.cs" id="2_amtoi"]
@@ -96,62 +96,16 @@ _data = {
 &"RESET": SubResource("Animation_eq5df")
 }
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_eq5df"]
-transparency = 1
-albedo_color = Color(0.909804, 0.945098, 0, 0.835294)
-emission_enabled = true
-emission = Color(0.961258, 0.92683, 2.31028e-06, 1)
-emission_energy_multiplier = 16.0
-
-[sub_resource type="Animation" id="Animation_pbo43"]
-resource_name = "blink photon"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_une6g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1aed"]
-_data = {
-&"Fire": SubResource("Animation_pbo43"),
-&"RESET": SubResource("Animation_une6g")
-}
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iu1ju"]
 albedo_color = Color(0.834297, 0, 0.0802187, 1)
 emission_enabled = true
 emission = Color(0.998647, 0, 0.0930365, 1)
 emission_energy_multiplier = 60.8
 
-[node name="Gun" type="Node3D" node_paths=PackedStringArray("PreloadedLoader", "Clip", "Ray", "photonAnimator")]
+[node name="Gun" type="Node3D" node_paths=PackedStringArray("PreloadedLoader", "Clip")]
 script = ExtResource("1_by1yx")
 PreloadedLoader = NodePath("DefaultLoader")
 Clip = NodePath("Clip")
-Ray = NodePath("photon ray")
-photonAnimator = NodePath("photon ray/photonBullet/photonAnimator")
 
 [node name="DefaultLoader" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
 script = ExtResource("2_amtoi")
@@ -184,31 +138,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0755564, -0.931712)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_pbo43")
-}
-
-[node name="photon ray" type="RayCast3D" parent="." groups=["bullet"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.202264)
-visible = false
-enabled = false
-target_position = Vector3(0, 0, -1e+10)
-collision_mask = 255
-collide_with_areas = true
-debug_shape_custom_color = Color(1, 0, 0, 1)
-debug_shape_thickness = 4
-
-[node name="photonBullet" type="CSGCylinder3D" parent="photon ray"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -500)
-visible = false
-calculate_tangents = false
-radius = 0.041
-height = 1000.0
-sides = 64
-smooth_faces = false
-material = SubResource("ORMMaterial3D_eq5df")
-
-[node name="photonAnimator" type="AnimationPlayer" parent="photon ray/photonBullet"]
-libraries = {
-&"": SubResource("AnimationLibrary_q1aed")
 }
 
 [node name="aimIndicator" type="CSGTorus3D" parent="." node_paths=PackedStringArray("targetingRay")]

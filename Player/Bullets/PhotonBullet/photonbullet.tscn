@@ -1,83 +1,92 @@
-[gd_scene load_steps=13 format=3 uid="uid://diaatub6287aj"]
+[gd_scene load_steps=7 format=3 uid="uid://diaatub6287aj"]
 
 [ext_resource type="Script" uid="uid://cdj8uoml65888" path="res://Player/Bullets/PhotonBullet/PhotonBullet.cs" id="1_gascu"]
-[ext_resource type="Shader" uid="uid://cf4604h2crsxr" path="res://Player/Bullets/PhotonBullet/photon.tres" id="2_gascu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_81ays"]
 radius = 0.05
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5474v"]
-albedo_color = Color(0.310617, 0.310617, 0.310617, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_nfanl"]
-material = SubResource("StandardMaterial3D_5474v")
-radius = 0.05
-height = 0.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_88pwy"]
-render_priority = 0
-shader = ExtResource("2_gascu")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phnsj"]
-particle_flag_align_y = true
-direction = Vector3(0, 0, 0)
-spread = 0.0
-radial_velocity_min = -1000.0
-radial_velocity_max = -1000.0
-gravity = Vector3(0, 0, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uj5d2"]
-transparency = 4
-albedo_color = Color(0.701961, 0.701961, 0, 0.364706)
-use_particle_trails = true
-
-[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_x416r"]
-material = SubResource("StandardMaterial3D_uj5d2")
-radius = 0.1
-sections = 2
-section_rings = 1
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_phnsj"]
-radius = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phnsj"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_gascu"]
 transparency = 1
-albedo_color = Color(0.380392, 0.580392, 1, 0.133333)
+albedo_color = Color(0.909804, 0.945098, 0, 0.835294)
+emission_enabled = true
+emission = Color(0.961258, 0.92683, 2.31028e-06, 1)
+emission_energy_multiplier = 16.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_uj5d2"]
-material = SubResource("StandardMaterial3D_phnsj")
-radius = 1.0
-height = 2.0
+[sub_resource type="Animation" id="Animation_pbo43"]
+resource_name = "blink photon"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
-[node name="PhotonBullet" type="AnimatableBody3D" groups=["bullet"]]
+[sub_resource type="Animation" id="Animation_une6g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1aed"]
+_data = {
+&"Fire": SubResource("Animation_pbo43"),
+&"RESET": SubResource("Animation_une6g")
+}
+
+[node name="PhotonBullet" type="AnimatableBody3D" node_paths=PackedStringArray("Ray", "photonAnimator") groups=["bullet"]]
 process_mode = 4
 visible = false
 collision_layer = 3
 sync_to_physics = false
 script = ExtResource("1_gascu")
+Ray = NodePath("photon ray")
+photonAnimator = NodePath("photon ray/photonBullet/photonAnimator")
+ProjectileSpeed = 0.0
+IsHoming = false
 
 [node name="BulletColliderShape" type="CollisionShape3D" parent="."]
 process_mode = 4
 shape = SubResource("SphereShape3D_81ays")
+disabled = true
 
-[node name="BulletMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_nfanl")
-surface_material_override/0 = SubResource("ShaderMaterial_88pwy")
+[node name="photon ray" type="RayCast3D" parent="." groups=["bullet"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.202264)
+enabled = false
+target_position = Vector3(0, 0, -1e+10)
+collision_mask = 255
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 4
 
-[node name="Trail" type="GPUParticles3D" parent="."]
-amount = 5
-lifetime = 10.0
-trail_enabled = true
-trail_lifetime = 1.0
-process_material = SubResource("ParticleProcessMaterial_phnsj")
-draw_pass_1 = SubResource("TubeTrailMesh_x416r")
+[node name="photonBullet" type="CSGCylinder3D" parent="photon ray"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -500)
+visible = false
+calculate_tangents = false
+radius = 0.041
+height = 1000.0
+sides = 64
+smooth_faces = false
+material = SubResource("ORMMaterial3D_gascu")
 
-[node name="TrackingArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="photonAnimator" type="AnimationPlayer" parent="photon ray/photonBullet"]
+libraries = {
+&"": SubResource("AnimationLibrary_q1aed")
+}
 
-[node name="TrackingAreaColliderShape" type="CollisionShape3D" parent="TrackingArea"]
-shape = SubResource("SphereShape3D_phnsj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TrackingArea"]
-mesh = SubResource("SphereMesh_uj5d2")
+[connection signal="animation_finished" from="photon ray/photonBullet/photonAnimator" to="." method="VisualsDone"]
