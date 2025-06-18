@@ -13,7 +13,7 @@
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7bfsc"]
 albedo_color = Color(0.738411, 0.185013, 0.357114, 1)
 
-[node name="Ammo" type="Area3D" node_paths=PackedStringArray("Storage")]
+[node name="Ammo" type="Area3D" node_paths=PackedStringArray("Storage") groups=["item"]]
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_7bfsc")

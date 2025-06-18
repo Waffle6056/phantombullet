@@ -44,7 +44,7 @@ material = SubResource("StandardMaterial3D_phnsj")
 radius = 1.0
 height = 2.0
 
-[node name="Bullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrackingArea")]
+[node name="Bullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrackingArea") groups=["bullet"]]
 process_mode = 4
 visible = false
 collision_layer = 3
