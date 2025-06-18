@@ -74,12 +74,13 @@ public partial class PhotonBullet : Bullet
 
         Ray.Enabled = false; // disable raycast after firing
     }
-    public void VisualsDone(StringName name)
+    public void Destroy()
     {
         QueueFree();
     }
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
+        photonAnimator.SpeedScale = BulletTime.TimeScale;
 	}
 }

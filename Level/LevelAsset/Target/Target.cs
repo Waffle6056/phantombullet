@@ -22,14 +22,10 @@ public partial class Target : Area3D
 
 	}
 
-	public void HitTarget()
+	public virtual void HitTarget()
 	{
 		// signifies when the target is hit
 		Hit = true;
-		if (HitIndicator != null)
-		{
-			HitIndicator.Visible = true;
-		}
 	}
 
 	public void IsShot(Node3D body)

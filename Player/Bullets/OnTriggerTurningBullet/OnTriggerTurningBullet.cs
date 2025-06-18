@@ -9,6 +9,9 @@ public partial class OnTriggerTurningBullet : Bullet
     public float AngleDegrees;
 	[Export]
 	public TrajectoryIndicator TrajectoryIndicator;
+    [Export]
+    public bool Oneshot = true;
+    bool hasTurned = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -28,9 +31,17 @@ public partial class OnTriggerTurningBullet : Bullet
     }
 	void Turn()
 	{
-		//GD.Print(GlobalRotation);
-		GlobalBasis = GlobalBasis.Rotated(Axis.Normalized(), (float)(AngleDegrees / 180 * Math.PI));
+        if (Oneshot && hasTurned)
+            return;
+        //GD.Print(GlobalRotation);
+        GlobalBasis = GlobalBasis.Rotated(Axis.Normalized(), (float)(AngleDegrees / 180 * Math.PI));
         TrajectoryIndicator.GlobalBasis = GlobalBasis.Rotated(Axis.Normalized(), (float)(AngleDegrees / 180 * Math.PI));
         //GD.Print(GlobalRotation);
+        if (Oneshot)
+        {
+            hasTurned = true;
+            TrajectoryIndicator.ProcessMode = ProcessModeEnum.Disabled;
+            TrajectoryIndicator.Visible = false;
+        }
     }
 }

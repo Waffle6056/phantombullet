@@ -1,0 +1,209 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdvoq7qlryly8"]
+
+[ext_resource type="Script" uid="uid://xvok1eplch7d" path="res://Player/Bullets/OnTriggerOrCollisionBoomBullet/OnTriggerOrCollisionBoomBullet.cs" id="1_tctro"]
+
+[sub_resource type="Animation" id="Animation_bjvkx"]
+resource_name = "Explode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:ProjectileSpeed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:sync_to_physics")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Destroy"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BulletColliderShape:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(100, 100, 100), Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BulletMesh:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(100, 100, 100), Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:collision_mask")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tctro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:ProjectileSpeed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [25.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:sync_to_physics")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BulletColliderShape:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BulletMesh:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:collision_mask")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i3bju"]
+_data = {
+&"Explode": SubResource("Animation_bjvkx"),
+&"RESET": SubResource("Animation_tctro")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_81ays"]
+radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5474v"]
+albedo_color = Color(0.310617, 0.310617, 0.310617, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nfanl"]
+material = SubResource("StandardMaterial3D_5474v")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phnsj"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, 0)
+spread = 0.0
+radial_velocity_min = -1000.0
+radial_velocity_max = -1000.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uj5d2"]
+transparency = 4
+albedo_color = Color(0.701961, 0.701961, 0, 0.364706)
+use_particle_trails = true
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_x416r"]
+material = SubResource("StandardMaterial3D_uj5d2")
+radius = 0.1
+sections = 2
+section_rings = 1
+
+[node name="OnTriggerOrCollisionBoomBullet" type="AnimatableBody3D" node_paths=PackedStringArray("AnimationPlayer") groups=["bullet"]]
+process_mode = 4
+visible = false
+collision_layer = 2
+sync_to_physics = false
+script = ExtResource("1_tctro")
+AnimationPlayer = NodePath("AnimationPlayer")
+HomingScaling = 0.0
+IsHoming = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i3bju")
+}
+
+[node name="BulletColliderShape" type="CollisionShape3D" parent="."]
+process_mode = 4
+shape = SubResource("SphereShape3D_81ays")
+
+[node name="BulletMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_nfanl")
+
+[node name="Trail" type="GPUParticles3D" parent="."]
+amount = 5
+lifetime = 10.0
+trail_enabled = true
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_phnsj")
+draw_pass_1 = SubResource("TubeTrailMesh_x416r")

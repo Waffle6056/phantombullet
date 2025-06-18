@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqird0gga88bc"]
+[gd_scene load_steps=11 format=3 uid="uid://dqird0gga88bc"]
 
 [ext_resource type="Script" uid="uid://2pbpjotqshpl" path="res://Level/LevelAsset/Ammo/Ammo.cs" id="1_7bfsc"]
 [ext_resource type="Script" uid="uid://b7ynjy1tlrpnl" path="res://Player/Gun/Loader.cs" id="2_vr11n"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://diomba6mxnssq" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tscn" id="3_mkgtg"]
 [ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="3_mlm2c"]
 [ext_resource type="PackedScene" uid="uid://dialrw7vt6au2" path="res://Player/Bullets/OnTriggerDeadshotBullet/on_trigger_deadshot_bullet.tscn" id="5_mkgtg"]
+[ext_resource type="PackedScene" uid="uid://cdvoq7qlryly8" path="res://Player/Bullets/OnTriggerOrCollisionBoomBullet/on_trigger_or_collision_boom_bullet.tscn" id="6_ywpe7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4jfn8"]
 
@@ -29,7 +30,7 @@ surface_material_override/0 = SubResource("ORMMaterial3D_7bfsc")
 
 [node name="StoredBullets" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
 script = ExtResource("2_vr11n")
-HeldBullets = [NodePath("OnTriggerTurningBullet"), NodePath("OnTriggerDeadshotBullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet5"), NodePath("Bullet6")]
+HeldBullets = [NodePath("Bullet2"), NodePath("Bullet3"), NodePath("OnTriggerOrCollisionBoomBullet"), NodePath("OnTriggerTurningBullet"), NodePath("OnTriggerDeadshotBullet"), NodePath("Bullet5"), NodePath("Bullet6")]
 
 [node name="TeleporterBullet" parent="StoredBullets" instance=ExtResource("3_mkgtg")]
 IsHoming = true
@@ -39,6 +40,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.918527, 0, 2.83989)
 
 [node name="OnTriggerDeadshotBullet" parent="StoredBullets" instance=ExtResource("5_mkgtg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089378, 0, 1.25777)
+
+[node name="OnTriggerOrCollisionBoomBullet" parent="StoredBullets" instance=ExtResource("6_ywpe7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74784, 0.0101352, 1.6616)
 
 [node name="Bullet2" parent="StoredBullets" instance=ExtResource("3_lq326")]
 

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbhas7yl7wcqu"]
+
+[ext_resource type="Script" uid="uid://cpo2wtpbkat12" path="res://Level/LevelAsset/TimedTarget/TimedTarget.cs" id="1_kkn4x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nufe5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1rrd"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2hyp5"]
+material = SubResource("StandardMaterial3D_s1rrd")
+radius = 0.6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mnbwq"]
+
+[node name="TimedTarget" type="Area3D" node_paths=PackedStringArray("HitIndicator") groups=["target"]]
+collision_layer = 5
+collision_mask = 2
+script = ExtResource("1_kkn4x")
+HitIndicator = NodePath("MeshInstance3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_nufe5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_2hyp5")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_mnbwq")
+
+[connection signal="body_entered" from="." to="." method="IsShot"]

@@ -16,7 +16,7 @@ Gun = NodePath("Camera3D/Gun")
 shape = SubResource("CapsuleShape3D_6jsmy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118215, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118215, 0.691495, 0)
 top_level = true
 script = ExtResource("1_1pbhj")
 DPI = 0.1
