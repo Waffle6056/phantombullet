@@ -71,6 +71,12 @@ public partial class Gun : Node3D
 		{
 			Fire(Bullets[0]);
 			Bullets.RemoveAt(0);
+
+			GD.Print("\nBullets left (" + Bullets.Count + ")");
+			foreach (var bullet in Bullets)
+			{
+				GD.Print("\t- " + bullet.Name);
+			}
 		}
     }
 
@@ -83,6 +89,7 @@ public partial class Gun : Node3D
 			bullet.GlobalPosition = GetNode<Node3D>("BulletEmitter").GlobalPosition;
 			bullet.GlobalRotation = GetNode<Node3D>("BulletEmitter").GlobalRotation;
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
+			Bearer.GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
 			//GD.Print(bullet.GlobalTransform + " " + GlobalTransform);
 			bullet.Visible = true;
 
