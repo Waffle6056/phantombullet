@@ -25,6 +25,9 @@ public partial class Gun : Node3D
 	[Export]
 	public float SwaySmoothness = 16.0f;
 
+	[Export]
+	public RayCast3D Ray;
+
 	private Vector2 LookDelta = Vector2.Zero;
 	private Vector3 TargetOffset = Vector3.Zero;
 	private Vector3 CurrentOffset = Vector3.Zero;
@@ -48,6 +51,13 @@ public partial class Gun : Node3D
 		}
 
 		Load(PreloadedLoader);
+
+		// RAYCAST SETUP
+		// set rotation to 90, 0, 0 (x, y, z)
+		Ray.CollideWithAreas = true;
+		Ray.CollideWithBodies = true;
+		// Ray.Enabled = false;
+		Ray.Enabled = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,11 +84,72 @@ public partial class Gun : Node3D
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
 			//GD.Print(bullet.GlobalTransform + " " + GlobalTransform);
 			bullet.Visible = true;
-			//GD.Print("FIRED "+bullet);
-			bullet.Fired(this);
-			Bullets.RemoveAt(0);
+			GD.Print("FIRED "+ (bullet is PhotonBullet ? "PhotonBullet" : "Bullet"));
+			if (bullet is PhotonBullet)
+			{
+				GD.Print("Firing photon bullet...");
+				// bullet.QueueFree();
+				FirePhoton();
+			}
+			else
+			{
+				bullet.Fired(this);
+			}
+			// Bullets.RemoveAt(0);
 		}
 	}
+
+	public void FirePhoton()
+	{
+		if (Ray == null)
+		{
+			GD.PrintErr("WARNING: Gun's 'Ray' property is set to null. Cannot fire photon bullet.");
+			return;
+		}
+
+		Ray.Enabled = true; // enable raycast to detect collisions
+		Ray.ClearExceptions(); // clear any previous exceptions
+
+		// iterative cast until hit something that is not a bullet or item, or until it goes out of bounds (doesn't collide with anything)
+		while (true)
+		{
+			Ray.ForceRaycastUpdate();
+
+			if (!Ray.IsColliding())
+			{
+				GD.Print("Quitting bc raycast did not hit anything.");
+				break; // no collider found, exit loop
+			}
+
+			var collider = Ray.GetCollider() as Node3D;
+			if (collider == null) break;
+
+			GD.Print("Raycast hit: " + collider.Name);
+
+			if (collider.IsInGroup("target"))
+			{
+				GD.Print("Hit target.");
+				(collider as Target).HitTarget();
+				Ray.AddExceptionRid(Ray.GetColliderRid()); // ignore this collider for the next raycast
+				continue;
+			}
+			else if (collider.IsInGroup("bullet") || collider.IsInGroup("item"))
+			{
+				GD.Print("Hit bullet or item.");
+				Ray.AddExceptionRid(Ray.GetColliderRid()); // ignore this collider for the next raycast
+				continue;
+			}
+			else
+			{
+				GD.Print("Quitting bc hit " + collider.Name);
+				break;
+			}
+
+		}
+
+		// Ray.Enabled = false; // disable raycast after firing
+	}
+
 	public void Load(Loader loader)
 	{
 		// right now, replace the current bullets with the new ones

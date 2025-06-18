@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://diaatub6287aj"]
 
-[ext_resource type="Script" uid="uid://dk3kxpuxmwulb" path="res://Player/Bullets/BaseBullet/Bullet.cs" id="1_5hmmv"]
+[ext_resource type="Script" uid="uid://cdj8uoml65888" path="res://Player/Bullets/PhotonBullet/PhotonBullet.cs" id="1_gascu"]
 [ext_resource type="Shader" uid="uid://cf4604h2crsxr" path="res://Player/Bullets/PhotonBullet/photon.tres" id="2_gascu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_81ays"]
@@ -49,15 +49,12 @@ material = SubResource("StandardMaterial3D_phnsj")
 radius = 1.0
 height = 2.0
 
-[node name="PhotonBullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrackingArea")]
+[node name="PhotonBullet" type="AnimatableBody3D" groups=["bullet"]]
 process_mode = 4
 visible = false
 collision_layer = 3
 sync_to_physics = false
-script = ExtResource("1_5hmmv")
-ProjectileSpeed = 300.0
-TrackingArea = NodePath("TrackingArea")
-IsHoming = false
+script = ExtResource("1_gascu")
 
 [node name="BulletColliderShape" type="CollisionShape3D" parent="."]
 process_mode = 4

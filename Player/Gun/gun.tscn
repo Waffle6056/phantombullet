@@ -95,14 +95,15 @@ _data = {
 &"RESET": SubResource("Animation_eq5df")
 }
 
-[node name="Gun" type="Node3D" node_paths=PackedStringArray("PreloadedLoader", "Clip")]
+[node name="Gun" type="Node3D" node_paths=PackedStringArray("PreloadedLoader", "Clip", "Ray")]
 script = ExtResource("1_by1yx")
 PreloadedLoader = NodePath("DefaultLoader")
 Clip = NodePath("Clip")
+Ray = NodePath("ray")
 
 [node name="DefaultLoader" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
 script = ExtResource("2_amtoi")
-HeldBullets = [NodePath("Bullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet4")]
+HeldBullets = [NodePath("photon"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet4")]
 
 [node name="Bullet" parent="DefaultLoader" instance=ExtResource("3_6uoou")]
 
@@ -132,3 +133,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0755564, -0.931712)
 libraries = {
 &"": SubResource("AnimationLibrary_pbo43")
 }
+
+[node name="ray" type="RayCast3D" parent="." groups=["bullet"]]
+enabled = false
+target_position = Vector3(0, 0, -1e+10)
+collision_mask = 255
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 4
