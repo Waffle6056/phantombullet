@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ch07xhi1o03qa"]
+[gd_scene load_steps=12 format=3 uid="uid://dialrw7vt6au2"]
 
-[ext_resource type="Script" uid="uid://cx7sahiifnil8" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.cs" id="1_tfx0o"]
-[ext_resource type="PackedScene" uid="uid://dkhouf71rhm5m" path="res://Player/Bullets/Indicator/trajectory_indicator.tscn" id="2_tfx0o"]
+[ext_resource type="Script" uid="uid://n25cj8wspwmg" path="res://Player/Bullets/OnTriggerDeadshotBullet/OnTriggerDeadshotBullet.cs" id="1_4c1m2"]
+[ext_resource type="PackedScene" uid="uid://dkhouf71rhm5m" path="res://Player/Bullets/Indicator/trajectory_indicator.tscn" id="2_0wesf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_81ays"]
 radius = 0.05
@@ -45,18 +45,17 @@ material = SubResource("StandardMaterial3D_phnsj")
 radius = 1.0
 height = 2.0
 
-[node name="OnTriggerTurningBullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrajectoryIndicator", "TrackingArea") groups=["bullet"]]
+[node name="OnTriggerDeadshotBullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrajectoryIndicator", "TrackingArea") groups=["bullet"]]
 process_mode = 4
 visible = false
 collision_layer = 2
 sync_to_physics = false
-script = ExtResource("1_tfx0o")
-Axis = Vector3(0, 1, 0)
-AngleDegrees = -90.0
+script = ExtResource("1_4c1m2")
+DirectionVector = Vector3(1, 0, 0)
 TrajectoryIndicator = NodePath("TrajectoryIndicator")
 TrackingArea = NodePath("TrackingArea")
 
-[node name="TrajectoryIndicator" parent="." instance=ExtResource("2_tfx0o")]
+[node name="TrajectoryIndicator" parent="." instance=ExtResource("2_0wesf")]
 
 [node name="BulletColliderShape" type="CollisionShape3D" parent="."]
 process_mode = 4

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkhouf71rhm5m"]
 
-[ext_resource type="Script" uid="uid://d3tb07lbqrcci" path="res://Player/Bullets/TrajectoryIndicator.cs" id="1_gexr7"]
-[ext_resource type="Shader" uid="uid://ecnurp228vt0" path="res://Player/Bullets/OnTriggerTurningBullet/DottedIndicator.tres" id="1_r5qtb"]
+[ext_resource type="Script" uid="uid://d3tb07lbqrcci" path="res://Player/Bullets/Indicator/TrajectoryIndicator.cs" id="1_gexr7"]
+[ext_resource type="Shader" uid="uid://ecnurp228vt0" path="res://Player/Bullets/Indicator/DottedIndicator.tres" id="1_r5qtb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ey72"]
 render_priority = 0

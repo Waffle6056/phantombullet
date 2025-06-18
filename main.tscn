@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://don885xwd5v3v"]
+[gd_scene load_steps=11 format=3 uid="uid://don885xwd5v3v"]
 
 [ext_resource type="PackedScene" uid="uid://2ynb80ubs6un" path="res://Player/player.tscn" id="1_6ya0i"]
 [ext_resource type="Script" uid="uid://4ua1jg5xqgag" path="res://Level/LevelManager.cs" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cyh5et2rptwvl" path="res://Level/TutorialLevel/tutorial_level.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bnh6be21udeui" path="res://BulletTime/BulletTime.cs" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://f5sa6ec0oyh" path="res://BulletTime/grid.jpg" id="5_7mycd"]
 [ext_resource type="Shader" uid="uid://bjs85y8sunp3n" path="res://BulletTime/BulletTimeEffect.gdshader" id="5_lquwl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8uy2h"]
@@ -40,10 +41,24 @@ BlurNode = NodePath("CanvasLayer/ColorRect")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="BulletTime"]
 
+[node name="TextureRect" type="TextureRect" parent="BulletTime/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_7mycd")
+expand_mode = 2
+
 [node name="ColorRect" type="ColorRect" parent="BulletTime/CanvasLayer"]
 material = SubResource("ShaderMaterial_7mycd")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 3.0
+offset_right = 20.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2

@@ -4,7 +4,7 @@ using System;
 public partial class Bullet : AnimatableBody3D
 {
 	[Export]
-	public float ProjectileSpeed = 5f;
+	public float ProjectileSpeed = 25f;
 	[Export]
 	public Area3D TrackingArea;
 	[Export]
