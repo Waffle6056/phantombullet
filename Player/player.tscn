@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
 [ext_resource type="PackedScene" uid="uid://csu4gsjdxpuhm" path="res://Player/Gun/gun.tscn" id="3_i70jt"]
-[ext_resource type="PackedScene" uid="uid://qp8ghvr3vdxc" path="res://Player/Gun/RevolverCylinder.glb" id="4_fhl08"]
+[ext_resource type="PackedScene" uid="uid://bahvl3pmjbeg7" path="res://Player/Gun/RevolverCylinder.glb" id="4_fhl08"]
 [ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://cak6uh5jo1qmc" path="res://Player/Gun/hit_indicator.cs" id="6_fhl08"]
 
@@ -35,7 +35,7 @@ length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/hud/cylinder_origin/revolver_cylinder:rotation")
+tracks/0/path = NodePath("Camera3D/hud/cylinder_origin/RevolverCylinder:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -76,7 +76,7 @@ Bearer = NodePath("../..")
 transform = Transform3D(0.905033, -0.0759164, 0.418511, -0.0338031, 0.967993, 0.24869, -0.423995, -0.23922, 0.8735, 0, 0, 0)
 
 [node name="RevolverCylinder" parent="Camera3D/hud/cylinder_origin" instance=ExtResource("4_fhl08")]
-transform = Transform3D(0.125, -9.31323e-10, 0, 9.31323e-10, 0.125, 0, 7.45058e-09, 1.86265e-09, 0.125, -0.144914, 0.249569, -0.991111)
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, -0.144914, 0.249569, -0.991111)
 
 [node name="stamina_origin" type="Node3D" parent="Camera3D/hud"]
 transform = Transform3D(0.492785, -0.00873353, 0.165791, 0.0223939, 0.518031, -0.0392731, -0.164504, 0.0443575, 0.491295, 0, 0, 0)

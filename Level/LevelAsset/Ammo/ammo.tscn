@@ -52,4 +52,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74784, 0.0101352, 1.6616)
 
 [node name="Bullet6" parent="StoredBullets" instance=ExtResource("3_lq326")]
 
+[node name="Title" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77559, 0)
+billboard = 2
+text = "Ammo"
+font_size = 62
+
+[node name="Contents" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.936497, 0)
+billboard = 2
+text = "1x Example1, 1x Example2
+1x Example3, 1x Example4
+1x Example5, 1x Example6"
+vertical_alignment = 2
+
 [connection signal="body_entered" from="." to="." method="IsEntered"]

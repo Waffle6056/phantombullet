@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_rlxxl"]
 [ext_resource type="PackedScene" uid="uid://diomba6mxnssq" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tscn" id="5_53e7j"]
 [ext_resource type="PackedScene" uid="uid://diaatub6287aj" path="res://Player/Bullets/PhotonBullet/photonbullet.tscn" id="6_fuihc"]
-[ext_resource type="PackedScene" uid="uid://bkudm1ncf3av8" path="res://Player/Gun/RevolverGun.glb" id="7_iu1ju"]
-[ext_resource type="PackedScene" uid="uid://qp8ghvr3vdxc" path="res://Player/Gun/RevolverCylinder.glb" id="8_eq5df"]
+[ext_resource type="PackedScene" uid="uid://co6rhq0572ep7" path="res://Player/Gun/RevolverGun.glb" id="7_iu1ju"]
+[ext_resource type="PackedScene" uid="uid://bahvl3pmjbeg7" path="res://Player/Gun/RevolverCylinder.glb" id="8_eq5df"]
 
 [sub_resource type="Animation" id="Animation_iu1ju"]
 resource_name = "Fire"
@@ -102,7 +102,7 @@ Clip = NodePath("Clip")
 
 [node name="DefaultLoader" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
 script = ExtResource("2_amtoi")
-HeldBullets = []
+HeldBullets = [NodePath("Bullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet4"), NodePath("TeleporterBullet"), NodePath("TeleporterBullet2"), NodePath("photon")]
 
 [node name="Bullet" parent="DefaultLoader" instance=ExtResource("3_6uoou")]
 

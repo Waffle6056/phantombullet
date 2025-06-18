@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Reflection;
 
 public partial class Ammo : Area3D
 {
@@ -10,10 +11,45 @@ public partial class Ammo : Area3D
     [Export]
     public Loader Storage;
 
-	// Called when the node enters the scene tree for the first time.
+    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        // check storage and build freq map
+        if (Storage == null)
+        {
+            GD.PrintErr("WARNING: Ammo's 'Storage' property is set to null.");
+            return;
+        }
+        var freqMap = new System.Collections.Generic.Dictionary<string, int>();
+        foreach (Bullet child in Storage.HeldBullets)
+        {
+            string typeName = (child as Bullet).GetBulletType();
+            if (freqMap.ContainsKey(typeName))
+            {
+                freqMap[typeName]++;
+            }
+            else
+            {
+                freqMap[typeName] = 1;
+            }
+        }
 
+        // order in pairs of 2, concantate with newlines, and print
+        string output = "";
+        int i = 0;
+        foreach (var kvp in freqMap)
+        {
+            output += $"{kvp.Value}x {kvp.Key}";
+            i++;
+            // put a comma if not the last item and if i is even
+            if (i < freqMap.Count)
+            {
+                output += (i % 2 == 0) ? ", " : "\n";
+            }
+        }
+
+        GetNode<Label3D>("Contents").Text = output;
+        GetNode<Label3D>("Title").Text = $"Ammo ({Storage.HeldBullets.Length})";
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

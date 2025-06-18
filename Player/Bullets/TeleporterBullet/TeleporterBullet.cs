@@ -7,10 +7,15 @@ public partial class TeleporterBullet : Bullet
 	{
 	}
 
+	public override string GetBulletType()
+	{
+		return "Teleporter";
+	}
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
+
 	}
     public override void Fired(Gun gun)
     {
