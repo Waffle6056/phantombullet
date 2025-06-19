@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="2_x2m5e"]
 [ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="3_uvbfj"]
 [ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="5_uvbfj"]
-[ext_resource type="Texture2D" uid="uid://ccpdfspsasnsm" path="res://Assets/Bullet Symbols/normal.svg" id="7_qmk5l"]
-[ext_resource type="Texture2D" uid="uid://bg614ogtxknjv" path="res://Assets/Bullet Symbols/turny.svg" id="8_auquo"]
-[ext_resource type="Texture2D" uid="uid://dsnisvh6u01jg" path="res://Assets/Bullet Symbols/teleport.svg" id="9_654rf"]
-[ext_resource type="Texture2D" uid="uid://cp6nptyof0dv8" path="res://Assets/Bullet Symbols/boom.svg" id="10_2sw4s"]
-[ext_resource type="Texture2D" uid="uid://fit13duwqpgy" path="res://Assets/Bullet Symbols/photon.svg" id="11_ptvah"]
-[ext_resource type="Texture2D" uid="uid://ca8ckoa0iq2uj" path="res://Assets/Bullet Symbols/deadshot.svg" id="12_nejl4"]
+[ext_resource type="Texture2D" uid="uid://d3t15jy4k0nfj" path="res://Assets/Bullet Symbols/normal.svg" id="7_qmk5l"]
+[ext_resource type="Texture2D" uid="uid://d3rh2vejb0mdq" path="res://Assets/Bullet Symbols/turny.svg" id="8_auquo"]
+[ext_resource type="Texture2D" uid="uid://c5s7cwn88w0jk" path="res://Assets/Bullet Symbols/teleport.svg" id="9_654rf"]
+[ext_resource type="Texture2D" uid="uid://djais4vmryghl" path="res://Assets/Bullet Symbols/boom.svg" id="10_2sw4s"]
+[ext_resource type="Texture2D" uid="uid://dca3i8ijglr2q" path="res://Assets/Bullet Symbols/photon.svg" id="11_ptvah"]
+[ext_resource type="Texture2D" uid="uid://dyjhvcnqnydv7" path="res://Assets/Bullet Symbols/deadshot.svg" id="12_nejl4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_udhqn"]
 size = Vector3(1, 6.78168, 2.90308)

@@ -93,7 +93,7 @@ public partial class Gun : Node3D
 			EmitSignal(SignalName.SuccessfulFire);
 			bullet.ProcessMode = ProcessModeEnum.Inherit;
 			bullet.GlobalPosition = GetNode<Node3D>("BulletEmitter").GlobalPosition;
-			bullet.GlobalRotation = GetNode<Node3D>("BulletEmitter").GlobalRotation;
+			bullet.GlobalBasis = GetNode<Node3D>("BulletEmitter").GlobalBasis;
 
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
 

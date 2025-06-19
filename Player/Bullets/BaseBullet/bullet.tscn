@@ -50,7 +50,6 @@ visible = false
 collision_layer = 3
 sync_to_physics = false
 script = ExtResource("1_a73n5")
-ProjectileSpeed = 25.0
 TrackingArea = NodePath("TrackingArea")
 
 [node name="BulletColliderShape" type="CollisionShape3D" parent="."]
