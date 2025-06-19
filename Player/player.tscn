@@ -8,6 +8,15 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jsmy"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtle1"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k53q1"]
+material = SubResource("StandardMaterial3D_vtle1")
+top_radius = 0.02
+bottom_radius = 0.0
+height = 0.1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwnis"]
 albedo_color = Color(0.798366, 0.798366, 0.798366, 1)
 emission_enabled = true
@@ -26,16 +35,7 @@ albedo_color = Color(0.611765, 0.741176, 1, 0.803922)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vtle1"]
 material = SubResource("StandardMaterial3D_fhl08")
-size = Vector3(0.05, 0.1, 0.05)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtle1"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_k53q1"]
-material = SubResource("StandardMaterial3D_vtle1")
-top_radius = 0.02
-bottom_radius = 0.0
-height = 0.1
+size = Vector3(0.05, 0.05, 0.1)
 
 [sub_resource type="Animation" id="Animation_fhl08"]
 resource_name = "Fire"
@@ -69,7 +69,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Gun:rotation")
+tracks/1/path = NodePath("Camera3D/Gun:BaseRotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -97,7 +97,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Gun:rotation")
+tracks/1/path = NodePath("Camera3D/Gun:BaseRotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -114,7 +114,7 @@ _data = {
 &"ToggleInventory": SubResource("Animation_k53q1")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "Animator")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "CylinderCursor", "Animator")]
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_8d2l0")
@@ -123,6 +123,7 @@ InventoryDistance = 0.05
 AmmoBand = NodePath("Camera3D/Gun/arm/AmmoBand")
 Cursor = NodePath("Camera3D/Gun/arm/AmmoBand/Cursor")
 CylinderHUD = NodePath("Camera3D/hud/cylinder_origin/BarrelCylinderHUD")
+CylinderCursor = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor")
 Animator = NodePath("AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -141,6 +142,11 @@ physics_interpolation_mode = 2
 
 [node name="cylinder_origin" type="Node3D" parent="Camera3D/hud"]
 transform = Transform3D(0.882988, -0.0636311, 0.465062, 0, 0.990769, 0.13556, -0.469394, -0.119698, 0.874838, 0, 0, 0)
+
+[node name="CylinderCursor" type="MeshInstance3D" parent="Camera3D/hud/cylinder_origin"]
+transform = Transform3D(1, -3.58201e-09, -2.86561e-08, 3.58201e-09, 1, 1.4328e-08, 2.86561e-08, -1.4328e-08, 1, 0, 0.12, -0.601)
+visible = false
+mesh = SubResource("CylinderMesh_k53q1")
 
 [node name="BarrelCylinderHUD" parent="Camera3D/hud/cylinder_origin" node_paths=PackedStringArray("myGun") instance=ExtResource("4_vtle1")]
 process_priority = -1
@@ -173,17 +179,20 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.033
 mesh = SubResource("CapsuleMesh_k53q1")
 
 [node name="AmmoBand" type="Node3D" parent="Camera3D/Gun/arm"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.312803, -0.184706, 0.311258)
+transform = Transform3D(-6.55671e-08, -0.964181, -1.14907, 0, 1.14907, -0.964181, 1.5, -4.21457e-08, -5.02273e-08, -0.231294, -0.184706, 0.311259)
 
 [node name="Cursor" type="MeshInstance3D" parent="Camera3D/Gun/arm/AmmoBand"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_vtle1")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125079, 0)
+[node name="Node3D" type="Node3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125079, -5.96046e-08)
 mesh = SubResource("CylinderMesh_k53q1")
+skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

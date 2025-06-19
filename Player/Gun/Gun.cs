@@ -23,6 +23,8 @@ public partial class Gun : Node3D
 	private Vector2 LookDelta = Vector2.Zero;
 	private Vector3 TargetOffset = Vector3.Zero;
 	private Vector3 CurrentOffset = Vector3.Zero;
+    [Export]
+    public Vector3 BaseRotation = Vector3.Zero;
 
     private HashSet<BarrelCylinder> barrelCylinders = new HashSet<BarrelCylinder>();
 
@@ -54,10 +56,9 @@ public partial class Gun : Node3D
 	{
 
 		// Alter gun rotation to simulate sway
-		Rotation -= CurrentOffset;
         TargetOffset = new Vector3(LookDelta.Y * SwayAmount, LookDelta.X * SwayAmount, 0.0f);
 		CurrentOffset = CurrentOffset.Lerp(TargetOffset, (float)delta * SwaySmoothness);
-		Rotation += CurrentOffset;
+		Rotation = BaseRotation + CurrentOffset;
 		
 
 		if (Input.IsActionJustPressed("Fire") && !Bearer.InventoryOpen)
@@ -106,7 +107,9 @@ public partial class Gun : Node3D
     }
     public void Fire()
 	{
-		if (Bullets[0] != null)
+        for (int i = 0; i < Bullets.Length && Bullets[0] == null; i++)
+            RotateBarrelRight();
+        if (Bullets[0] != null)
         {
             GetTree().Root.AddChild(Bullets[0]);
             Fire(Bullets[0]);

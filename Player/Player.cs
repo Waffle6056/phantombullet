@@ -29,6 +29,8 @@ public partial class Player : CharacterBody3D
     [Export]
     public Node3D CylinderHUD;
     [Export]
+    public Node3D CylinderCursor;
+    [Export]
     public AnimationPlayer Animator;
     public override void _Ready()
 	{
@@ -61,18 +63,33 @@ public partial class Player : CharacterBody3D
                 ScrollRight();
             }
 		}
-		if (InventoryOpen) {
+		if (InventoryOpen)
+		{
 			if (InventoryFocused)
+			{
 				Cursor.Position = IndToPosition(Ind);
+				Cursor.Basis = Basis.Identity;
+				Cursor.Visible = true;
+                CylinderCursor.Visible = false;
+            }
 			else
-				Cursor.GlobalPosition = CylinderHUD.GlobalPosition;
+			{
+				Cursor.Visible = false;
+                CylinderCursor.Visible = true;
+            }
+			//else
+			//{
+			//	Cursor.GlobalPosition = CylinderHUD.GlobalPosition;
+			//	Cursor.GlobalBasis = CylinderHUD.GlobalBasis.Rotated(CylinderHUD.GlobalBasis[0], (float)Math.PI/2);
+   //             Cursor.SetDisableScale(true);
+   //         }
 		}
 
 
     }
 	public Vector3 IndToPosition(int i)
 	{
-         return new Vector3(0, InventoryDistance * i, 0);
+         return new Vector3(InventoryDistance * i, 0, 0);
     }
     public override void _PhysicsProcess(double delta)//this is the builtin template btw
 	{
