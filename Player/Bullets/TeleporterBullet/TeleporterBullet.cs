@@ -25,7 +25,6 @@ public partial class TeleporterBullet : Bullet
 
     public override void OnCollision()
     {
-		QueueFree();
 		Teleport();
     }
 
@@ -34,5 +33,6 @@ public partial class TeleporterBullet : Bullet
 		GD.Print("Teleporting from " + MyPlayer.GlobalPosition + " to " + GlobalPosition);
 		MyPlayer.GlobalPosition = GlobalPosition;
 		MyPlayer.Velocity = Vector3.Zero;
+		QueueFree();
 	}
 }

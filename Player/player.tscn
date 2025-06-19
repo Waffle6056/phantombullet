@@ -53,6 +53,9 @@ script = ExtResource("1_1pbhj")
 DPI = 0.1
 
 [node name="hud" type="Node3D" parent="Camera3D"]
+process_mode = 3
+process_priority = -1
+physics_interpolation_mode = 2
 
 [node name="cylinder_origin" type="Node3D" parent="Camera3D/hud"]
 transform = Transform3D(0.882988, -0.0636311, 0.465062, 0, 0.990769, 0.13556, -0.469394, -0.119698, 0.874838, 0, 0, 0)
