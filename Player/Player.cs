@@ -11,6 +11,7 @@ public partial class Player : CharacterBody3D
     [Export]
     public float JumpVelocity = 4.5f;
 	public static Player Instance;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -51,6 +52,6 @@ public partial class Player : CharacterBody3D
 		Velocity = velocity;
 		Velocity *= BulletTime.TimeScale;
 		MoveAndSlide();
-        Velocity /= BulletTime.TimeScale;
-    }
+		Velocity /= BulletTime.TimeScale;
+	}
 }

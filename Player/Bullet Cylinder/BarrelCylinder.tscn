@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://bs7f01mb8cofh"]
+
+[ext_resource type="PackedScene" uid="uid://c8dtxdahke03w" path="res://Player/RevolverCylinder.glb" id="1_3y3q1"]
+[ext_resource type="Script" uid="uid://bgu2avlrx4qs4" path="res://Player/Bullet Cylinder/BarrelCylinder.cs" id="1_n7dhy"]
+[ext_resource type="PackedScene" uid="uid://cipookdenmoww" path="res://BulletDisplays/normal_bullet.tscn" id="3_ixho4"]
+[ext_resource type="PackedScene" uid="uid://dir2ai2fhxmgs" path="res://BulletDisplays/boom_bullet.tscn" id="3_q3l8c"]
+[ext_resource type="PackedScene" uid="uid://bjdac8b1ujjmi" path="res://BulletDisplays/deadshot_bullet.tscn" id="4_kf1we"]
+[ext_resource type="PackedScene" uid="uid://b2r8d1oto6sgb" path="res://BulletDisplays/photon_bullet.tscn" id="5_nhwu3"]
+[ext_resource type="PackedScene" uid="uid://ceq2jbtlpid36" path="res://BulletDisplays/teleport_bullet.tscn" id="6_lqggb"]
+[ext_resource type="PackedScene" uid="uid://cgxxqtdfpf8b7" path="res://BulletDisplays/turny_bullet.tscn" id="7_8378t"]
+
+[node name="BarrelCylinder" type="Node3D"]
+script = ExtResource("1_n7dhy")
+
+[node name="N_Origin" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.344469)
+
+[node name="N_Cluster" type="Node3D" parent="N_Origin"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.65, 0)
+
+[node name="NormalBullet" parent="N_Origin/N_Cluster" instance=ExtResource("3_ixho4")]
+visible = false
+
+[node name="BoomBullet" parent="N_Origin/N_Cluster" instance=ExtResource("3_q3l8c")]
+visible = false
+
+[node name="DeadshotBullet" parent="N_Origin/N_Cluster" instance=ExtResource("4_kf1we")]
+visible = false
+
+[node name="PhotonBullet" parent="N_Origin/N_Cluster" instance=ExtResource("5_nhwu3")]
+visible = false
+
+[node name="TeleportBullet" parent="N_Origin/N_Cluster" instance=ExtResource("6_lqggb")]
+visible = false
+
+[node name="TurnyBullet" parent="N_Origin/N_Cluster" instance=ExtResource("7_8378t")]
+visible = false
+
+[node name="S_Origin" type="Node3D" parent="."]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, -8.74228e-08, -1, 0, 8.74228e-08, -7.64274e-15, -1, 0, 0, 0.344469)
+
+[node name="S_Cluster" type="Node3D" parent="S_Origin"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.65, 0)
+
+[node name="NormalBullet" parent="S_Origin/S_Cluster" instance=ExtResource("3_ixho4")]
+visible = false
+
+[node name="BoomBullet" parent="S_Origin/S_Cluster" instance=ExtResource("3_q3l8c")]
+visible = false
+
+[node name="DeadshotBullet" parent="S_Origin/S_Cluster" instance=ExtResource("4_kf1we")]
+visible = false
+
+[node name="PhotonBullet" parent="S_Origin/S_Cluster" instance=ExtResource("5_nhwu3")]
+visible = false
+
+[node name="TeleportBullet" parent="S_Origin/S_Cluster" instance=ExtResource("6_lqggb")]
+visible = false
+
+[node name="TurnyBullet" parent="S_Origin/S_Cluster" instance=ExtResource("7_8378t")]
+visible = false
+
+[node name="NE_Origin" type="Node3D" parent="."]
+transform = Transform3D(-0.5, 0.866025, -8.74228e-08, 0.866025, 0.5, 0, 4.37114e-08, -7.57103e-08, -1, 0, 0, 0.344469)
+
+[node name="NE_Cluster" type="Node3D" parent="NE_Origin"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.65, 0)
+
+[node name="NormalBullet" parent="NE_Origin/NE_Cluster" instance=ExtResource("3_ixho4")]
+visible = false
+
+[node name="BoomBullet" parent="NE_Origin/NE_Cluster" instance=ExtResource("3_q3l8c")]
+visible = false
+
+[node name="DeadshotBullet" parent="NE_Origin/NE_Cluster" instance=ExtResource("4_kf1we")]
+visible = false
+
+[node name="PhotonBullet" parent="NE_Origin/NE_Cluster" instance=ExtResource("5_nhwu3")]
+visible = false
+
+[node name="TeleportBullet" parent="NE_Origin/NE_Cluster" instance=ExtResource("6_lqggb")]
+visible = false
+
+[node name="TurnyBullet" parent="NE_Origin/NE_Cluster" instance=ExtResource("7_8378t")]
+visible = false
+
+[node name="SE_Origin" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0.866025, 8.74228e-08, 0.866025, -0.5, 0, 4.37114e-08, 7.57103e-08, -1, 0, 0, 0.344469)
+
+[node name="SE_Cluster" type="Node3D" parent="SE_Origin"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.65, 0)
+
+[node name="NormalBullet" parent="SE_Origin/SE_Cluster" instance=ExtResource("3_ixho4")]
+visible = false
+
+[node name="BoomBullet" parent="SE_Origin/SE_Cluster" instance=ExtResource("3_q3l8c")]
+visible = false
+
+[node name="DeadshotBullet" parent="SE_Origin/SE_Cluster" instance=ExtResource("4_kf1we")]
+visible = false
+
+[node name="PhotonBullet" parent="SE_Origin/SE_Cluster" instance=ExtResource("5_nhwu3")]
+visible = false
+
+[node name="TeleportBullet" parent="SE_Origin/SE_Cluster" instance=ExtResource("6_lqggb")]
+visible = false
+
+[node name="TurnyBullet" parent="SE_Origin/SE_Cluster" instance=ExtResource("7_8378t")]
+visible = false
+
+[node name="SW_Origin" type="Node3D" parent="."]
+transform = Transform3D(0.5, -0.866025, -8.74228e-08, -0.866025, -0.5, 0, -4.37114e-08, 7.57103e-08, -1, 0, 0, 0.344469)
+
+[node name="SW_Cluster" type="Node3D" parent="SW_Origin"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.65, 0)
+
+[node name="NormalBullet" parent="SW_Origin/SW_Cluster" instance=ExtResource("3_ixho4")]
+visible = false
+
+[node name="BoomBullet" parent="SW_Origin/SW_Cluster" instance=ExtResource("3_q3l8c")]
+visible = false
+
+[node name="DeadshotBullet" parent="SW_Origin/SW_Cluster" instance=ExtResource("4_kf1we")]
+visible = false
+
+[node name="PhotonBullet" parent="SW_Origin/SW_Cluster" instance=ExtResource("5_nhwu3")]
+visible = false
+
+[node name="TeleportBullet" parent="SW_Origin/SW_Cluster" instance=ExtResource("6_lqggb")]
+visible = false
+
+[node name="TurnyBullet" parent="SW_Origin/SW_Cluster" instance=ExtResource("7_8378t")]
+visible = false
+
+[node name="NW_Origin" type="Node3D" parent="."]
+transform = Transform3D(-0.5, -0.866025, 8.74228e-08, -0.866025, 0.5, 0, -4.37114e-08, -7.57103e-08, -1, 0, 0, 0.344469)
+
+[node name="NW_Cluster" type="Node3D" parent="NW_Origin"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.65, 0)
+
+[node name="NormalBullet" parent="NW_Origin/NW_Cluster" instance=ExtResource("3_ixho4")]
+visible = false
+
+[node name="BoomBullet" parent="NW_Origin/NW_Cluster" instance=ExtResource("3_q3l8c")]
+visible = false
+
+[node name="DeadshotBullet" parent="NW_Origin/NW_Cluster" instance=ExtResource("4_kf1we")]
+visible = false
+
+[node name="PhotonBullet" parent="NW_Origin/NW_Cluster" instance=ExtResource("5_nhwu3")]
+visible = false
+
+[node name="TeleportBullet" parent="NW_Origin/NW_Cluster" instance=ExtResource("6_lqggb")]
+visible = false
+
+[node name="TurnyBullet" parent="NW_Origin/NW_Cluster" instance=ExtResource("7_8378t")]
+visible = false
+
+[node name="CylinderObject" parent="." instance=ExtResource("1_3y3q1")]

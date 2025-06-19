@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_rlxxl"]
 [ext_resource type="PackedScene" uid="uid://diomba6mxnssq" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tscn" id="5_53e7j"]
 [ext_resource type="PackedScene" uid="uid://diaatub6287aj" path="res://Player/Bullets/PhotonBullet/photonbullet.tscn" id="6_fuihc"]
-[ext_resource type="PackedScene" uid="uid://co6rhq0572ep7" path="res://Player/Gun/RevolverGun.glb" id="7_iu1ju"]
-[ext_resource type="PackedScene" uid="uid://bahvl3pmjbeg7" path="res://Player/Gun/RevolverCylinder.glb" id="8_eq5df"]
+[ext_resource type="PackedScene" uid="uid://tifr4gsw2fvu" path="res://Player/Gun/RevolverGun.glb" id="7_iu1ju"]
+[ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="8_iu1ju"]
 
 [sub_resource type="Animation" id="Animation_iu1ju"]
 resource_name = "Fire"
@@ -28,26 +28,28 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RevolverGun/RevolverCylinder:rotation")
-tracks/1/interp = 2
+tracks/1/path = NodePath("RevolverGun:position")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.31, 0.56, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.39626), Vector3(0, 0, -1.0472)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RevolverGun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.36),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0.2), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("RevolverGun/BarrelCylinder")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Fire"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_eq5df"]
@@ -67,22 +69,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RevolverGun/RevolverCylinder:rotation")
+tracks/1/path = NodePath("RevolverGun:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RevolverGun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -95,10 +85,11 @@ _data = {
 &"RESET": SubResource("Animation_eq5df")
 }
 
-[node name="Gun" type="Node3D" node_paths=PackedStringArray("PreloadedLoader", "Clip")]
+[node name="Gun" type="Node3D" node_paths=PackedStringArray("PreloadedLoader", "Clip", "Barrel")]
 script = ExtResource("1_by1yx")
 PreloadedLoader = NodePath("DefaultLoader")
 Clip = NodePath("Clip")
+Barrel = NodePath("RevolverGun/BarrelCylinder")
 
 [node name="DefaultLoader" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
 script = ExtResource("2_amtoi")
@@ -131,4 +122,5 @@ libraries = {
 [node name="RevolverGun" parent="." instance=ExtResource("7_iu1ju")]
 transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0, 0)
 
-[node name="RevolverCylinder" parent="RevolverGun" instance=ExtResource("8_eq5df")]
+[node name="BarrelCylinder" parent="RevolverGun" node_paths=PackedStringArray("myGun") instance=ExtResource("8_iu1ju")]
+myGun = NodePath("../..")

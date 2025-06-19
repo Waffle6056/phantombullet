@@ -17,6 +17,9 @@ public partial class Gun : Node3D
 	[Export]
 	public Player Bearer;
 
+	[Export]
+	public BarrelCylinder Barrel;
+
 	List<Bullet> Bullets = new List<Bullet>();
 
 	[Export]
@@ -29,6 +32,8 @@ public partial class Gun : Node3D
 	private Vector3 TargetOffset = Vector3.Zero;
 	private Vector3 CurrentOffset = Vector3.Zero;
 
+	private HashSet<BarrelCylinder> barrelCylinders = new HashSet<BarrelCylinder>();
+
 	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventMouseMotion motion)
@@ -37,6 +42,10 @@ public partial class Gun : Node3D
 		}
 	}
 
+	public void RegisterBarrell(BarrelCylinder barrel)
+	{
+		barrelCylinders.Add(barrel);
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -48,9 +57,6 @@ public partial class Gun : Node3D
 		}
 
 		Load(PreloadedLoader);
-
-		
-	
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,8 +69,8 @@ public partial class Gun : Node3D
 
 		if (Input.IsActionJustPressed("Fire"))
 			Fire();
-        
-    }
+
+	}
     public void Fire()
 	{
 		if (Bullets.Count > 0)
@@ -88,12 +94,19 @@ public partial class Gun : Node3D
 			bullet.ProcessMode = ProcessModeEnum.Inherit;
 			bullet.GlobalPosition = GetNode<Node3D>("BulletEmitter").GlobalPosition;
 			bullet.GlobalRotation = GetNode<Node3D>("BulletEmitter").GlobalRotation;
+
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
-			Bearer.GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
-			//GD.Print(bullet.GlobalTransform + " " + GlobalTransform);
+
+			foreach (BarrelCylinder b in barrelCylinders)
+			{
+				b.Fire();
+				GD.Print(b.Name);
+			}
+
+
 			bullet.Visible = true;
 
-			GD.Print("FIRED");
+			GD.Print("Gun: FIRED");
 
 			bullet.Fired(this);
 		}
@@ -102,6 +115,11 @@ public partial class Gun : Node3D
 	public void Load(Loader loader)
 	{
 		// right now, replace the current bullets with the new ones
+		if (loader == null)
+		{
+			GD.PrintErr("Loader is null, cannot load bullets.");
+			return;
+		}
 		int ocount = Bullets.Count;
 
 		// *copy* over the bullets
@@ -114,6 +132,13 @@ public partial class Gun : Node3D
 
 			Load(clonedBullet);
 		}
+
+		foreach (BarrelCylinder b in barrelCylinders)
+		{
+			b.LoadFrom(loader);
+		}
+
+		GD.Print(barrelCylinders);
 
 		GD.Print("Loaded from loader. ∆" + (Bullets.Count - ocount) + ". (+" + Bullets.Count + ", -" + ocount + ")");
 	}
