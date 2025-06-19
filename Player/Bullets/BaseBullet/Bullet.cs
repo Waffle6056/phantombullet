@@ -12,9 +12,11 @@ public partial class Bullet : AnimatableBody3D
 
 	[Export]
 	public bool IsHoming = true;
+    [Export]
+    public Node3D Visual;
 
 
-	public Player MyPlayer;
+    public Player MyPlayer;
 
 	public virtual string GetBulletType()
 	{

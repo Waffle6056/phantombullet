@@ -50,15 +50,23 @@ public partial class BarrelCylinder : Node3D
     //     }
     // }
 
-    public void Fire()
+    public void RotateRight()
     {
-        GD.Print("Firing!");
-        FireAnimation();
-        HideAllButXFromCluster("", GetNode<Node3D>($"%{CurrentSlot.ToString()}_Cluster"));
+        FireAnimation(1);
+        //HideAllButXFromCluster("", GetNode<Node3D>($"%{CurrentSlot.ToString()}_Cluster"));
         // cycle through slots backwards
         CurrentSlot = (CurrentSlot == PossibleSlots.N) ? 
                       PossibleSlots.NW : 
                       (PossibleSlots)((int)CurrentSlot - 1);
+    }
+    public void RotateLeft()
+    {
+        FireAnimation(-1);
+        //HideAllButXFromCluster("", GetNode<Node3D>($"%{CurrentSlot.ToString()}_Cluster"));
+        // cycle through slots backwards
+        CurrentSlot = (CurrentSlot == PossibleSlots.NW) ?
+                      PossibleSlots.N :
+                      (PossibleSlots)((int)CurrentSlot + 1);
     }
 
     private void HideAllButXFromCluster(string lookingFor, Node3D Cluster)
@@ -69,17 +77,16 @@ public partial class BarrelCylinder : Node3D
         }
     }
 
-    public void LoadFrom(Loader loader)
+    public void Update()
     {
         // Start from current slot, load bullets backwards till we hit 6
         int slotIndex = (int)CurrentSlot;
-        if (loader.HeldBullets.Length > 6) GD.PrintErr(Name + " Loader holds more than 6 bullets- only the first 6 will be rendered in the barrel.");
         PossibleSlots slot = CurrentSlot;
-        for (int i = 0; i < 6 && i < loader.HeldBullets.Length; i++)
+        for (int i = 0; i < 6 && i < myGun.Bullets.Length; i++)
         {
 
             // get current bullet
-            Bullet bullet = loader.HeldBullets[i];
+            Bullet bullet = myGun.Bullets[i];
 
             Node3D Cluster = GetNode<Node3D>($"%{slot.ToString()}_Cluster");
 
@@ -108,25 +115,26 @@ public partial class BarrelCylinder : Node3D
                 GD.Print("Loading turny into slot " + slot.ToString());
                 HideAllButXFromCluster("TurnyBullet", Cluster);
             }
-            else
+            else if (bullet != null)
             {
                 GD.Print("Loading normie into slot " + slot.ToString());
                 HideAllButXFromCluster("NormalBullet", Cluster);
             }
-
+            else
+                HideAllButXFromCluster("", Cluster);
             slot = (slot == PossibleSlots.N) ? 
                       PossibleSlots.NW : 
                       (PossibleSlots)((int)slot - 1);
         }
     }
-
-    private void FireAnimation()
+    Vector3 TargetRotation;
+    private void FireAnimation(int sign)
     {
         // get initial rotation
-        Vector3 initialRotation = RotationDegrees;
-        Vector3 stage1Rotation = initialRotation + new Vector3(0, 0, -80);
-        Vector3 stage2Rotation = initialRotation + new Vector3(0, 0, -60);
-
+        Vector3 initialRotation = TargetRotation;
+        Vector3 stage1Rotation = initialRotation + new Vector3(0, 0, -80 * sign);
+        Vector3 stage2Rotation = initialRotation + new Vector3(0, 0, -60 * sign);
+        TargetRotation = stage2Rotation;
         // kill any existing tween and replace it with our own, new, better, grander tween
         if (tween != null)
             tween.Kill();
@@ -134,7 +142,7 @@ public partial class BarrelCylinder : Node3D
         tween = CreateTween();
 
         // wait for .3 sec
-        tween.TweenInterval(0.3f);
+        //tween.TweenInterval(0.3f);
 
         // move -80deg in z axis over 0.25 seconds
         tween.TweenProperty(this, "rotation_degrees", stage1Rotation, 0.25f);

@@ -1,17 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk1d21sg8apgk"]
+[gd_scene load_steps=10 format=3 uid="uid://bk1d21sg8apgk"]
 
 [ext_resource type="Script" uid="uid://dk3kxpuxmwulb" path="res://Player/Bullets/BaseBullet/Bullet.cs" id="1_a73n5"]
+[ext_resource type="PackedScene" uid="uid://cipookdenmoww" path="res://BulletDisplays/normal_bullet.tscn" id="2_uj5d2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_81ays"]
 radius = 0.05
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5474v"]
-albedo_color = Color(0.310617, 0.310617, 0.310617, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_nfanl"]
-material = SubResource("StandardMaterial3D_5474v")
-radius = 0.05
-height = 0.1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phnsj"]
 particle_flag_align_y = true
@@ -44,20 +37,18 @@ material = SubResource("StandardMaterial3D_phnsj")
 radius = 1.0
 height = 2.0
 
-[node name="Bullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrackingArea") groups=["bullet"]]
+[node name="Bullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrackingArea", "Visual") groups=["bullet"]]
 process_mode = 4
 visible = false
 collision_layer = 3
 sync_to_physics = false
 script = ExtResource("1_a73n5")
 TrackingArea = NodePath("TrackingArea")
+Visual = NodePath("NormalBullet")
 
 [node name="BulletColliderShape" type="CollisionShape3D" parent="."]
 process_mode = 4
 shape = SubResource("SphereShape3D_81ays")
-
-[node name="BulletMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_nfanl")
 
 [node name="Trail" type="GPUParticles3D" parent="."]
 amount = 5
@@ -66,6 +57,9 @@ trail_enabled = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_phnsj")
 draw_pass_1 = SubResource("TubeTrailMesh_x416r")
+
+[node name="NormalBullet" parent="." instance=ExtResource("2_uj5d2")]
+transform = Transform3D(0.065, 0, 0, 0, -2.84124e-09, 0.065, 0, -0.065, -2.84124e-09, 0, 0, 0)
 
 [node name="TrackingArea" type="Area3D" parent="."]
 collision_layer = 0

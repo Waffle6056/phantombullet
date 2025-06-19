@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cyh5et2rptwvl"]
+[gd_scene load_steps=19 format=3 uid="uid://cyh5et2rptwvl"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_ugmoc"]
 [ext_resource type="PackedScene" uid="uid://dbhas7yl7wcqu" path="res://Level/LevelAsset/TimedTarget/timed_target.tscn" id="2_pwb6u"]
@@ -6,13 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="2_x2m5e"]
 [ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="3_uvbfj"]
 [ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="5_uvbfj"]
-[ext_resource type="Texture2D" uid="uid://ccpdfspsasnsm" path="res://Assets/Bullet Symbols/normal.svg" id="7_qmk5l"]
-[ext_resource type="Texture2D" uid="uid://bg614ogtxknjv" path="res://Assets/Bullet Symbols/turny.svg" id="8_auquo"]
-[ext_resource type="Texture2D" uid="uid://dsnisvh6u01jg" path="res://Assets/Bullet Symbols/teleport.svg" id="9_654rf"]
-[ext_resource type="Texture2D" uid="uid://cp6nptyof0dv8" path="res://Assets/Bullet Symbols/boom.svg" id="10_2sw4s"]
-[ext_resource type="Texture2D" uid="uid://fit13duwqpgy" path="res://Assets/Bullet Symbols/photon.svg" id="11_ptvah"]
-[ext_resource type="Texture2D" uid="uid://ca8ckoa0iq2uj" path="res://Assets/Bullet Symbols/deadshot.svg" id="12_nejl4"]
-[ext_resource type="Script" uid="uid://b7ynjy1tlrpnl" path="res://Player/Gun/Loader.cs" id="13_654rf"]
+[ext_resource type="Texture2D" uid="uid://d3t15jy4k0nfj" path="res://Assets/Bullet Symbols/normal.svg" id="7_qmk5l"]
+[ext_resource type="Texture2D" uid="uid://d3rh2vejb0mdq" path="res://Assets/Bullet Symbols/turny.svg" id="8_auquo"]
+[ext_resource type="Texture2D" uid="uid://c5s7cwn88w0jk" path="res://Assets/Bullet Symbols/teleport.svg" id="9_654rf"]
+[ext_resource type="Texture2D" uid="uid://djais4vmryghl" path="res://Assets/Bullet Symbols/boom.svg" id="10_2sw4s"]
+[ext_resource type="Texture2D" uid="uid://dca3i8ijglr2q" path="res://Assets/Bullet Symbols/photon.svg" id="11_ptvah"]
+[ext_resource type="Texture2D" uid="uid://dyjhvcnqnydv7" path="res://Assets/Bullet Symbols/deadshot.svg" id="12_nejl4"]
 [ext_resource type="PackedScene" uid="uid://cdvoq7qlryly8" path="res://Player/Bullets/OnTriggerOrCollisionBoomBullet/on_trigger_or_collision_boom_bullet.tscn" id="14_yul4y"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="15_xfpsm"]
 [ext_resource type="PackedScene" uid="uid://dialrw7vt6au2" path="res://Player/Bullets/OnTriggerDeadshotBullet/on_trigger_deadshot_bullet.tscn" id="16_fjn27"]
@@ -51,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66515, 0.222143, -3.61388)
 size = Vector3(1, 4.89056, 2.68848)
 
 [node name="Ammo" parent="." instance=ExtResource("2_x2m5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.45572, -1.31027, -1.33886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.833848, -1.31027, -1.33886)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80379, -0.614405, 16.6973)
@@ -193,11 +192,9 @@ lower_fade = 1e-05
 
 [node name="AmmoAll" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("2_x2m5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72746, -1.22242, -7.14924)
-Storage = NodePath("LoaderAll")
+Storage = [NodePath("LoaderAll/Bullet"), NodePath("LoaderAll/OnTriggerOrCollisionBoomBullet"), NodePath("LoaderAll/OnTriggerDeadshotBullet"), NodePath("LoaderAll/OnTriggerTurningBullet"), NodePath("LoaderAll/OnTriggerOrCollisionBoomBullet2"), NodePath("LoaderAll/PhotonBullet")]
 
-[node name="LoaderAll" type="Node" parent="AmmoAll" node_paths=PackedStringArray("HeldBullets")]
-script = ExtResource("13_654rf")
-HeldBullets = [NodePath("Bullet"), NodePath("OnTriggerOrCollisionBoomBullet"), NodePath("OnTriggerDeadshotBullet"), NodePath("OnTriggerTurningBullet"), NodePath("OnTriggerOrCollisionBoomBullet2"), NodePath("PhotonBullet")]
+[node name="LoaderAll" type="Node" parent="AmmoAll"]
 
 [node name="Bullet" parent="AmmoAll/LoaderAll" instance=ExtResource("15_xfpsm")]
 

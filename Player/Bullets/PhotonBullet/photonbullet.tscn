@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://diaatub6287aj"]
+[gd_scene load_steps=8 format=3 uid="uid://diaatub6287aj"]
 
 [ext_resource type="Script" uid="uid://cdj8uoml65888" path="res://Player/Bullets/PhotonBullet/PhotonBullet.cs" id="1_gascu"]
+[ext_resource type="PackedScene" uid="uid://b2r8d1oto6sgb" path="res://BulletDisplays/photon_bullet.tscn" id="2_gascu"]
 
 [sub_resource type="Animation" id="Animation_pbo43"]
 resource_name = "blink photon"
@@ -63,8 +64,9 @@ emission_enabled = true
 emission = Color(0.961258, 0.92683, 2.31028e-06, 1)
 emission_energy_multiplier = 16.0
 
-[node name="PhotonBullet" type="AnimatableBody3D" node_paths=PackedStringArray("Ray", "photonAnimator") groups=["bullet"]]
+[node name="PhotonBullet" type="AnimatableBody3D" node_paths=PackedStringArray("Ray", "photonAnimator", "Visual") groups=["bullet"]]
 process_mode = 4
+visible = false
 collision_layer = 3
 sync_to_physics = false
 script = ExtResource("1_gascu")
@@ -72,6 +74,7 @@ Ray = NodePath("photon ray")
 photonAnimator = NodePath("AnimationPlayer")
 ProjectileSpeed = 0.0
 IsHoming = false
+Visual = NodePath("PhotonBullet")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../photon ray/photonBullet")
@@ -102,3 +105,6 @@ height = 1000.0
 sides = 64
 smooth_faces = false
 material = SubResource("ORMMaterial3D_gascu")
+
+[node name="PhotonBullet" parent="." instance=ExtResource("2_gascu")]
+transform = Transform3D(0.065, 0, 0, 0, -2.84124e-09, 0.065, 0, -0.065, -2.84124e-09, 0, 0, 0)

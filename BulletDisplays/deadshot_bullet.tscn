@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjdac8b1ujjmi"]
 
-[ext_resource type="PackedScene" uid="uid://clhm0twhbmvk8" path="res://BulletDisplays/RevolverBullet.glb" id="1_75kti"]
+[ext_resource type="PackedScene" uid="uid://blok33lnxnptg" path="res://BulletDisplays/RevolverBullet.glb" id="1_75kti"]
 [ext_resource type="Material" uid="uid://bymhstq3q5rb7" path="res://Assets/Bullet Materials/DeadshotBulletMaterial.tres" id="2_i3t4j"]
-[ext_resource type="Texture2D" uid="uid://bb3a2hg6votfy" path="res://Assets/Bullet Symbols/deadshot.svg" id="3_85k8q"]
+[ext_resource type="Texture2D" uid="uid://dyjhvcnqnydv7" path="res://Assets/Bullet Symbols/deadshot.svg" id="3_85k8q"]
 
 [node name="DeadshotBullet" instance=ExtResource("1_75kti")]
 

@@ -1,22 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://diomba6mxnssq"]
+[gd_scene load_steps=10 format=3 uid="uid://diomba6mxnssq"]
 
 [ext_resource type="Script" uid="uid://cq460xr07dyh8" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.cs" id="1_btk87"]
-[ext_resource type="Shader" uid="uid://df8icpbqc3gxk" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tres" id="2_btk87"]
+[ext_resource type="PackedScene" uid="uid://ceq2jbtlpid36" path="res://BulletDisplays/teleport_bullet.tscn" id="2_btk87"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_81ays"]
 radius = 0.0966293
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5474v"]
-albedo_color = Color(0.310617, 0.310617, 0.310617, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_nfanl"]
-material = SubResource("StandardMaterial3D_5474v")
-radius = 0.05
-height = 0.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a1seb"]
-render_priority = 0
-shader = ExtResource("2_btk87")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phnsj"]
 particle_flag_align_y = true
@@ -49,7 +37,7 @@ material = SubResource("StandardMaterial3D_phnsj")
 radius = 1.0
 height = 2.0
 
-[node name="TeleporterBullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrackingArea") groups=["bullet"]]
+[node name="TeleporterBullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrackingArea", "Visual") groups=["bullet"]]
 process_mode = 4
 visible = false
 collision_layer = 2
@@ -58,14 +46,11 @@ script = ExtResource("1_btk87")
 ProjectileSpeed = 90.0
 TrackingArea = NodePath("TrackingArea")
 IsHoming = false
+Visual = NodePath("TeleportBullet")
 
 [node name="BulletColliderShape" type="CollisionShape3D" parent="."]
 process_mode = 4
 shape = SubResource("SphereShape3D_81ays")
-
-[node name="BulletMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_nfanl")
-surface_material_override/0 = SubResource("ShaderMaterial_a1seb")
 
 [node name="Trail" type="GPUParticles3D" parent="."]
 amount = 5
@@ -74,6 +59,9 @@ trail_enabled = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_phnsj")
 draw_pass_1 = SubResource("TubeTrailMesh_x416r")
+
+[node name="TeleportBullet" parent="." instance=ExtResource("2_btk87")]
+transform = Transform3D(0.065, 0, 0, 0, -2.84124e-09, 0.065, 0, -0.065, -2.84124e-09, 0, 0, 0)
 
 [node name="TrackingArea" type="Area3D" parent="."]
 collision_layer = 0

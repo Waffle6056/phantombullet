@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdvoq7qlryly8"]
+[gd_scene load_steps=12 format=3 uid="uid://cdvoq7qlryly8"]
 
 [ext_resource type="Script" uid="uid://xvok1eplch7d" path="res://Player/Bullets/OnTriggerOrCollisionBoomBullet/OnTriggerOrCollisionBoomBullet.cs" id="1_tctro"]
+[ext_resource type="PackedScene" uid="uid://dir2ai2fhxmgs" path="res://BulletDisplays/boom_bullet.tscn" id="2_bjvkx"]
 
 [sub_resource type="Animation" id="Animation_bjvkx"]
 resource_name = "Explode"
@@ -178,7 +179,7 @@ radius = 0.1
 sections = 2
 section_rings = 1
 
-[node name="OnTriggerOrCollisionBoomBullet" type="AnimatableBody3D" node_paths=PackedStringArray("AnimationPlayer") groups=["bullet"]]
+[node name="OnTriggerOrCollisionBoomBullet" type="AnimatableBody3D" node_paths=PackedStringArray("AnimationPlayer", "Visual") groups=["bullet"]]
 process_mode = 4
 visible = false
 collision_layer = 2
@@ -187,6 +188,7 @@ script = ExtResource("1_tctro")
 AnimationPlayer = NodePath("AnimationPlayer")
 HomingScaling = 0.0
 IsHoming = false
+Visual = NodePath("BoomBullet")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -207,3 +209,6 @@ trail_enabled = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_phnsj")
 draw_pass_1 = SubResource("TubeTrailMesh_x416r")
+
+[node name="BoomBullet" parent="." instance=ExtResource("2_bjvkx")]
+transform = Transform3D(0.065, 0, 0, 0, -2.84124e-09, 0.065, 0, -0.065, -2.84124e-09, 0, 0, 0)
