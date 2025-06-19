@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgxxqtdfpf8b7"]
+
+[ext_resource type="PackedScene" uid="uid://clhm0twhbmvk8" path="res://BulletDisplays/RevolverBullet.glb" id="1_ysqf2"]
+[ext_resource type="Material" uid="uid://cre3mkc42tyds" path="res://Assets/Bullet Materials/TurnyBulletMaterial.tres" id="2_10cjs"]
+[ext_resource type="Texture2D" uid="uid://cl45hwxiay7dn" path="res://Assets/Bullet Symbols/turny.svg" id="3_ca86q"]
+
+[node name="TurnyBullet" instance=ExtResource("1_ysqf2")]
+
+[node name="Revolver Bullet" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_10cjs")
+
+[node name="Decal" type="Decal" parent="." index="1"]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, -0.384, 0)
+texture_albedo = ExtResource("3_ca86q")
+texture_emission = ExtResource("3_ca86q")
+emission_energy = 2.0
+modulate = Color(0.52549, 1, 0.556863, 1)
+upper_fade = 1e-05
+lower_fade = 1e-05

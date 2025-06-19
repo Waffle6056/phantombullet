@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqird0gga88bc"]
+[gd_scene load_steps=10 format=3 uid="uid://dqird0gga88bc"]
 
 [ext_resource type="Script" uid="uid://2pbpjotqshpl" path="res://Level/LevelAsset/Ammo/Ammo.cs" id="1_7bfsc"]
-[ext_resource type="Script" uid="uid://b7ynjy1tlrpnl" path="res://Player/Gun/Loader.cs" id="2_vr11n"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_lq326"]
 [ext_resource type="PackedScene" uid="uid://diomba6mxnssq" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tscn" id="3_mkgtg"]
 [ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="3_mlm2c"]
@@ -19,7 +18,7 @@ albedo_color = Color(0.738411, 0.185013, 0.357114, 1)
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_7bfsc")
-Storage = NodePath("StoredBullets")
+Storage = [NodePath("StoredBullets/Bullet2"), NodePath("StoredBullets/Bullet3"), NodePath("StoredBullets/OnTriggerTurningBullet"), NodePath("StoredBullets/OnTriggerDeadshotBullet"), NodePath("StoredBullets/TeleporterBullet"), NodePath("StoredBullets/OnTriggerOrCollisionBoomBullet")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_4jfn8")
@@ -28,9 +27,7 @@ shape = SubResource("BoxShape3D_4jfn8")
 mesh = SubResource("BoxMesh_7bfsc")
 surface_material_override/0 = SubResource("ORMMaterial3D_7bfsc")
 
-[node name="StoredBullets" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
-script = ExtResource("2_vr11n")
-HeldBullets = [NodePath("Bullet2"), NodePath("Bullet3"), NodePath("OnTriggerOrCollisionBoomBullet"), NodePath("OnTriggerTurningBullet"), NodePath("OnTriggerDeadshotBullet"), NodePath("Bullet5"), NodePath("Bullet6")]
+[node name="StoredBullets" type="Node" parent="."]
 
 [node name="TeleporterBullet" parent="StoredBullets" instance=ExtResource("3_mkgtg")]
 IsHoming = true
@@ -51,5 +48,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74784, 0.0101352, 1.6616)
 [node name="Bullet5" parent="StoredBullets" instance=ExtResource("3_lq326")]
 
 [node name="Bullet6" parent="StoredBullets" instance=ExtResource("3_lq326")]
+
+[node name="Title" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77559, 0)
+billboard = 2
+text = "Ammo"
+font_size = 62
+
+[node name="Contents" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.936497, 0)
+billboard = 2
+text = "1x Example1, 1x Example2
+1x Example3, 1x Example4
+1x Example5, 1x Example6"
+vertical_alignment = 2
 
 [connection signal="body_entered" from="." to="." method="IsEntered"]

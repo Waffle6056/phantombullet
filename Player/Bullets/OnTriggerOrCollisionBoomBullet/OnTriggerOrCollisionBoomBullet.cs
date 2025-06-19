@@ -12,12 +12,24 @@ public partial class OnTriggerOrCollisionBoomBullet : Bullet
 	{
 	}
 
+    public override string GetBulletType()
+    {
+        return "Boom";
+    }
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+        AnimationPlayer.Connect(AnimationPlayer.SignalName.AnimationFinished, Callable.From(Destroy));
+    }
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+    public override void _Process(double delta)
+    {
         if (HasExploded)
             AnimationPlayer.SpeedScale = BulletTime.TimeScale;
-	}
+    }
 
     public override void Fired(Gun gun)
     {

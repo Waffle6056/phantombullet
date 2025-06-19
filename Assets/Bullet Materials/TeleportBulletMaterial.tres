@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://chg5qqci0ebu3"]
+
+[ext_resource type="Texture2D" uid="uid://cpkglr6f1hytw" path="res://Assets/Bullet Textures/Teleport Bullet Base Color.png" id="1_37goy"]
+
+[resource]
+albedo_texture = ExtResource("1_37goy")

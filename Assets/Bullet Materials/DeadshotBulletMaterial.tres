@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bymhstq3q5rb7"]
+
+[ext_resource type="Texture2D" uid="uid://c0u0wl4avu6al" path="res://Assets/Bullet Textures/Deadshot Bullet Base Color.png" id="1_0gna3"]
+
+[resource]
+albedo_texture = ExtResource("1_0gna3")

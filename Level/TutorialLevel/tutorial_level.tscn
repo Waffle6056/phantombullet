@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyh5et2rptwvl"]
+[gd_scene load_steps=19 format=3 uid="uid://cyh5et2rptwvl"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_ugmoc"]
 [ext_resource type="PackedScene" uid="uid://dbhas7yl7wcqu" path="res://Level/LevelAsset/TimedTarget/timed_target.tscn" id="2_pwb6u"]
@@ -6,6 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="2_x2m5e"]
 [ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="3_uvbfj"]
 [ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="5_uvbfj"]
+[ext_resource type="Texture2D" uid="uid://d3t15jy4k0nfj" path="res://Assets/Bullet Symbols/normal.svg" id="7_qmk5l"]
+[ext_resource type="Texture2D" uid="uid://d3rh2vejb0mdq" path="res://Assets/Bullet Symbols/turny.svg" id="8_auquo"]
+[ext_resource type="Texture2D" uid="uid://c5s7cwn88w0jk" path="res://Assets/Bullet Symbols/teleport.svg" id="9_654rf"]
+[ext_resource type="Texture2D" uid="uid://djais4vmryghl" path="res://Assets/Bullet Symbols/boom.svg" id="10_2sw4s"]
+[ext_resource type="Texture2D" uid="uid://dca3i8ijglr2q" path="res://Assets/Bullet Symbols/photon.svg" id="11_ptvah"]
+[ext_resource type="Texture2D" uid="uid://dyjhvcnqnydv7" path="res://Assets/Bullet Symbols/deadshot.svg" id="12_nejl4"]
+[ext_resource type="PackedScene" uid="uid://cdvoq7qlryly8" path="res://Player/Bullets/OnTriggerOrCollisionBoomBullet/on_trigger_or_collision_boom_bullet.tscn" id="14_yul4y"]
+[ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="15_xfpsm"]
+[ext_resource type="PackedScene" uid="uid://dialrw7vt6au2" path="res://Player/Bullets/OnTriggerDeadshotBullet/on_trigger_deadshot_bullet.tscn" id="16_fjn27"]
+[ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="17_dx0w3"]
+[ext_resource type="PackedScene" uid="uid://diaatub6287aj" path="res://Player/Bullets/PhotonBullet/photonbullet.tscn" id="18_xfpsm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_udhqn"]
 size = Vector3(1, 6.78168, 2.90308)
@@ -15,10 +26,10 @@ script = ExtResource("1_ugmoc")
 Targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6"), NodePath("Target7"), NodePath("Target8")]
 
 [node name="TimedTarget" parent="." instance=ExtResource("2_pwb6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69483, -1.31908, 1.42245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17195, -1.31908, 1.42245)
 
 [node name="Door" parent="TimedTarget" node_paths=PackedStringArray("Target") instance=ExtResource("3_uvbfj")]
-transform = Transform3D(-2.96319e-07, 0, 1, 0, 2.565, 0, -6.779, 0, -4.37114e-08, -6.55903, 0.399597, -0.347456)
+transform = Transform3D(-2.96319e-07, 0, 1, 0, 2.565, 0, -6.779, 0, -4.37114e-08, -2.07134, 0.399597, -0.347456)
 Target = NodePath("..")
 
 [node name="Target9" parent="." instance=ExtResource("2_udhqn")]
@@ -39,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66515, 0.222143, -3.61388)
 size = Vector3(1, 4.89056, 2.68848)
 
 [node name="Ammo" parent="." instance=ExtResource("2_x2m5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.45572, -1.31027, -1.33886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.833848, -1.31027, -1.33886)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80379, -0.614405, 16.6973)
@@ -117,3 +128,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9258, -1.12005, -3.79841)
 
 [node name="Target8" parent="." instance=ExtResource("2_udhqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300301, -1.12005, -3.79841)
+
+[node name="Decals" type="Node3D" parent="."]
+
+[node name="Normal" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -0.758902, -0.225526)
+texture_albedo = ExtResource("7_qmk5l")
+texture_emission = ExtResource("7_qmk5l")
+emission_energy = 1.61
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Turny" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -0.758902, 0.657307)
+texture_albedo = ExtResource("8_auquo")
+texture_emission = ExtResource("8_auquo")
+emission_energy = 1.61
+modulate = Color(0.52549, 1, 0.556863, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Teleport" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -0.758902, 1.51142)
+texture_albedo = ExtResource("9_654rf")
+texture_emission = ExtResource("9_654rf")
+emission_energy = 1.61
+modulate = Color(0.372549, 0.764706, 0.858824, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Boom" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -1.6464, -0.190875)
+texture_albedo = ExtResource("10_2sw4s")
+texture_emission = ExtResource("10_2sw4s")
+emission_energy = 1.61
+modulate = Color(0.937255, 0.368627, 0.380392, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Photon" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -1.66603, 0.793875)
+texture_albedo = ExtResource("11_ptvah")
+texture_emission = ExtResource("11_ptvah")
+emission_energy = 1.61
+modulate = Color(0.909804, 1, 0.27451, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="Deadshot" type="Decal" parent="Decals"]
+transform = Transform3D(-1.48619e-08, -0.34, 1.48619e-08, 0, -1.48619e-08, -0.34, 0.34, -1.48619e-08, 6.49633e-16, 3.50136, -1.67531, 1.66319)
+texture_albedo = ExtResource("12_nejl4")
+texture_emission = ExtResource("12_nejl4")
+emission_energy = 1.61
+modulate = Color(1, 0.376471, 0.705882, 1)
+normal_fade = 0.999
+upper_fade = 1e-05
+lower_fade = 1e-05
+
+[node name="AmmoAll" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("2_x2m5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72746, -1.22242, -7.14924)
+Storage = [NodePath("LoaderAll/Bullet"), NodePath("LoaderAll/OnTriggerOrCollisionBoomBullet"), NodePath("LoaderAll/OnTriggerDeadshotBullet"), NodePath("LoaderAll/OnTriggerTurningBullet"), NodePath("LoaderAll/OnTriggerOrCollisionBoomBullet2"), NodePath("LoaderAll/PhotonBullet")]
+
+[node name="LoaderAll" type="Node" parent="AmmoAll"]
+
+[node name="Bullet" parent="AmmoAll/LoaderAll" instance=ExtResource("15_xfpsm")]
+
+[node name="OnTriggerOrCollisionBoomBullet" parent="AmmoAll/LoaderAll" instance=ExtResource("14_yul4y")]
+
+[node name="OnTriggerDeadshotBullet" parent="AmmoAll/LoaderAll" instance=ExtResource("16_fjn27")]
+
+[node name="OnTriggerTurningBullet" parent="AmmoAll/LoaderAll" instance=ExtResource("17_dx0w3")]
+
+[node name="OnTriggerOrCollisionBoomBullet2" parent="AmmoAll/LoaderAll" instance=ExtResource("14_yul4y")]
+
+[node name="PhotonBullet" parent="AmmoAll/LoaderAll" instance=ExtResource("18_xfpsm")]

@@ -12,8 +12,16 @@ public partial class Bullet : AnimatableBody3D
 
 	[Export]
 	public bool IsHoming = true;
+    [Export]
+    public Node3D Visual;
 
-	public Player MyPlayer;
+
+    public Player MyPlayer;
+
+	public virtual string GetBulletType()
+	{
+		return "Normal";
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

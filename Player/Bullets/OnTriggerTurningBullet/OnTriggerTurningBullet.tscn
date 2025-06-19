@@ -1,18 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ch07xhi1o03qa"]
+[gd_scene load_steps=11 format=3 uid="uid://ch07xhi1o03qa"]
 
 [ext_resource type="Script" uid="uid://cx7sahiifnil8" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.cs" id="1_tfx0o"]
 [ext_resource type="PackedScene" uid="uid://dkhouf71rhm5m" path="res://Player/Bullets/Indicator/trajectory_indicator.tscn" id="2_tfx0o"]
+[ext_resource type="PackedScene" uid="uid://cgxxqtdfpf8b7" path="res://BulletDisplays/turny_bullet.tscn" id="3_sl8sy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_81ays"]
 radius = 0.05
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5474v"]
-albedo_color = Color(0.310617, 0.310617, 0.310617, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_nfanl"]
-material = SubResource("StandardMaterial3D_5474v")
-radius = 0.05
-height = 0.1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phnsj"]
 particle_flag_align_y = true
@@ -45,7 +38,7 @@ material = SubResource("StandardMaterial3D_phnsj")
 radius = 1.0
 height = 2.0
 
-[node name="OnTriggerTurningBullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrajectoryIndicator", "TrackingArea") groups=["bullet"]]
+[node name="OnTriggerTurningBullet" type="AnimatableBody3D" node_paths=PackedStringArray("TrajectoryIndicator", "TrackingArea", "Visual") groups=["bullet"]]
 process_mode = 4
 visible = false
 collision_layer = 2
@@ -55,15 +48,13 @@ Axis = Vector3(0, 1, 0)
 AngleDegrees = -90.0
 TrajectoryIndicator = NodePath("TrajectoryIndicator")
 TrackingArea = NodePath("TrackingArea")
+Visual = NodePath("TurnyBullet")
 
 [node name="TrajectoryIndicator" parent="." instance=ExtResource("2_tfx0o")]
 
 [node name="BulletColliderShape" type="CollisionShape3D" parent="."]
 process_mode = 4
 shape = SubResource("SphereShape3D_81ays")
-
-[node name="BulletMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_nfanl")
 
 [node name="Trail" type="GPUParticles3D" parent="."]
 amount = 5
@@ -82,3 +73,6 @@ shape = SubResource("SphereShape3D_phnsj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TrackingArea"]
 mesh = SubResource("SphereMesh_uj5d2")
+
+[node name="TurnyBullet" parent="." instance=ExtResource("3_sl8sy")]
+transform = Transform3D(0.065, 0, 0, 0, -2.84124e-09, 0.065, 0, -0.065, -2.84124e-09, 0, 0, 0)

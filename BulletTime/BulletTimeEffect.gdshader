@@ -19,9 +19,9 @@ void fragment() {
 	//vec2 pincushion_uv = SCREEN_UV - center_vector * pincushion_magnitude;
 
 	vec2 zoomed_uv = SCREEN_UV - center_vector * zoom_offset_percentage * blurring_percent;
-	
-	
-	
+
+
+
 	COLOR.rgb = textureLod(screen_texture, zoomed_uv, blur_level).rgb;
 }
 

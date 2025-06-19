@@ -1,14 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://csu4gsjdxpuhm"]
+[gd_scene load_steps=10 format=3 uid="uid://csu4gsjdxpuhm"]
 
 [ext_resource type="Script" uid="uid://c68n26bn60i0u" path="res://Player/Gun/Gun.cs" id="1_by1yx"]
-[ext_resource type="Script" uid="uid://b7ynjy1tlrpnl" path="res://Player/Gun/Loader.cs" id="2_amtoi"]
-[ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="3_6uoou"]
-[ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_rlxxl"]
-[ext_resource type="PackedScene" uid="uid://diomba6mxnssq" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tscn" id="5_53e7j"]
-[ext_resource type="PackedScene" uid="uid://diaatub6287aj" path="res://Player/Bullets/PhotonBullet/photonbullet.tscn" id="6_fuihc"]
-[ext_resource type="PackedScene" uid="uid://do5ij33flsadh" path="res://Player/Gun/revolver_gun.glb" id="7_iu1ju"]
-[ext_resource type="PackedScene" uid="uid://bsnfhxf7cifbb" path="res://Player/Gun/revolver_cylinder.glb" id="8_eq5df"]
-[ext_resource type="Script" uid="uid://cak6uh5jo1qmc" path="res://Player/Gun/hit_indicator.cs" id="9_eq5df"]
+[ext_resource type="Script" uid="uid://cak6uh5jo1qmc" path="res://Player/Gun/hit_indicator.cs" id="7_eq5df"]
+[ext_resource type="PackedScene" uid="uid://pwf1l3ypeat" path="res://Player/Gun/RevolverGun.glb" id="7_iu1ju"]
+[ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="8_iu1ju"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq5df"]
+transparency = 1
+albedo_color = Color(1, 0.623529, 0.568627, 0.364706)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 8.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbo43"]
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_iu1ju"]
 resource_name = "Fire"
@@ -29,22 +35,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RevolverGun/RevolverCylinder:rotation")
-tracks/1/interp = 2
+tracks/1/path = NodePath("RevolverGun:position")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.31, 0.56, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.39626), Vector3(0, 0, -1.0472)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RevolverGun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.36),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -68,22 +62,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RevolverGun/RevolverCylinder:rotation")
+tracks/1/path = NodePath("RevolverGun:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RevolverGun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -96,62 +78,44 @@ _data = {
 &"RESET": SubResource("Animation_eq5df")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iu1ju"]
-albedo_color = Color(0.834297, 0, 0.0802187, 1)
-emission_enabled = true
-emission = Color(0.998647, 0, 0.0930365, 1)
-emission_energy_multiplier = 60.8
-
-[node name="Gun" type="Node3D" node_paths=PackedStringArray("PreloadedLoader", "Clip")]
+[node name="Gun" type="Node3D"]
 script = ExtResource("1_by1yx")
-PreloadedLoader = NodePath("DefaultLoader")
-Clip = NodePath("Clip")
-
-[node name="DefaultLoader" type="Node" parent="." node_paths=PackedStringArray("HeldBullets")]
-script = ExtResource("2_amtoi")
-HeldBullets = [NodePath("photon"), NodePath("Bullet2")]
-
-[node name="Bullet" parent="DefaultLoader" instance=ExtResource("3_6uoou")]
-
-[node name="Bullet2" parent="DefaultLoader" instance=ExtResource("3_rlxxl")]
-
-[node name="Bullet3" parent="DefaultLoader" instance=ExtResource("3_rlxxl")]
-
-[node name="Bullet4" parent="DefaultLoader" instance=ExtResource("3_rlxxl")]
-
-[node name="TeleporterBullet" parent="DefaultLoader" instance=ExtResource("5_53e7j")]
-
-[node name="TeleporterBullet2" parent="DefaultLoader" instance=ExtResource("5_53e7j")]
-
-[node name="photon" parent="DefaultLoader" instance=ExtResource("6_fuihc")]
-
-[node name="RevolverGun" parent="." instance=ExtResource("7_iu1ju")]
-transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0, 0)
-
-[node name="RevolverCylinder" parent="RevolverGun" instance=ExtResource("8_eq5df")]
 
 [node name="Clip" type="Node" parent="."]
 
 [node name="BulletEmitter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0755564, -0.931712)
 
+[node name="aim_guide_idle" type="CSGCylinder3D" parent="BulletEmitter"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -500)
+radius = 0.013
+height = 1000.0
+material = SubResource("StandardMaterial3D_eq5df")
+
+[node name="RayCast3D" type="RayCast3D" parent="BulletEmitter"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -1e+10, 0)
+collision_mask = 255
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
+
+[node name="aim_guide_targeted" type="CSGCylinder3D" parent="BulletEmitter" node_paths=PackedStringArray("targetingRay", "idle")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -500)
+radius = 0.016
+height = 1000.0
+material = SubResource("StandardMaterial3D_pbo43")
+script = ExtResource("7_eq5df")
+targetingRay = NodePath("../RayCast3D")
+idle = NodePath("../aim_guide_idle")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_pbo43")
 }
 
-[node name="aimIndicator" type="CSGTorus3D" parent="." node_paths=PackedStringArray("targetingRay")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.064544, -0.968111)
-inner_radius = 0.0844154
-outer_radius = 0.0927837
-sides = 64
-ring_sides = 64
-smooth_faces = false
-material = SubResource("StandardMaterial3D_iu1ju")
-script = ExtResource("9_eq5df")
-targetingRay = NodePath("RayCast3D")
+[node name="RevolverGun" parent="." instance=ExtResource("7_iu1ju")]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0, 0)
 
-[node name="RayCast3D" type="RayCast3D" parent="aimIndicator"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.942, 0.065)
-target_position = Vector3(0, -1e+10, 0)
-collide_with_areas = true
+[node name="BarrelCylinder" parent="RevolverGun" node_paths=PackedStringArray("myGun") instance=ExtResource("8_iu1ju")]
+myGun = NodePath("../..")

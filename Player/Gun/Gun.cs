@@ -9,15 +9,10 @@ public partial class Gun : Node3D
 	public delegate void SuccessfulFireEventHandler();
 
 	[Export]
-	public Loader PreloadedLoader;
-
-	[Export]
-	public Node Clip;
-
-	[Export]
 	public Player Bearer;
 
-	List<Bullet> Bullets = new List<Bullet>();
+
+	public Bullet[] Bullets = new Bullet[6];
 
 	[Export]
 	public float SwayAmount = 0.003f;
@@ -28,6 +23,10 @@ public partial class Gun : Node3D
 	private Vector2 LookDelta = Vector2.Zero;
 	private Vector3 TargetOffset = Vector3.Zero;
 	private Vector3 CurrentOffset = Vector3.Zero;
+    [Export]
+    public Vector3 BaseRotation = Vector3.Zero;
+
+    private HashSet<BarrelCylinder> barrelCylinders = new HashSet<BarrelCylinder>();
 
 	public override void _Input(InputEvent @event)
 	{
@@ -37,6 +36,10 @@ public partial class Gun : Node3D
 		}
 	}
 
+	public void RegisterBarrell(BarrelCylinder barrel)
+	{
+		barrelCylinders.Add(barrel);
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -46,78 +49,168 @@ public partial class Gun : Node3D
 		{
 			GD.PrintErr("WARNING: Gun's 'Bearer' property is set to null.");
 		}
-
-		Load(PreloadedLoader);
-
-		
-	
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		// Alter gun rotation to simulate sway
-		TargetOffset = new Vector3(LookDelta.Y * SwayAmount, LookDelta.X * SwayAmount, 0.0f);
-		CurrentOffset = CurrentOffset.Lerp(TargetOffset, (float)delta * SwaySmoothness);
-		Rotation = CurrentOffset;
 
-		if (Input.IsActionJustPressed("Fire"))
+		// Alter gun rotation to simulate sway
+        TargetOffset = new Vector3(LookDelta.Y * SwayAmount, LookDelta.X * SwayAmount, 0.0f);
+		CurrentOffset = CurrentOffset.Lerp(TargetOffset, (float)delta * SwaySmoothness);
+		Rotation = BaseRotation + CurrentOffset;
+		
+
+		if (Input.IsActionJustPressed("Fire") && !Bearer.InventoryOpen)
 			Fire();
-        
+		if (Bearer.InventoryOpen)
+		{
+			if (!Bearer.InventoryFocused && Input.IsActionJustPressed("Fire") && Bullets[0] != null)
+            {
+				Bullet b = Bullets[0];
+                Unload(b);
+                Bearer.PickUp(b);
+            }
+        }
+		if (!Bearer.InventoryOpen || !Bearer.InventoryFocused)
+		{
+            if (Input.IsActionJustReleased("ScrollUp"))
+                RotateBarrelRight();
+            if (Input.IsActionJustReleased("ScrollDown"))
+                RotateBarrelLeft();
+        }
+
+	}
+	private void RotateBarrelRight()
+	{
+		Bullet f = Bullets[0];
+		for (int i = 1; i < Bullets.Length; i++)
+			Bullets[i - 1] = Bullets[i];
+		Bullets[Bullets.Length - 1] = f;
+        foreach (BarrelCylinder b in barrelCylinders)
+        {
+            b.RotateRight();
+            GD.Print(b.Name);
+        }
+    }
+    private void RotateBarrelLeft()
+    {
+        Bullet f = Bullets[Bullets.Length-1];
+        for (int i = Bullets.Length - 1; i >= 1; i--)
+            Bullets[i] = Bullets[i - 1];
+        Bullets[0] = f;
+        foreach (BarrelCylinder b in barrelCylinders)
+        {
+            b.RotateLeft();
+            GD.Print(b.Name);
+        }
     }
     public void Fire()
 	{
-		if (Bullets.Count > 0)
-		{
-			Fire(Bullets[0]);
-			Bullets.RemoveAt(0);
+        for (int i = 0; i < Bullets.Length && Bullets[0] == null; i++)
+            RotateBarrelRight();
+        if (Bullets[0] != null)
+        {
+            GetTree().Root.AddChild(Bullets[0]);
+            Fire(Bullets[0]);
+            Unload(Bullets[0]);
 		}
+		RotateBarrelRight();
+
+		foreach (var bullet in Bullets)
+		{
+			GD.Print("\t- " + (bullet != null ? bullet.Name : "Empty"));
+		}
+		
     }
 
-    public void Fire(Bullet bullet)
+    private void Fire(Bullet bullet)
     {
-		if (!GetNode<AnimationPlayer>("AnimationPlayer").IsPlaying())
-		{
+		//if (!GetNode<AnimationPlayer>("AnimationPlayer").IsPlaying())
+		//{
 			EmitSignal(SignalName.SuccessfulFire);
 			bullet.ProcessMode = ProcessModeEnum.Inherit;
 			bullet.GlobalPosition = GetNode<Node3D>("BulletEmitter").GlobalPosition;
-			bullet.GlobalRotation = GetNode<Node3D>("BulletEmitter").GlobalRotation;
+			bullet.GlobalBasis = GetNode<Node3D>("BulletEmitter").GlobalBasis;
+
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
-			//GD.Print(bullet.GlobalTransform + " " + GlobalTransform);
+
+
 			bullet.Visible = true;
 
-			GD.Print("FIRED");
+			GD.Print("Gun: FIRED");
 
 			bullet.Fired(this);
-		}
+		//}
 	}
 
-	public void Load(Loader loader)
-	{
-		// right now, replace the current bullets with the new ones
-		int ocount = Bullets.Count;
+	//public void Load(Loader loader)
+	//{
+	//	// right now, replace the current bullets with the new ones
+	//	if (loader == null)
+	//	{
+	//		GD.PrintErr("Loader is null, cannot load bullets.");
+	//		return;
+	//	}
+	//	int ocount = Bullets.Count;
 
-		// *copy* over the bullets
-		Bullets = new List<Bullet>(loader.HeldBullets.Length);
+	//	// *copy* over the bullets
+	//	Bullets = new List<Bullet>(loader.HeldBullets.Length);
 
-		for (int i = 0; i < loader.HeldBullets.Length; i++)
-		{
-			var bullet = loader.HeldBullets[i];
-			Bullet clonedBullet = (Bullet)bullet.Duplicate();
+	//	for (int i = 0; i < loader.HeldBullets.Length; i++)
+	//	{
+	//		var bullet = loader.HeldBullets[i];
+	//		Bullet clonedBullet = (Bullet)bullet.Duplicate();
 
-			Load(clonedBullet);
-		}
+	//		Load(clonedBullet);
+	//	}
 
-		GD.Print("Loaded from loader. ∆" + (Bullets.Count - ocount) + ". (+" + Bullets.Count + ", -" + ocount + ")");
-	}
+	//	foreach (BarrelCylinder b in barrelCylinders)
+	//	{
+	//		b.LoadFrom(loader);
+	//	}
 
-    private void Load(Bullet bullet)
+	//	GD.Print(barrelCylinders);
+
+	//	GD.Print("Loaded from loader. ∆" + (Bullets.Count - ocount) + ". (+" + Bullets.Count + ", -" + ocount + ")");
+	//}
+
+    public void Load(Bullet bullet)
     {
+		for (int i = 0; i < Bullets.Length && Bullets[0] != null; i++)
+            RotateBarrelRight();
+		
 		// set the owner
 		bullet.MyPlayer = Bearer;
 		
 		// add to clip, to store 'local' references to the bullets
-		Bullets.Add(bullet);
-		Clip.AddChild(bullet);
+		Bullets[0] = bullet;
+       
+        RotateBarrelRight();
+
+        updateCylinders();
+
+        GD.Print("loaded up");
+    }
+	public void Unload()
+	{
+		if (Bullets[0] != null)
+			Unload(Bullets[0]);
+	}
+
+    public void Unload(Bullet bullet)
+	{
+        for (int i = 0; i < Bullets.Length; i++)
+            if (Bullets[i] == bullet)
+				Bullets[i] = null;
+		GD.Print(Bullets.Length);
+        updateCylinders();
+    }
+	private void updateCylinders()
+	{
+        foreach (BarrelCylinder b in barrelCylinders)
+        {
+            b.Update();
+        }
     }
 }
