@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=20 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
-[ext_resource type="Script" path="res://Player/HUD_Root.cs" id="3_fhl08"]
+[ext_resource type="Script" uid="uid://35p8dk21npe8" path="res://Player/HUD_Root.cs" id="3_fhl08"]
 [ext_resource type="PackedScene" uid="uid://csu4gsjdxpuhm" path="res://Player/Gun/gun.tscn" id="3_i70jt"]
 [ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="4_vtle1"]
 [ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
@@ -23,11 +23,12 @@ bottom_radius = 0.0
 height = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwnis"]
-albedo_color = Color(0.798366, 0.798366, 0.798366, 1)
+albedo_color = Color(0.8, 0.8, 0.8, 0.647059)
 emission_enabled = true
 emission = Color(2.11775e-06, 0.907704, 0.00478651, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k53q1"]
+albedo_color = Color(0.0666667, 0.4, 0.333333, 1)
 emission_enabled = true
 emission = Color(0.462291, 0.462291, 0.462291, 1)
 
@@ -41,9 +42,6 @@ albedo_color = Color(0.611765, 0.741176, 1, 0.803922)
 [sub_resource type="BoxMesh" id="BoxMesh_vtle1"]
 material = SubResource("StandardMaterial3D_fhl08")
 size = Vector3(0.05, 0.05, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_od3ui"]
-albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_fhl08"]
 resource_name = "Fire"
@@ -135,13 +133,16 @@ CylinderCursor = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor")
 Animator = NodePath("AnimationPlayer")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-debug_draw = 4
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
@@ -185,18 +186,20 @@ transform = Transform3D(0.095, 0, -3.72529e-09, 0, 0.095, 0, 3.72529e-09, 0, 0.0
 myGun = NodePath("../../../Gun")
 
 [node name="stamina_origin" type="Node3D" parent="Camera3D/hud"]
-transform = Transform3D(0.492785, -0.00873353, 0.165791, 0.0223939, 0.518031, -0.0392731, -0.164504, 0.0443575, 0.491295, 0, 0, 0)
+transform = Transform3D(0.0766534, 0.508005, 0.0803444, -0.505795, 0.0891854, -0.0813459, -0.0932494, -0.0661584, 0.507275, 0, 0, 0)
 
 [node name="curr_stamina" type="CSGCylinder3D" parent="Camera3D/hud/stamina_origin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.029)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.119)
 radius = 0.074
-height = 0.278
+height = 0.8
+smooth_faces = false
 material = SubResource("StandardMaterial3D_gwnis")
 script = ExtResource("5_k53q1")
 
 [node name="full_stamina" type="CSGCylinder3D" parent="Camera3D/hud/stamina_origin/curr_stamina"]
 radius = 0.047
-height = 0.278
+height = 0.8
+smooth_faces = false
 material = SubResource("StandardMaterial3D_k53q1")
 
 [node name="Gun" parent="Camera3D" node_paths=PackedStringArray("Bearer") instance=ExtResource("3_i70jt")]
@@ -224,11 +227,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125079, -5.96046e-08)
 mesh = SubResource("CylinderMesh_k53q1")
 skeleton = NodePath("../..")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Camera3D"]
-transform = Transform3D(0.104598, 0, -0.994515, 0, 1, 0, 0.994515, 0, 0.104598, -0.784971, -0.354309, -0.451637)
-size = Vector3(1.47803, 0.291382, 0.332153)
-material = SubResource("StandardMaterial3D_od3ui")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
