@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=21 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
+[ext_resource type="Script" uid="uid://35p8dk21npe8" path="res://Player/HUD_Root.cs" id="3_fhl08"]
 [ext_resource type="PackedScene" uid="uid://csu4gsjdxpuhm" path="res://Player/Gun/gun.tscn" id="3_i70jt"]
 [ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="4_vtle1"]
 [ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
@@ -40,6 +41,9 @@ albedo_color = Color(0.611765, 0.741176, 1, 0.803922)
 [sub_resource type="BoxMesh" id="BoxMesh_vtle1"]
 material = SubResource("StandardMaterial3D_fhl08")
 size = Vector3(0.05, 0.05, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_od3ui"]
+albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_fhl08"]
 resource_name = "Fire"
@@ -130,6 +134,21 @@ CylinderHUD = NodePath("Camera3D/hud/cylinder_origin/BarrelCylinderHUD")
 CylinderCursor = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor")
 Animator = NodePath("AnimationPlayer")
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+debug_draw = 4
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.691, 0)
+cull_mask = 524288
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6jsmy")
 
@@ -140,13 +159,18 @@ shape = SubResource("CapsuleShape3D_k53q1")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.691, 0)
 top_level = true
+cull_mask = 524287
 script = ExtResource("1_1pbhj")
 DPI = 0.1
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
+remote_path = NodePath("../../SubViewportContainer/SubViewport/Camera3D")
 
 [node name="hud" type="Node3D" parent="Camera3D"]
 process_mode = 3
 process_priority = -1
 physics_interpolation_mode = 2
+script = ExtResource("3_fhl08")
 
 [node name="cylinder_origin" type="Node3D" parent="Camera3D/hud"]
 transform = Transform3D(0.882988, -0.0636311, 0.465062, 0, 0.990769, 0.13556, -0.469394, -0.119698, 0.874838, 0, 0, 0)
@@ -158,7 +182,7 @@ mesh = SubResource("CylinderMesh_k53q1")
 
 [node name="BarrelCylinderHUD" parent="Camera3D/hud/cylinder_origin" node_paths=PackedStringArray("myGun") instance=ExtResource("4_vtle1")]
 process_priority = -1
-transform = Transform3D(0.065, 0, -1.93715e-09, 0, 0.065, 0, 1.93715e-09, 0, 0.065, 0, 0, -0.601)
+transform = Transform3D(0.095, 0, -3.72529e-09, 0, 0.095, 0, 3.72529e-09, 0, 0.095, 0.000806063, -7.61151e-05, -0.990444)
 myGun = NodePath("../../../Gun")
 
 [node name="stamina_origin" type="Node3D" parent="Camera3D/hud"]
@@ -201,6 +225,11 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125079, -5.96046e-08)
 mesh = SubResource("CylinderMesh_k53q1")
 skeleton = NodePath("../..")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Camera3D"]
+transform = Transform3D(0.104598, 0, -0.994515, 0, 1, 0, 0.994515, 0, 0.104598, -0.784971, -0.354309, -0.451637)
+size = Vector3(1.47803, 0.291382, 0.332153)
+material = SubResource("StandardMaterial3D_od3ui")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
