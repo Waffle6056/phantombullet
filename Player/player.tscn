@@ -178,6 +178,7 @@ transform = Transform3D(0.882988, -0.0636311, 0.465062, 0, 0.990769, 0.13556, -0
 
 [node name="CylinderCursor" type="MeshInstance3D" parent="Camera3D/hud/cylinder_origin"]
 transform = Transform3D(1, -3.58201e-09, -2.86561e-08, 3.58201e-09, 1, 1.4328e-08, 2.86561e-08, -1.4328e-08, 1, 0, 0.12, -0.601)
+visible = false
 mesh = SubResource("CylinderMesh_k53q1")
 
 [node name="BarrelCylinderHUD" parent="Camera3D/hud/cylinder_origin" node_paths=PackedStringArray("myGun") instance=ExtResource("4_vtle1")]

@@ -12,7 +12,13 @@
 [sub_resource type="BoxMesh" id="BoxMesh_7bfsc"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7bfsc"]
-albedo_color = Color(0.738411, 0.185013, 0.357114, 1)
+albedo_color = Color(0.927261, 0.369587, 0.513717, 1)
+emission = Color(0.611684, 0.549614, 0, 1)
+rim_enabled = true
+clearcoat_enabled = true
+clearcoat_roughness = 0.83
+anisotropy = 0.56
+backlight = Color(1, 1, 1, 1)
 
 [node name="Ammo" type="Area3D" node_paths=PackedStringArray("Storage") groups=["item"]]
 collision_layer = 8
@@ -24,6 +30,7 @@ Storage = [NodePath("StoredBullets/Bullet2"), NodePath("StoredBullets/Bullet3"),
 shape = SubResource("BoxShape3D_4jfn8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 256
 mesh = SubResource("BoxMesh_7bfsc")
 surface_material_override/0 = SubResource("ORMMaterial3D_7bfsc")
 
@@ -51,12 +58,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74784, 0.0101352, 1.6616)
 
 [node name="Title" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77559, 0)
+layers = 256
 billboard = 2
 text = "Ammo"
 font_size = 62
 
 [node name="Contents" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.936497, 0)
+layers = 256
 billboard = 2
 text = "1x Example1, 1x Example2
 1x Example3, 1x Example4

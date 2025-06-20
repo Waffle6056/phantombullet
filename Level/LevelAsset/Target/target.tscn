@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://hb3x0n3mu372"]
+[gd_scene load_steps=10 format=3 uid="uid://hb3x0n3mu372"]
 
 [ext_resource type="Script" uid="uid://b4s1w1nec447t" path="res://Level/LevelAsset/Target/Target.cs" id="1_8p6v7"]
+[ext_resource type="Shader" uid="uid://bgjx8p8qly8p8" path="res://Level/LevelAsset/Target/target_watcharea.tres" id="2_njjcb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nufe5"]
 
@@ -13,6 +14,17 @@ radius = 0.675
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mnbwq"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_gurpy"]
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_5p3j2"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w21ft"]
+render_priority = 0
+shader = ExtResource("2_njjcb")
+
 [node name="Target" type="Area3D" node_paths=PackedStringArray("HitIndicator") groups=["target"]]
 collision_layer = 5
 collision_mask = 2
@@ -23,10 +35,27 @@ HitIndicator = NodePath("MeshInstance3D2")
 shape = SubResource("CapsuleShape3D_nufe5")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028801, 0.00336608, -0.00195193)
+layers = 256
 mesh = SubResource("SphereMesh_ca7ni")
 skeleton = NodePath("../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028801, 0.00336608, -0.00195193)
+layers = 256
 mesh = SubResource("CapsuleMesh_mnbwq")
 
+[node name="WatchArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 65535
+monitorable = false
+
+[node name="Detector" type="CollisionShape3D" parent="WatchArea"]
+shape = SubResource("SphereShape3D_gurpy")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="WatchArea"]
+mesh = SubResource("SphereMesh_5p3j2")
+surface_material_override/0 = SubResource("ShaderMaterial_w21ft")
+
 [connection signal="body_entered" from="." to="." method="IsShot"]
+[connection signal="body_entered" from="WatchArea" to="." method="WatchAreaEntered"]
