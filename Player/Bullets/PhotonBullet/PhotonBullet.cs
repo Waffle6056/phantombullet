@@ -15,13 +15,18 @@ public partial class PhotonBullet : Bullet
     }
 
     // Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		// RAYCAST SETUP
-		// set rotation to 90, 0, 0 (x, y, z)
-		Ray.CollideWithAreas = true;
-		Ray.CollideWithBodies = true;
-		Ray.Enabled = false;
+    public override void _Ready()
+    {
+        // RAYCAST SETUP
+        // set rotation to 90, 0, 0 (x, y, z)
+        Ray.CollideWithAreas = true;
+        Ray.CollideWithBodies = true;
+        Ray.Enabled = false;
+
+        if (photonAnimator == null)
+        {
+            GD.PrintErr($"PhotonBullet {Name}: AnimationPlayer is not set. Please set it in the inspector.");
+        }
 	}
     public override void Fired(Gun gun)
     {

@@ -17,8 +17,7 @@ public partial class Ammo : Area3D
         // check storage and build freq map
         if (Storage == null)
         {
-            GD.PrintErr("WARNING: Ammo's 'Storage' property is set to null.");
-            return;
+            GD.PrintErr($"Ammo {Name}: Ammo's 'Storage' property is set to null.");
         }
         var freqMap = new System.Collections.Generic.Dictionary<string, int>();
         foreach (Bullet child in Storage)

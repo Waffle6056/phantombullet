@@ -14,6 +14,10 @@ public partial class OnTriggerDeadshotBullet : Bullet
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        if (TrajectoryIndicator == null)
+        {
+            GD.PrintErr($"OnTriggerDeadshotBullet {Name}: TrajectoryIndicator is not set. Please set it in the inspector.");
+        }
     }
 
     public override string GetBulletType()

@@ -26,7 +26,14 @@ public partial class Bullet : AnimatableBody3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-
+		if (TrackingArea == null)
+		{
+			GD.PrintErr($"Bullet {Name}: TrackingArea is not set. Please set it in the inspector.");
+		}
+		if (Visual == null)
+		{
+			GD.PrintErr($"Bullet {Name}: Visual is not set. Please set it in the inspector.");
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

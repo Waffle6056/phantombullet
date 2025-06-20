@@ -7,9 +7,13 @@ public partial class OnTriggerOrCollisionBoomBullet : Bullet
     public bool HasExploded = false;
     [Export]
     public AnimationPlayer AnimationPlayer;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        if (AnimationPlayer == null)
+        {
+            GD.PrintErr($"OnTriggerOrCollisionBoomBullet {Name}: AnimationPlayer is not set. Please set it in the inspector.");
+        }
 	}
 
     public override string GetBulletType()

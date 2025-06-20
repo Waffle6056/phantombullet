@@ -32,10 +32,25 @@ public partial class Player : CharacterBody3D
     public Node3D CylinderCursor;
     [Export]
     public AnimationPlayer Animator;
-    public override void _Ready()
+	public override void _Ready()
 	{
 		base._Ready();
 		Instance = this;
+
+		if (Gun == null)
+		{
+			GD.PrintErr("Player's 'Gun' property is set to null.");
+		}
+		if (Cursor == null)
+			GD.PrintErr("Player's Cursor is not set. Please set it in the inspector.");
+		if (CylinderCursor == null)
+			GD.PrintErr("Players' CylinderCursor is not set. Please set it in the inspector.");
+		if (Animator == null)
+			GD.PrintErr("Player's Animator is not set. Please set it in the inspector.");
+		if (AmmoBand == null)
+			GD.PrintErr("Player's AmmoBand is not set. Please set it in the inspector.");
+		if (CylinderHUD == null)
+			GD.PrintErr("Player's CylinderHUD is not set. Please set it in the inspector.");
 	}
     public override void _Process(double delta)
     {

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c68n26bn60i0u" path="res://Player/Gun/Gun.cs" id="1_by1yx"]
 [ext_resource type="Script" uid="uid://cak6uh5jo1qmc" path="res://Player/Gun/hit_indicator.cs" id="7_eq5df"]
-[ext_resource type="PackedScene" uid="uid://pwf1l3ypeat" path="res://Player/Gun/RevolverGun.glb" id="7_iu1ju"]
+[ext_resource type="PackedScene" uid="uid://tifr4gsw2fvu" path="res://Player/Gun/RevolverGun.glb" id="7_iu1ju"]
 [ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="8_iu1ju"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq5df"]

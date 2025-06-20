@@ -34,6 +34,11 @@ public partial class Gun : Node3D
 		{
 			LookDelta = motion.Relative;
 		}
+
+		if (Bearer == null)
+		{
+			GD.PrintErr("WARNING: Gun's 'Bearer' property is set to null.");
+		}
 	}
 
 	public void RegisterBarrell(BarrelCylinder barrel)

@@ -28,7 +28,10 @@ public partial class BulletTime : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-
+		if (BlurNode == null)
+		{
+			GD.PrintErr($"BulletTime {Name}: BlurNode is not set. Please set it in the inspector.");
+		}
 	}
 	public override void _Process(double delta)
 	{
