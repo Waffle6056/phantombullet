@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://4ua1jg5xqgag" path="res://Level/LevelManager.cs" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cyh5et2rptwvl" path="res://Level/TutorialLevel/tutorial_level.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bnh6be21udeui" path="res://BulletTime/BulletTime.cs" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://cgeskccbhcgix" path="res://BulletTime/grid.jpg" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://b81atskiblbjk" path="res://BulletTime/grid.jpg" id="5_7mycd"]
 [ext_resource type="Shader" uid="uid://bjs85y8sunp3n" path="res://BulletTime/BulletTimeEffect.gdshader" id="5_lquwl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8uy2h"]

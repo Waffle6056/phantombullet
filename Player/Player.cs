@@ -74,7 +74,9 @@ public partial class Player : CharacterBody3D
 				ScrollRight();
 			if (Input.IsActionJustPressed("Fire"))
 			{
-				LoadGun(Inventory[Ind]);
+				Bullet b = Inventory[Ind];
+				Inventory[Ind] = null;
+                LoadGun(b);
                 ScrollRight();
             }
 		}
@@ -142,7 +144,7 @@ public partial class Player : CharacterBody3D
 		MoveAndSlide();
 		Velocity /= BulletTime.TimeScale;
 	}
-	public void PickUp(Bullet b)
+	public bool PickUp(Bullet b)
 	{
 		GD.Print("Picked up");
         int i = 0;
@@ -151,8 +153,8 @@ public partial class Player : CharacterBody3D
 		if (i == Inventory.Length)
 		{
 			GD.Print("inventory full");
-			return;
-		}
+			return false;
+        }
 		Inventory[i] = b;
 
         Node3D vis = b.Visual.Duplicate() as Node3D;
@@ -162,19 +164,23 @@ public partial class Player : CharacterBody3D
 		if (DupedVisuals.ContainsKey(b))
             DupedVisuals.Remove(b);
         DupedVisuals.Add(b, vis);
+		return true;
 		
-		//LoadGun(b);
 	}
-	public void LoadGun(Bullet b)
+	public bool LoadGun(Bullet b)
     {
         if (b == null)
-            return;
+            return false;
+		if (Gun.ChambersFilled && !(PickUp(Gun.Bullets[0]) && Gun.Unload()))
+			return false;
         GD.Print("Picked down");
         for (int i = 0; i < Inventory.Length; i++)
             if (Inventory[i] == b)
                 Inventory[i] = null;
-		DupedVisuals[b].QueueFree();
+		if (DupedVisuals.ContainsKey(b))
+			DupedVisuals[b].QueueFree();
         Gun.Load(b);
+		return true;
 	}
     int FloorMod(int a, int b)
     {

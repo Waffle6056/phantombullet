@@ -13,6 +13,13 @@ public partial class Gun : Node3D
 
 
 	public Bullet[] Bullets = new Bullet[6];
+	public bool ChambersFilled {
+		get {
+			for (int i = 0; i < Bullets.Length; i++)
+				if (Bullets[i] == null)
+					return false;
+			return true;
+		} }
 
 	[Export]
 	public float SwayAmount = 0.003f;
@@ -70,11 +77,10 @@ public partial class Gun : Node3D
 			Fire();
 		if (Bearer.InventoryOpen)
 		{
-			if (!Bearer.InventoryFocused && Input.IsActionJustPressed("Fire") && Bullets[0] != null)
+			if (!Bearer.InventoryFocused && Input.IsActionJustPressed("Fire"))
             {
-				Bullet b = Bullets[0];
-                Unload(b);
-                Bearer.PickUp(b);
+				if (Bearer.PickUp(Bullets[0]))
+					Unload();
             }
         }
 		if (!Bearer.InventoryOpen || !Bearer.InventoryFocused)
@@ -82,7 +88,7 @@ public partial class Gun : Node3D
             if (Input.IsActionJustReleased("ScrollUp"))
                 RotateBarrelRight();
             if (Input.IsActionJustReleased("ScrollDown"))
-                RotateBarrelLeft();
+                RotateBarrelLeft(); 
         }
 
 	}
@@ -197,19 +203,29 @@ public partial class Gun : Node3D
 
         GD.Print("loaded up");
     }
-	public void Unload()
+	public bool Unload()
 	{
+        for (int i = 0; i < Bullets.Length && Bullets[0] == null; i++)
+            RotateBarrelRight();
+
+        Bullet b = Bullets[0];
 		if (Bullets[0] != null)
-			Unload(Bullets[0]);
+		{
+			return Unload(Bullets[0]);
+        }
+		return false;
+
 	}
 
-    public void Unload(Bullet bullet)
-	{
+    public bool Unload(Bullet bullet)
+    {
         for (int i = 0; i < Bullets.Length; i++)
             if (Bullets[i] == bullet)
 				Bullets[i] = null;
-		GD.Print(Bullets.Length);
+		//GD.Print(Bullets.Length);
+
         updateCylinders();
+		return true;
     }
 	private void updateCylinders()
 	{

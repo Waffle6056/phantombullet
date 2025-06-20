@@ -82,8 +82,8 @@ public partial class Ammo : Area3D
                 foreach (Bullet b in Storage)
                 {
                     Bullet d = b.Duplicate() as Bullet;
-                    p.PickUp(d);
-
+                    if (!p.LoadGun(d))
+                        p.PickUp(d);
                 }
 
                 // mark as used

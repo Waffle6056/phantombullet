@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
-[ext_resource type="Script" uid="uid://35p8dk21npe8" path="res://Player/HUD_Root.cs" id="3_fhl08"]
+[ext_resource type="Script" path="res://Player/HUD_Root.cs" id="3_fhl08"]
 [ext_resource type="PackedScene" uid="uid://csu4gsjdxpuhm" path="res://Player/Gun/gun.tscn" id="3_i70jt"]
 [ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="4_vtle1"]
 [ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
@@ -177,7 +177,6 @@ transform = Transform3D(0.882988, -0.0636311, 0.465062, 0, 0.990769, 0.13556, -0
 
 [node name="CylinderCursor" type="MeshInstance3D" parent="Camera3D/hud/cylinder_origin"]
 transform = Transform3D(1, -3.58201e-09, -2.86561e-08, 3.58201e-09, 1, 1.4328e-08, 2.86561e-08, -1.4328e-08, 1, 0, 0.12, -0.601)
-visible = false
 mesh = SubResource("CylinderMesh_k53q1")
 
 [node name="BarrelCylinderHUD" parent="Camera3D/hud/cylinder_origin" node_paths=PackedStringArray("myGun") instance=ExtResource("4_vtle1")]
