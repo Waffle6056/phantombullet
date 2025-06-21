@@ -117,14 +117,17 @@ public partial class Target : Area3D
 
 	public void IsShot(Node3D body)
     {
-        HitTarget();
         if (body.IsInGroup("bullet"))
 		{
-			if (body is OnTriggerOrCollisionBoomBullet)
-				handleBoom((OnTriggerOrCollisionBoomBullet)body);
+			if (body is OnTriggerOrCollisionBoomBullet bullet)
+			{
+				handleBoom(bullet);
+			}
 			else
+			{
 				HitTarget();
-			(body as Bullet).OnCollision();
+				(body as Bullet).OnCollision();
+			}
 		}
 	}
 
@@ -138,10 +141,7 @@ public partial class Target : Area3D
 		if (result.Count == 0)
 		{
 			HitTarget();
-		} else
-		{
-			GD.Print($"Target {Name}: Boom bullet {bullet.Name} hit, but line of sight is blocked.");
-			GD.Print(result);
+			bullet.OnCollision();
 		}
 	}
 }

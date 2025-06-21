@@ -43,7 +43,7 @@ environment = SubResource("Environment_yo784")
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
-LevelList = Array[PackedScene]([ExtResource("3_272bh"), ExtResource("3_h2yge")])
+LevelList = Array[PackedScene]([ExtResource("3_h2yge"), ExtResource("3_272bh")])
 
 [node name="BulletTime" type="Node" parent="." node_paths=PackedStringArray("BlurNode")]
 script = ExtResource("4_1bvp3")
