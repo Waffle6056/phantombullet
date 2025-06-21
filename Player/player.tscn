@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=25 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
+[ext_resource type="Script" uid="uid://cslfodo02o371" path="res://Player/SubViewportContainer.cs" id="2_vtle1"]
 [ext_resource type="Script" uid="uid://35p8dk21npe8" path="res://Player/HUD_Root.cs" id="3_fhl08"]
 [ext_resource type="PackedScene" uid="uid://csu4gsjdxpuhm" path="res://Player/Gun/gun.tscn" id="3_i70jt"]
 [ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="4_vtle1"]
@@ -269,20 +270,25 @@ CylinderCursor = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor")
 Label = NodePath("Camera3D/hud/cylinder_origin/Tab")
 Animator = NodePath("AnimationPlayer")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
+script = ExtResource("2_vtle1")
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.691, 0)
 cull_mask = 524288
 
@@ -300,7 +306,7 @@ shape = SubResource("CapsuleShape3D_vtle1")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="CollisionShapeGunBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.4004, 0, 0, 0, -0.151172, -0.742733, 0, 0.415344, -0.270332, 0.451, 0.620442, -0.705693)
+transform = Transform3D(0.4004, 0, 0, 0, -0.151173, -0.742733, 0, 0.415344, -0.270332, 0.451, 0.620442, -0.705693)
 shape = SubResource("CapsuleShape3D_od3ui")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
@@ -312,7 +318,7 @@ script = ExtResource("1_1pbhj")
 DPI = 0.1
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D"]
-remote_path = NodePath("../../SubViewportContainer/SubViewport/Camera3D")
+remote_path = NodePath("../../CanvasLayer/SubViewportContainer/SubViewport/Camera3D")
 
 [node name="hud" type="Node3D" parent="Camera3D"]
 process_mode = 3

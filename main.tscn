@@ -51,6 +51,7 @@ BlurringPercentVelocity = 10.0
 BlurNode = NodePath("CanvasLayer/ColorRect")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="BulletTime"]
+layer = 2
 
 [node name="TextureRect" type="TextureRect" parent="BulletTime/CanvasLayer"]
 visible = false
@@ -70,8 +71,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseMenu" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="PauseMenu" type="Control" parent="CanvasLayer"]
 process_mode = 2
+z_index = 3
 z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
@@ -81,7 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_272bh")
 
-[node name="TextureRect" type="TextureRect" parent="PauseMenu"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PauseMenu"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -92,13 +97,13 @@ grow_vertical = 2
 texture = ExtResource("5_7mycd")
 expand_mode = 2
 
-[node name="bg" type="ColorRect" parent="PauseMenu"]
+[node name="bg" type="ColorRect" parent="CanvasLayer/PauseMenu"]
 material = SubResource("ShaderMaterial_4c57u")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Label" type="Label" parent="PauseMenu"]
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
 layout_mode = 2
 offset_left = 284.0
 offset_top = 196.0

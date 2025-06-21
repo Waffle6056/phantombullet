@@ -10,15 +10,27 @@ public partial class Main : Node3D
         Input.MouseMode = Input.MouseModeEnum.Captured;
     }
 
+    public override void _Notification(int what)
+    {
+        if (what == NotificationApplicationFocusOut)
+        { Pause(); }
+    }
+
     public override void _Input(InputEvent @event)
     {
         if (@event.IsActionPressed("Pause"))
         {
             GetViewport().SetInputAsHandled();
-            GD.Print("Pause action triggered (main)");
-            GetTree().Paused = true;
-            Input.MouseMode = Input.MouseModeEnum.Visible;
+            Pause();
         }
+    }
+
+    public void Pause()
+    {
+        GD.Print("Pause action triggered (main)");
+        GetTree().Paused = true;
+        GetTree().Root.ContentScaleMode = Window.ContentScaleModeEnum.CanvasItems;
+        Input.MouseMode = Input.MouseModeEnum.Visible;
     }
 
     public override void _Process(double delta)

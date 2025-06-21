@@ -15,6 +15,7 @@ public partial class Menu : Control
             GetViewport().SetInputAsHandled();
             GD.Print("Pause action triggered (menu)");
             Hide();
+            GetTree().Root.ContentScaleMode = Window.ContentScaleModeEnum.Disabled;
             Input.MouseMode = Input.MouseModeEnum.Captured;
             GetTree().Paused = false;
         }
