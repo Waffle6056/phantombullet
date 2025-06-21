@@ -75,6 +75,8 @@ public partial class Target : Area3D
 				excludedRids.Append(collisionObject.GetRid());
 			}
 		}
+
+		GetNode<AnimationPlayer>("AnimationPlayer").Play("Drone Hover");
 	}
 
 	public void WatchAreaEntered(Node3D body)
