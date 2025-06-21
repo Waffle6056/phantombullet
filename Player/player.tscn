@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=20 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
@@ -8,10 +8,6 @@
 [ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jsmy"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k53q1"]
-radius = 0.177195
-height = 1.62755
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtle1"]
 albedo_color = Color(1, 1, 0, 1)
@@ -209,9 +205,8 @@ _data = {
 &"ToggleInventory": SubResource("Animation_k53q1")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "CylinderCursor", "Animator")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "CylinderCursor", "Label", "Animator")]
 collision_layer = 8
-collision_mask = 9
 script = ExtResource("1_8d2l0")
 Gun = NodePath("Camera3D/Gun")
 InventoryDistance = 0.05
@@ -219,6 +214,7 @@ AmmoBand = NodePath("Camera3D/Gun/arm/AmmoBand")
 Cursor = NodePath("Camera3D/Gun/arm/AmmoBand/Cursor")
 CylinderHUD = NodePath("Camera3D/hud/cylinder_origin/BarrelCylinderHUD")
 CylinderCursor = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor")
+Label = NodePath("Camera3D/hud/cylinder_origin/Tab")
 Animator = NodePath("AnimationPlayer")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -240,10 +236,6 @@ cull_mask = 524288
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6jsmy")
-
-[node name="ArmCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.447614, 0.648, -0.503739)
-shape = SubResource("CapsuleShape3D_k53q1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.691, 0)

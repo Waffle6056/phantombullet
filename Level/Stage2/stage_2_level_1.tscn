@@ -1,0 +1,235 @@
+[gd_scene load_steps=10 format=3 uid="uid://coqa5i4oe1xk0"]
+
+[ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="1_1adjx"]
+[ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_5quq7"]
+[ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="3_i1ufh"]
+[ext_resource type="PackedScene" uid="uid://dbhas7yl7wcqu" path="res://Level/LevelAsset/TimedTarget/timed_target.tscn" id="4_6vbwa"]
+[ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="5_bv3xp"]
+[ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="6_qgmll"]
+[ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="7_5quq7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bv3xp"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgmll"]
+size = Vector3(2.37628, 1.92468, 1.60986)
+
+[node name="Stage2Level1" type="Node3D" node_paths=PackedStringArray("Targets")]
+script = ExtResource("1_5quq7")
+Targets = [NodePath("Node3D/CSGBox3D14/Target2")]
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7979, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.174164, 0.214646, -8.67375)
+size = Vector3(7.8775, 1, 22.5572)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1679, 0.214646, 4.91337)
+size = Vector3(2.62556, 1, 15.0803)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791746, 0.214646, 10.0795)
+size = Vector3(10.796, 1, 4.98479)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.39902, 0.214646, 12.8696)
+size = Vector3(9.64828, 1, 10.565)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81507, 0.214646, 20.5486)
+size = Vector3(7.27401, 1, 12.2279)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95391, 0.570542, 21.0308)
+size = Vector3(2.96669, 1.71179, 1.23105)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34163, 3.69048, 21.0308)
+size = Vector3(6.20888, 1.71179, 1.23105)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81746, 2.12662, 21.0308)
+size = Vector3(0.716342, 1.51096, 1.23105)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.90998, 2.61108, 21.0308)
+size = Vector3(2.39089, 4.08416, 1.23105)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08529, 0.214646, 16.9328)
+size = Vector3(5.61626, 1, 2.50713)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85596, 0.517319, 14.7783)
+size = Vector3(1.12632, 1.60535, 2.03547)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94783, 0.214646, 13.1131)
+size = Vector3(3.31006, 1, 1.30287)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5244, 1.80357, 14.7949)
+size = Vector3(2.15692, 4.17786, 1.96254)
+material = ExtResource("1_1adjx")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47433, 1.80357, 14.7302)
+size = Vector3(5.23884, 4.17786, 1.96254)
+material = ExtResource("1_1adjx")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322842, 1.80357, 14.1265)
+size = Vector3(1.93439, 4.17786, 3.29927)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322842, 1.80357, 20.0653)
+size = Vector3(1.93439, 4.17786, 3.80061)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39034, 2.21587, 13.4766)
+size = Vector3(3.46921, 1.35194, 1.95822)
+material = ExtResource("1_1adjx")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21247, 0.625123, 13.471)
+size = Vector3(9.00501, 1.82095, 1.96945)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20905, 3.81298, 13.471)
+size = Vector3(8.99818, 1.82095, 1.96945)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04997, 1.80357, 11.3131)
+size = Vector3(3.51975, 4.17786, 2.28513)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.49044, 0.61995, 11.3131)
+size = Vector3(7.43069, 1.81061, 2.28513)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42063, 4.1617, 11.3131)
+size = Vector3(7.29107, 1.81061, 2.28513)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGBox3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.45607, 0.214646, 12.9129)
+size = Vector3(5.37068, 1, 1.67048)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82237, 0, 26.3603)
+size = Vector3(1.94766, 1.79159, 0.813656)
+material = SubResource("StandardMaterial3D_bv3xp")
+
+[node name="Target2" parent="Node3D/CSGBox3D14" instance=ExtResource("5_bv3xp")]
+visible = false
+collision_layer = 1
+collision_mask = 8
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/CSGBox3D14/Target2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021513, 0, 0)
+shape = SubResource("BoxShape3D_qgmll")
+
+[node name="Door" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_i1ufh")]
+transform = Transform3D(-1.02984e-07, 0, 1, 0, 2, 0, -2.356, 0, -4.37114e-08, -0.36779, -0.0627721, 16.9676)
+Target = NodePath("../Target")
+
+[node name="Target" parent="." instance=ExtResource("4_6vbwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.475, 0, 13.0041)
+HitDuration = 0.8
+IsWatching = false
+
+[node name="Door2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_i1ufh")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1, 4.91385, 0.347913, 21.0901)
+Target = NodePath("../Target2")
+
+[node name="Target2" parent="." instance=ExtResource("4_6vbwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9753, 0, 11.4633)
+HitDuration = 0.5
+IsWatching = false
+
+[node name="Door3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_i1ufh")]
+transform = Transform3D(2.356, 0, 0, 0, 2, 0, 0, 0, 1, 2.27368, -0.0627721, 21.2664)
+Target = NodePath("../Target3")
+
+[node name="Target3" parent="." instance=ExtResource("5_bv3xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7616, 0, 25.5023)
+IsWatching = true
+
+[node name="Target4" parent="." instance=ExtResource("5_bv3xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.08, 0, 14.835)
+IsWatching = true
+AreaScale = 7.0
+
+[node name="Ammo2" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("6_qgmll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03665, -0.50191, 5.4613)
+Storage = [NodePath("OnTriggerTurningBullet"), NodePath("OnTriggerTurningBullet2"), NodePath("OnTriggerTurningBullet3"), NodePath("OnTriggerTurningBullet4"), NodePath("OnTriggerTurningBullet5"), NodePath("OnTriggerTurningBullet6"), NodePath("OnTriggerTurningBullet7"), NodePath("OnTriggerTurningBullet8"), NodePath("OnTriggerTurningBullet9")]
+
+[node name="OnTriggerTurningBullet" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet2" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet3" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet4" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet5" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet6" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet7" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet8" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet9" parent="Ammo2" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="Ammo3" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("6_qgmll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01472, -0.50191, 14.9618)
+Storage = [NodePath("../Ammo2/OnTriggerTurningBullet"), NodePath("../Ammo2/OnTriggerTurningBullet2"), NodePath("../Ammo2/OnTriggerTurningBullet3"), NodePath("../Ammo2/OnTriggerTurningBullet4"), NodePath("../Ammo2/OnTriggerTurningBullet5"), NodePath("../Ammo2/OnTriggerTurningBullet6"), NodePath("../Ammo2/OnTriggerTurningBullet7"), NodePath("../Ammo2/OnTriggerTurningBullet8"), NodePath("../Ammo2/OnTriggerTurningBullet9")]
+
+[node name="OnTriggerTurningBullet" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet2" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet3" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet4" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet5" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet6" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet7" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet8" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="OnTriggerTurningBullet9" parent="Ammo3" instance=ExtResource("7_5quq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32391, 0.501909, -1.30212)
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(-0.786978, 0, -0.616981, 0, 1, 0, 0.616981, 0, -0.786978, 3.29002, 1.63221, 10.8392)
+modulate = Color(1, 1, 0, 1)
+text = "Turning bullets will rotate left
+after you shoot again
+When it would hit a target, it automatically activates Bullet Time
+Try it!"

@@ -1,0 +1,324 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpn0wehjlfyr1"]
+
+[ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_ctq0u"]
+[ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="3_cb504"]
+[ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="4_uvo4k"]
+[ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="5_wtnpg"]
+[ext_resource type="PackedScene" uid="uid://dbhas7yl7wcqu" path="res://Level/LevelAsset/TimedTarget/timed_target.tscn" id="6_uvo4k"]
+[ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="7_l7u34"]
+[ext_resource type="PackedScene" uid="uid://dialrw7vt6au2" path="res://Player/Bullets/OnTriggerDeadshotBullet/on_trigger_deadshot_bullet.tscn" id="8_5otlt"]
+[ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="9_hgun7"]
+[ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="10_5otlt"]
+[ext_resource type="Script" uid="uid://cpo2wtpbkat12" path="res://Level/LevelAsset/TimedTarget/TimedTarget.cs" id="10_hgun7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7u34"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5otlt"]
+size = Vector3(2.25259, 1.27569, 2.19052)
+
+[node name="Stage2Level2" type="Node3D" node_paths=PackedStringArray("Targets")]
+script = ExtResource("1_ctq0u")
+Targets = [NodePath("Node3D/CSGBox3D14/Target2")]
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.50502, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02054, 0.941019, -5.25363)
+size = Vector3(8.77528, 1, 13.5898)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02054, 1.18028, -12.7195)
+size = Vector3(8.77528, 1.47852, 1.32127)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1396, 1.18028, -12.7195)
+size = Vector3(14.0836, 1.47852, 1.32127)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56332, 2.39369, -9.809)
+size = Vector3(2.67776, 3.90533, 7.1422)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39489, 2.40531, -10.4082)
+size = Vector3(3.26348, 3.92859, 8.43902)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39489, 2.40531, -22.8893)
+size = Vector3(3.26348, 3.92859, 8.43902)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1396, 3.63721, -12.7195)
+size = Vector3(14.0836, 1.47852, 1.32127)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10486, 2.414, -12.7195)
+size = Vector3(5.18374, 1.00439, 1.32127)
+material = ExtResource("3_cb504")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26292, 2.414, -12.7195)
+size = Vector3(5.18374, 1.00439, 1.32127)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66659, 2.414, -12.7195)
+size = Vector3(4.54451, 1.00439, 1.32127)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11531, 0.941019, -4.99685)
+size = Vector3(5.73386, 1, 2.39311)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6054, 0.941019, -12.9894)
+size = Vector3(5.30382, 1, 20.8919)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6102, 2.86878, -3.19149)
+size = Vector3(0.905056, 5.49707, 6.16384)
+material = ExtResource("3_cb504")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8396, 2.86878, -5.83767)
+size = Vector3(3.61203, 5.49707, 0.871472)
+material = ExtResource("3_cb504")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6102, 2.85769, -17.7733)
+size = Vector3(0.905056, 5.49707, 7.07673)
+material = ExtResource("3_cb504")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8396, 2.85769, -14.7146)
+size = Vector3(3.61203, 5.49707, 0.871472)
+material = ExtResource("3_cb504")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.97956, 0.941019, -16.5785)
+size = Vector3(4.5022, 1, 3.982)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03626, 0.941019, -20.6429)
+size = Vector3(13.228, 1, 14.6981)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07846, 4.03439, -18.8183)
+size = Vector3(3.225, 0.5, 11.0495)
+material = ExtResource("3_cb504")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07846, 4.6594, -2.83705)
+size = Vector3(3.225, 0.701294, 20.8813)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07846, 6.5772, -2.88624)
+size = Vector3(3.225, 0.701294, 20.7829)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979001, 5.6717, -2.86301)
+size = Vector3(1.02607, 1.30228, 20.8294)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15451, 5.6717, -3.02854)
+size = Vector3(1.02607, 1.30228, 20.4983)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 0, 0, 1, -2.79682, 1.24851, -14.0018)
+size = Vector3(8.934, 0.5, 1.416)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(-0.766044, 0.642788, 8.74228e-08, 0.642788, 0.766044, 0, -6.69697e-08, 5.61943e-08, -1, 6.92156, 1.24851, -14.0018)
+size = Vector3(8.934, 0.5, 1.416)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4965, 2.57743, -5.95974)
+size = Vector3(0.488308, 2.50305, 6.11901)
+material = ExtResource("3_cb504")
+
+[node name="Target" parent="." instance=ExtResource("6_uvo4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.85912, -0.0640001, -5.99922)
+HitDuration = 1.0
+IsWatching = false
+
+[node name="Door" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
+transform = Transform3D(-1.31134e-07, 0, 1, 0, 3, 0, -3, 0, -4.37114e-08, -1.82583, 0.421365, -4.99762)
+Target = NodePath("../Target")
+
+[node name="Target6" parent="." instance=ExtResource("5_wtnpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.85604, 0, -9.44309)
+IsWatching = true
+AreaScale = 5.0
+
+[node name="Door2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
+transform = Transform3D(-3.49691e-07, 0, 1, 0, 8, 0, -8, 0, -4.37114e-08, -21.914, 0.421365, -10.2212)
+Target = NodePath("../Target3")
+
+[node name="Target3" parent="." instance=ExtResource("6_uvo4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6373, 0.196414, -17.4168)
+HitDuration = 6.0
+IsWatching = false
+
+[node name="Door3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
+transform = Transform3D(-3.49691e-07, 0, 1, 0, 8, 0, -8, 0, -4.37114e-08, -24.1524, 0.421365, -10.2212)
+Target = NodePath("../Target2")
+
+[node name="Target2" parent="." instance=ExtResource("6_uvo4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0985, 0, -10.3077)
+HitDuration = 6.0
+IsWatching = false
+
+[node name="Door4" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
+transform = Transform3D(-3.49691e-07, 0, 1, 0, 8, 0, -8, 0, -4.37114e-08, -26.3907, 0.421365, -10.2212)
+Target = NodePath("../Target4")
+
+[node name="Target4" parent="." instance=ExtResource("6_uvo4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9629, 0.708242, -3.16311)
+HitDuration = 6.0
+IsWatching = false
+
+[node name="Door5" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 3, 0, -5, 0, -4.37114e-08, -6.18819, 0.421365, -16.4668)
+Target = NodePath("../Target5")
+
+[node name="Target5" parent="." instance=ExtResource("5_wtnpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6667, 0.287328, -10.1121)
+
+[node name="Ammo" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("7_l7u34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.164277, -0.457451, -8.52424)
+Storage = [NodePath("OnTriggerDeadshotBullet"), NodePath("Bullet"), NodePath("OnTriggerDeadshotBullet2"), NodePath("Bullet2")]
+
+[node name="OnTriggerDeadshotBullet" parent="Ammo" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 0, 8.52424)
+
+[node name="Bullet" parent="Ammo" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444638, 0, 2.74778)
+
+[node name="OnTriggerDeadshotBullet2" parent="Ammo" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 0, 8.52424)
+
+[node name="Bullet2" parent="Ammo" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444638, 0, 2.74778)
+
+[node name="Ammo4" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("7_l7u34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36921, 2.26591, -19.4356)
+Storage = [NodePath("../Ammo/OnTriggerDeadshotBullet"), NodePath("Bullet")]
+
+[node name="OnTriggerDeadshotBullet" parent="Ammo4" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 0, 8.52424)
+
+[node name="Bullet" parent="Ammo4" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444638, 0, 2.74778)
+
+[node name="OnTriggerDeadshotBullet2" parent="Ammo4" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 0, 8.52424)
+
+[node name="Bullet2" parent="Ammo4" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444638, 0, 2.74778)
+
+[node name="Ammo2" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("7_l7u34")]
+transform = Transform3D(0.999997, -0.00247837, 0, 0.00247837, 0.999997, 0, 0, 0, 1, -4.02543, -0.606684, -5.81785)
+Storage = [NodePath("OnTriggerDeadshotBullet"), NodePath("OnTriggerDeadshotBullet3"), NodePath("OnTriggerDeadshotBullet2"), NodePath("Bullet3"), NodePath("Bullet"), NodePath("Bullet2"), NodePath("OnTriggerTurningBullet"), NodePath("OnTriggerTurningBullet2"), NodePath("OnTriggerTurningBullet3")]
+
+[node name="OnTriggerDeadshotBullet" parent="Ammo2" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 0, 8.52424)
+
+[node name="OnTriggerDeadshotBullet3" parent="Ammo2" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 0, 8.52424)
+
+[node name="OnTriggerDeadshotBullet2" parent="Ammo2" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 1.19209e-07, 8.52424)
+
+[node name="Bullet3" parent="Ammo2" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444638, 0, 2.74778)
+
+[node name="Bullet" parent="Ammo2" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444639, 0, 2.74778)
+
+[node name="Bullet2" parent="Ammo2" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444638, 0, 2.74778)
+
+[node name="OnTriggerTurningBullet" parent="Ammo2" instance=ExtResource("10_5otlt")]
+transform = Transform3D(0.999997, 0.00247837, 0, -0.00247837, 0.999997, 0, 0, 0, 1, -4.34026, 0.617442, -0.301355)
+
+[node name="OnTriggerTurningBullet2" parent="Ammo2" instance=ExtResource("10_5otlt")]
+transform = Transform3D(0.999997, 0.00247837, 0, -0.00247837, 0.999997, 0, 0, 0, 1, -4.34026, 0.617442, -0.301355)
+
+[node name="OnTriggerTurningBullet3" parent="Ammo2" instance=ExtResource("10_5otlt")]
+transform = Transform3D(0.999997, 0.00247837, 0, -0.00247837, 0.999997, 0, 0, 0, 1, -4.34026, 0.617442, -0.301355)
+
+[node name="Ammo3" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("7_l7u34")]
+transform = Transform3D(0.999997, -0.00247837, 0, 0.00247837, 0.999997, 0, 0, 0, 1, -8.45417, -0.606684, -12.2865)
+Storage = [NodePath("../Ammo2/OnTriggerDeadshotBullet"), NodePath("../Ammo2/OnTriggerDeadshotBullet3"), NodePath("../Ammo2/OnTriggerDeadshotBullet2"), NodePath("../Ammo2/Bullet3"), NodePath("../Ammo2/Bullet"), NodePath("../Ammo2/Bullet2"), NodePath("../Ammo2/OnTriggerTurningBullet"), NodePath("../Ammo2/OnTriggerTurningBullet2"), NodePath("../Ammo2/OnTriggerTurningBullet3")]
+
+[node name="OnTriggerDeadshotBullet" parent="Ammo3" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 0, 8.52424)
+
+[node name="OnTriggerDeadshotBullet3" parent="Ammo3" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 0, 8.52424)
+
+[node name="OnTriggerDeadshotBullet2" parent="Ammo3" instance=ExtResource("8_5otlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1424, 1.19209e-07, 8.52424)
+
+[node name="Bullet3" parent="Ammo3" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444638, 0, 2.74778)
+
+[node name="Bullet" parent="Ammo3" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444639, 0, 2.74778)
+
+[node name="Bullet2" parent="Ammo3" instance=ExtResource("9_hgun7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444638, 0, 2.74778)
+
+[node name="OnTriggerTurningBullet" parent="Ammo3" instance=ExtResource("10_5otlt")]
+transform = Transform3D(0.999997, 0.00247837, 0, -0.00247837, 0.999997, 0, 0, 0, 1, -4.34026, 0.617442, -0.301355)
+
+[node name="OnTriggerTurningBullet2" parent="Ammo3" instance=ExtResource("10_5otlt")]
+transform = Transform3D(0.999997, 0.00247837, 0, -0.00247837, 0.999997, 0, 0, 0, 1, -4.34026, 0.617442, -0.301355)
+
+[node name="OnTriggerTurningBullet3" parent="Ammo3" instance=ExtResource("10_5otlt")]
+transform = Transform3D(0.999997, 0.00247837, 0, -0.00247837, 0.999997, 0, 0, 0, 1, -4.34026, 0.617442, -0.301355)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.2185)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20753, -0.195623, 0)
+size = Vector3(1.94766, 1.79159, 0.813656)
+material = SubResource("StandardMaterial3D_l7u34")
+
+[node name="Target2" parent="Node3D/CSGBox3D14" instance=ExtResource("5_wtnpg")]
+visible = false
+collision_layer = 1
+collision_mask = 8
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/CSGBox3D14/Target2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021513, 0, 0)
+shape = SubResource("BoxShape3D_5otlt")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20753, -1.1543, 4.24523)
+size = Vector3(1.94766, 0.400678, 1.9946)
+material = SubResource("StandardMaterial3D_l7u34")
+
+[node name="Target2" parent="Node3D/CSGBox3D15" instance=ExtResource("5_wtnpg")]
+visible = false
+collision_layer = 1
+collision_mask = 8
+script = ExtResource("10_hgun7")
+HitDuration = 0.2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/CSGBox3D15/Target2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0833564, -0.324493, -0.0219879)
+shape = SubResource("BoxShape3D_5otlt")
+
+[node name="Door6" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 2.16381, 0.393256, -25.3258)
+Target = NodePath("../Target7")
+
+[node name="Door7" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 2.16381, 3.3038, -25.3258)
+Target = NodePath("../Node3D/CSGBox3D15/Target2")
+
+[node name="Target7" parent="." instance=ExtResource("5_wtnpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08735, 3.08429, -26.7187)
+AreaScale = 5.0

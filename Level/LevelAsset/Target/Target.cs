@@ -52,7 +52,7 @@ public partial class Target : Area3D
 			else
 			{
 				WatchedAreaShape.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
-			}
+            }
 
 			WatchedAreaDecal = WatchedArea.GetNodeOrNull<MeshInstance3D>("MeshInstance");
 			if (WatchedAreaDecal == null)
@@ -77,11 +77,11 @@ public partial class Target : Area3D
 
 	public void WatchAreaEntered(Node3D body)
 	{
-		if (IsWatching && (body is Player || body.IsInGroup("bullet")))
+		if (!Hit && IsWatching && (body is Player || body.IsInGroup("bullet")))
 		{
 			// make a raycast to the body to check if line-of sight (uninterrupted)
 			var spaceState = GetWorld3D().DirectSpaceState;
-			var query = PhysicsRayQueryParameters3D.Create(GlobalPosition, body.GlobalPosition);
+			var query = PhysicsRayQueryParameters3D.Create(GlobalPosition, body.GlobalPosition, CollisionMask);
 			query.Exclude = [.. excludedRids, (body as CollisionObject3D).GetRid()];
 			var result = spaceState.IntersectRay(query);
 			// if result is empty, line of sight is clear
@@ -93,9 +93,16 @@ public partial class Target : Area3D
 			}
 		}
 	}
+    public void CheckWatchArea()
+    {
+		if (!WatchedArea.HasOverlappingBodies())
+			return;
+		foreach (Node3D body in WatchedArea.GetOverlappingBodies())
+			WatchAreaEntered(body);
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
 		if (HitIndicator != null)
 		{
@@ -104,31 +111,36 @@ public partial class Target : Area3D
 
 		if (WatchedArea != null)
 		{
-			WatchedArea.Visible = IsWatching;
-		}
-	}
+			WatchedArea.Visible = !Hit && IsWatching;
+            WatchedAreaShape.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
+            WatchedAreaDecal.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
+            CheckWatchArea();
+        }
+        foreach (Node3D body in GetOverlappingBodies())
+			IsShot(body);
+
+    }
 
 	public virtual void HitTarget()
 	{
 		// signifies when the target is hit
 		Hit = true;
-		IsWatching = false;
 	}
 
 	public void IsShot(Node3D body)
     {
-        if (body.IsInGroup("bullet"))
+		if (body is Bullet || body is Player)
+			HitTarget();
+		GD.Print("SHOT");
+		if (body is OnTriggerOrCollisionBoomBullet)
 		{
-			if (body is OnTriggerOrCollisionBoomBullet bullet)
-			{
-				handleBoom(bullet);
-			}
-			else
-			{
-				HitTarget();
-				(body as Bullet).OnCollision();
-			}
+			handleBoom(body as OnTriggerOrCollisionBoomBullet);
 		}
+		else if (body is Bullet)
+		{
+			(body as Bullet).OnCollision();
+		}
+		
 	}
 
 	private void handleBoom(OnTriggerOrCollisionBoomBullet bullet)

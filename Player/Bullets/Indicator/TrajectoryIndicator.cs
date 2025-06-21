@@ -39,6 +39,7 @@ public partial class TrajectoryIndicator : Node3D
 
 
 		Visuals.GlobalPosition = (start + end) / 2;
+		GD.Print(Visuals.GlobalPosition);
 		Visuals.Scale = new Vector3(1,(end - start).Length(),1);
     }
 }

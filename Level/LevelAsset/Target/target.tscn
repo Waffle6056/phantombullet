@@ -27,7 +27,7 @@ shader = ExtResource("2_njjcb")
 
 [node name="Target" type="Area3D" node_paths=PackedStringArray("HitIndicator") groups=["target"]]
 collision_layer = 5
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_8p6v7")
 HitIndicator = NodePath("MeshInstance3D2")
 
