@@ -209,4 +209,9 @@ public partial class Player : CharacterBody3D
             continue;
         Ind = FloorMod(Ind - i, Inventory.Length);
     }
+	public void _on_gun_successful_fire()
+	{
+		GetNode<AnimationPlayer>("AnimationPlayer").Stop();
+		GetNode<AnimationPlayer>("AnimationPlayer").Play("Revolver Recoil");
+	}
 }

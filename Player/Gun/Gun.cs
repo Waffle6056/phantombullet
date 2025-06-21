@@ -139,23 +139,18 @@ public partial class Gun : Node3D
 
     private void Fire(Bullet bullet)
     {
-		//if (!GetNode<AnimationPlayer>("AnimationPlayer").IsPlaying())
-		//{
-			EmitSignal(SignalName.SuccessfulFire);
-			bullet.ProcessMode = ProcessModeEnum.Inherit;
-			bullet.GlobalPosition = GetNode<Node3D>("BulletEmitter").GlobalPosition;
-			bullet.GlobalBasis = GetNode<Node3D>("BulletEmitter").GlobalBasis;
+		bullet.ProcessMode = ProcessModeEnum.Inherit;
+		bullet.GlobalPosition = GetNode<Node3D>("BulletEmitter").GlobalPosition;
+		bullet.GlobalBasis = GetNode<Node3D>("BulletEmitter").GlobalBasis;
 
-			GetNode<AnimationPlayer>("AnimationPlayer").Stop();
-			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
+		EmitSignal(SignalName.SuccessfulFire);
 
 
-			bullet.Visible = true;
+		bullet.Visible = true;
 
-			GD.Print("Gun: FIRED");
+		GD.Print("Gun: FIRED");
 
-			bullet.Fired(this);
-		//}
+		bullet.Fired(this);
 	}
 
 	//public void Load(Loader loader)

@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ccdht0kpfgleg"]
 
-[ext_resource type="Texture2D" uid="uid://bspn77mkvdbsm" path="res://Assets/Bullet Textures/Boom Bullet Base Color.png" id="1_yo5pg"]
+[ext_resource type="Texture2D" uid="uid://di17kliafddwp" path="res://Assets/Bullet Textures/Boom Bullet Base Color.png" id="1_yo5pg"]
 
 [resource]
 albedo_texture = ExtResource("1_yo5pg")
