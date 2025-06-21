@@ -31,6 +31,8 @@ public partial class Player : CharacterBody3D
     [Export]
     public Node3D CylinderCursor;
     [Export]
+    public Node3D Label;
+    [Export]
     public AnimationPlayer Animator;
 	public override void _Ready()
 	{
@@ -57,15 +59,22 @@ public partial class Player : CharacterBody3D
         base._Process(delta);
 		if (Input.IsActionJustPressed("ToggleInventory"))
 		{
-            InventoryFocused = Cursor.Visible = InventoryOpen = !InventoryOpen;
+            InventoryFocused = Label.Visible = Cursor.Visible = InventoryOpen = !InventoryOpen;
+
 			if (InventoryOpen)
 				Animator.Play("ToggleInventory");
 			else
 				Animator.PlayBackwards("ToggleInventory");
         }
 
-        if (InventoryOpen && Input.IsActionJustReleased("ToggleFocus"))
-            InventoryFocused = !InventoryFocused;
+		if (InventoryOpen && Input.IsActionJustReleased("ToggleFocus"))
+		{
+			InventoryFocused = !InventoryFocused;
+            if (InventoryFocused)
+                Animator.PlayBackwards("ToggleFocus");
+            else
+                Animator.Play("ToggleFocus");
+        }
         if (InventoryOpen && InventoryFocused)
         {
             if (Input.IsActionJustReleased("ScrollUp"))

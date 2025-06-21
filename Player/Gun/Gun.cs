@@ -79,7 +79,9 @@ public partial class Gun : Node3D
 		{
 			if (!Bearer.InventoryFocused && Input.IsActionJustPressed("Fire"))
             {
-				if (Bearer.PickUp(Bullets[0]))
+                for (int i = 0; i < Bullets.Length && Bullets[0] == null; i++)
+                    RotateBarrelRight();
+                if (Bearer.PickUp(Bullets[0]))
 					Unload();
             }
         }
@@ -144,6 +146,7 @@ public partial class Gun : Node3D
 			bullet.GlobalPosition = GetNode<Node3D>("BulletEmitter").GlobalPosition;
 			bullet.GlobalBasis = GetNode<Node3D>("BulletEmitter").GlobalBasis;
 
+			GetNode<AnimationPlayer>("AnimationPlayer").Stop();
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("Fire");
 
 
