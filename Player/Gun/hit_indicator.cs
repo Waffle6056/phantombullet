@@ -20,6 +20,6 @@ public partial class hit_indicator : Node3D
         {
             Visible = false;
         }
-        // idle.Visible = !Visible;
+        idle.Visible = !Visible;
     }
 }

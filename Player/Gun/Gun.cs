@@ -11,6 +11,9 @@ public partial class Gun : Node3D
 	[Export]
 	public Player Bearer;
 
+	[Export]
+	public Node3D BulletEmitter;
+
 
 	public Bullet[] Bullets = new Bullet[6];
 	public bool ChambersFilled {
@@ -60,6 +63,11 @@ public partial class Gun : Node3D
 		if (Bearer == null)
 		{
 			GD.PrintErr("WARNING: Gun's 'Bearer' property is set to null.");
+		}
+
+		if (BulletEmitter == null)
+		{
+			GD.PrintErr("Error: Gun's 'BulletEmitter' property is set to null.");
 		}
 	}
 
@@ -118,15 +126,40 @@ public partial class Gun : Node3D
             GD.Print(b.Name);
         }
     }
-    public void Fire()
+	public void Fire()
 	{
-        for (int i = 0; i < Bullets.Length && Bullets[0] == null; i++)
-            RotateBarrelRight();
-        if (Bullets[0] != null)
-        {
-            GetTree().Root.AddChild(Bullets[0]);
-            Fire(Bullets[0]);
-            Unload(Bullets[0]);
+		// check if line of sight from bearer to bullet emitter is clear
+		if (BulletEmitter == null)
+		{
+			GD.PrintErr("Error: BulletEmitter is not set.");
+			return;
+		}
+
+		if (Bearer == null)
+		{
+			GD.PrintErr("Error: Bearer is not set.");
+			return;
+		}
+
+		var spaceState = GetWorld3D().DirectSpaceState;
+		var query = PhysicsRayQueryParameters3D.Create(Bearer.GlobalPosition, BulletEmitter.GlobalPosition);
+		query.Exclude = [Bearer.GetRid()];
+		var result = spaceState.IntersectRay(query);
+
+		// if result is empty, line of sight is clear
+		if (result.Count != 0)
+		{
+			GD.PrintErr("Gun: Cannot fire, line of sight is blocked.");
+			return;
+		}
+
+		for (int i = 0; i < Bullets.Length && Bullets[0] == null; i++)
+			RotateBarrelRight();
+		if (Bullets[0] != null)
+		{
+			GetTree().Root.AddChild(Bullets[0]);
+			Fire(Bullets[0]);
+			Unload(Bullets[0]);
 		}
 		RotateBarrelRight();
 
@@ -134,7 +167,7 @@ public partial class Gun : Node3D
 		{
 			GD.Print("\t- " + (bullet != null ? bullet.Name : "Empty"));
 		}
-		
+
     }
 
     private void Fire(Bullet bullet)

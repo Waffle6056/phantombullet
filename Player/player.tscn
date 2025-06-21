@@ -367,15 +367,6 @@ Bearer = NodePath("../..")
 
 [node name="arm" type="Node3D" parent="Camera3D/Gun"]
 
-[node name="CollisionArm" type="RemoteTransform3D" parent="Camera3D/Gun/arm"]
-transform = Transform3D(1, 0, 0, 0, -2.98023e-08, -1, 0, 1, -2.98023e-08, -0.0332632, -0.300057, 1.04456)
-
-[node name="CollisionGunBody" type="RemoteTransform3D" parent="Camera3D/Gun/arm"]
-transform = Transform3D(0.77, 0, 0, 0, -3.71547e-08, -1.52, 0, 0.85, -6.64413e-08, 0, -0.02, 0.1)
-
-[node name="CollisionGunBarrel" type="RemoteTransform3D" parent="Camera3D/Gun/arm"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.09, -0.35)
-
 [node name="ArmTemp" type="MeshInstance3D" parent="Camera3D/Gun/arm"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0332632, -0.300057, 1.04456)
 mesh = SubResource("CapsuleMesh_k53q1")
