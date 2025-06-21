@@ -188,6 +188,7 @@ size = Vector3(0.68927, 1.79159, 1.39782)
 material = SubResource("StandardMaterial3D_vbmy7")
 
 [node name="Target2" parent="Node3D/CSGBox3D14" instance=ExtResource("3_dh458")]
+visible = false
 collision_layer = 1
 collision_mask = 8
 

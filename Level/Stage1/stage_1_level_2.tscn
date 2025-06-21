@@ -117,7 +117,7 @@ shape = SubResource("BoxShape3D_2abei")
 [node name="Target" parent="." instance=ExtResource("3_gg33y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.212, 1.29522, -10.4626)
 IsWatching = true
-AreaScale = 17.0
+AreaScale = 15.0
 
 [node name="Target2" parent="." instance=ExtResource("3_gg33y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.29118, 3.45788, -10.4626)

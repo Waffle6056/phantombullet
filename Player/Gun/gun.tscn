@@ -84,16 +84,16 @@ script = ExtResource("1_by1yx")
 [node name="Clip" type="Node" parent="."]
 
 [node name="BulletEmitter" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0755564, -0.931712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0755564, 0.119376)
 
 [node name="aim_guide_idle" type="CSGCylinder3D" parent="BulletEmitter"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -500)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -501)
 radius = 0.013
 height = 1000.0
 material = SubResource("StandardMaterial3D_eq5df")
 
 [node name="RayCast3D" type="RayCast3D" parent="BulletEmitter"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
 target_position = Vector3(0, -1e+10, 0)
 collision_mask = 255
 collide_with_areas = true
@@ -101,7 +101,7 @@ debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 5
 
 [node name="aim_guide_targeted" type="CSGCylinder3D" parent="BulletEmitter" node_paths=PackedStringArray("targetingRay", "idle")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -500)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -501)
 radius = 0.016
 height = 1000.0
 material = SubResource("StandardMaterial3D_pbo43")

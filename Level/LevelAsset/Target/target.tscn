@@ -25,11 +25,12 @@ height = 2.0
 render_priority = 0
 shader = ExtResource("2_njjcb")
 
-[node name="Target" type="Area3D" node_paths=PackedStringArray("HitIndicator") groups=["target"]]
+[node name="Target" type="Area3D" node_paths=PackedStringArray("HitIndicator", "Light") groups=["target"]]
 collision_layer = 5
 collision_mask = 3
 script = ExtResource("1_8p6v7")
 HitIndicator = NodePath("MeshInstance3D2")
+Light = NodePath("WatchArea/OmniLight3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_nufe5")
@@ -54,8 +55,16 @@ monitorable = false
 shape = SubResource("SphereShape3D_gurpy")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="WatchArea"]
+visible = false
 mesh = SubResource("SphereMesh_5p3j2")
 surface_material_override/0 = SubResource("ShaderMaterial_w21ft")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WatchArea"]
+light_color = Color(1, 0, 0, 1)
+light_energy = 10.0
+light_indirect_energy = 0.0
+shadow_enabled = true
+omni_attenuation = 0.0
 
 [connection signal="body_entered" from="." to="." method="IsShot"]
 [connection signal="body_entered" from="WatchArea" to="." method="WatchAreaEntered"]

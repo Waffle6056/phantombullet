@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bq2phetuwnpxh" path="res://Main/Main.cs" id="1_272bh"]
 [ext_resource type="Script" uid="uid://4ua1jg5xqgag" path="res://Level/LevelManager.cs" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://bnh6be21udeui" path="res://BulletTime/BulletTime.cs" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://cpn0wehjlfyr1" path="res://Level/Stage2/stage_2_level_2.tscn" id="4_kek77"]
+[ext_resource type="PackedScene" uid="uid://b5wn7l14pa7tx" path="res://Level/TutorialLevel/tutorial_level.tscn" id="4_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://dgxfxn87kliqt" path="res://BulletTime/grid.jpg" id="5_7mycd"]
 [ext_resource type="Shader" uid="uid://bjs85y8sunp3n" path="res://BulletTime/BulletTimeEffect.gdshader" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cdhuukui28dgy" path="res://Main/Menu.cs" id="7_272bh"]
@@ -18,6 +18,7 @@ sky_material = SubResource("ProceduralSkyMaterial_8uy2h")
 [sub_resource type="Environment" id="Environment_yo784"]
 background_mode = 2
 sky = SubResource("Sky_dhcwn")
+volumetric_fog_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("5_lquwl")
@@ -42,7 +43,7 @@ environment = SubResource("Environment_yo784")
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
-LevelList = Array[PackedScene]([ExtResource("4_kek77")])
+LevelList = Array[PackedScene]([ExtResource("4_ycdy4")])
 
 [node name="BulletTime" type="Node" parent="." node_paths=PackedStringArray("BlurNode")]
 script = ExtResource("4_1bvp3")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=22 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
@@ -9,17 +9,6 @@
 [ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jsmy"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhl08"]
-radius = 0.22
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtle1"]
-radius = 0.08
-height = 1.27
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_od3ui"]
-radius = 0.17
-height = 0.85
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtle1"]
 albedo_color = Color(1, 1, 0, 1)
@@ -295,21 +284,6 @@ cull_mask = 524288
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6jsmy")
 
-[node name="CollisionShapeArm" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.52, 0, 0, 0, -0.17785, -0.48864, 0, 0.48864, -0.17785, 0.433703, 0.315605, -0.293951)
-shape = SubResource("CapsuleShape3D_fhl08")
-debug_color = Color(0, 0.6, 0.701961, 1)
-
-[node name="CollisionShapeGunBarrel" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.52, 0, 0, 0, -0.17785, -0.48864, 0, 0.48864, -0.17785, 0.451, 0.754225, -0.906017)
-shape = SubResource("CapsuleShape3D_vtle1")
-debug_color = Color(0, 0.6, 0.701961, 1)
-
-[node name="CollisionShapeGunBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.4004, 0, 0, 0, -0.151173, -0.742733, 0, 0.415344, -0.270332, 0.451, 0.620442, -0.705693)
-shape = SubResource("CapsuleShape3D_od3ui")
-debug_color = Color(0, 0.6, 0.701961, 1)
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.691, 0)
 top_level = true
@@ -395,15 +369,12 @@ Bearer = NodePath("../..")
 
 [node name="CollisionArm" type="RemoteTransform3D" parent="Camera3D/Gun/arm"]
 transform = Transform3D(1, 0, 0, 0, -2.98023e-08, -1, 0, 1, -2.98023e-08, -0.0332632, -0.300057, 1.04456)
-remote_path = NodePath("../../../../CollisionShapeArm")
 
 [node name="CollisionGunBody" type="RemoteTransform3D" parent="Camera3D/Gun/arm"]
 transform = Transform3D(0.77, 0, 0, 0, -3.71547e-08, -1.52, 0, 0.85, -6.64413e-08, 0, -0.02, 0.1)
-remote_path = NodePath("../../../../CollisionShapeGunBody")
 
 [node name="CollisionGunBarrel" type="RemoteTransform3D" parent="Camera3D/Gun/arm"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.09, -0.35)
-remote_path = NodePath("../../../../CollisionShapeGunBarrel")
 
 [node name="ArmTemp" type="MeshInstance3D" parent="Camera3D/Gun/arm"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0332632, -0.300057, 1.04456)

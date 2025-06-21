@@ -23,6 +23,8 @@ public partial class Target : Area3D
 	public Area3D WatchedArea;
 	public CollisionShape3D WatchedAreaShape;
 	public MeshInstance3D WatchedAreaDecal;
+	[Export]
+	public OmniLight3D Light;
 
 	[Export]
 	public Node3D[] TheseArePartOfMe = [];
@@ -114,6 +116,7 @@ public partial class Target : Area3D
 			WatchedArea.Visible = !Hit && IsWatching;
             WatchedAreaShape.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
             WatchedAreaDecal.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
+			Light.OmniRange = AreaScale;
             CheckWatchArea();
         }
         foreach (Node3D body in GetOverlappingBodies())
