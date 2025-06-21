@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Linq;
+using System.Xml.XPath;
 
 public partial class Target : Area3D
 {
@@ -7,7 +9,7 @@ public partial class Target : Area3D
 	[Signal]
 	public delegate void TargetTriggeredEventHandler();
 
-    public bool Hit = false;
+	public bool Hit = false;
 
 	[Export]
 	public Node3D HitIndicator;
@@ -22,6 +24,10 @@ public partial class Target : Area3D
 	public CollisionShape3D WatchedAreaShape;
 	public MeshInstance3D WatchedAreaDecal;
 
+	[Export]
+	public Node3D[] TheseArePartOfMe = [];
+
+	private Rid[] excludedRids = [];
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -58,14 +64,33 @@ public partial class Target : Area3D
 				WatchedAreaDecal.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
 			}
 		}
+
+		excludedRids.Append(GetRid());
+		foreach (var part in TheseArePartOfMe)
+		{
+			if (part is CollisionObject3D collisionObject)
+			{
+				excludedRids.Append(collisionObject.GetRid());
+			}
+		}
 	}
 
 	public void WatchAreaEntered(Node3D body)
 	{
 		if (IsWatching && (body is Player || body.IsInGroup("bullet")))
 		{
-			// TODO: take action after a 3sec delay, during which the target can be shot to cancel
-			GD.Print($"Target {Name}: triggered by {body.Name}.");
+			// make a raycast to the body to check if line-of sight (uninterrupted)
+			var spaceState = GetWorld3D().DirectSpaceState;
+			var query = PhysicsRayQueryParameters3D.Create(GlobalPosition, body.GlobalPosition);
+			query.Exclude = [.. excludedRids, (body as CollisionObject3D).GetRid()];
+			var result = spaceState.IntersectRay(query);
+			// if result is empty, line of sight is clear
+
+			if (result.Count == 0)
+			{
+				// TODO: take action after a 3sec delay, during which the target can be shot to cancel
+				GD.Print($"Target {Name}: I SEE {body.Name}.");
+			}
 		}
 	}
 
@@ -94,8 +119,28 @@ public partial class Target : Area3D
 	{
 		if (body.IsInGroup("bullet"))
 		{
-			HitTarget();
+			if (body is OnTriggerOrCollisionBoomBullet)
+				handleBoom((OnTriggerOrCollisionBoomBullet)body);
+			else
+				HitTarget();
 			(body as Bullet).OnCollision();
+		}
+	}
+
+	private void handleBoom(OnTriggerOrCollisionBoomBullet bullet)
+	{
+		// check if line of sight, and only then mark as hit
+		var spaceState = GetWorld3D().DirectSpaceState;
+		var query = PhysicsRayQueryParameters3D.Create(GlobalPosition, bullet.GlobalPosition);
+		query.Exclude = [.. excludedRids, bullet.GetRid()];
+		var result = spaceState.IntersectRay(query);
+		if (result.Count == 0)
+		{
+			HitTarget();
+		} else
+		{
+			GD.Print($"Target {Name}: Boom bullet {bullet.Name} hit, but line of sight is blocked.");
+			GD.Print(result);
 		}
 	}
 }
