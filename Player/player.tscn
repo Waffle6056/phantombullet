@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=22 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jsmy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhl08"]
+radius = 0.29677
+height = 3.22138
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtle1"]
 albedo_color = Color(1, 1, 0, 1)
@@ -278,6 +282,11 @@ cull_mask = 524288
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6jsmy")
 
+[node name="CollisionShapeArm" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.52, 0, 0, 0, -0.17785, -0.48864, 0, 0.48864, -0.17785, 0.4406, 0.534194, -0.499135)
+shape = SubResource("CapsuleShape3D_fhl08")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.691, 0)
 top_level = true
@@ -407,6 +416,10 @@ text = "LMB
 
 "
 font_size = 12
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera3D/Gun/arm"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.02, -0.04, 0.53)
+remote_path = NodePath("../../../../CollisionShapeArm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

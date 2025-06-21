@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bs7f01mb8cofh"]
 
-[ext_resource type="PackedScene" uid="uid://c8dtxdahke03w" path="res://Player/RevolverCylinder.glb" id="1_3y3q1"]
+[ext_resource type="PackedScene" uid="uid://d4jg728vjlwmh" path="res://Player/RevolverCylinder.glb" id="1_3y3q1"]
 [ext_resource type="Script" uid="uid://bgu2avlrx4qs4" path="res://Player/Bullet Cylinder/BarrelCylinder.cs" id="1_n7dhy"]
 [ext_resource type="PackedScene" uid="uid://cipookdenmoww" path="res://BulletDisplays/normal_bullet.tscn" id="3_ixho4"]
 [ext_resource type="PackedScene" uid="uid://dir2ai2fhxmgs" path="res://BulletDisplays/boom_bullet.tscn" id="3_q3l8c"]
