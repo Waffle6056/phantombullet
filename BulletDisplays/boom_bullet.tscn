@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dir2ai2fhxmgs"]
 
-[ext_resource type="PackedScene" uid="uid://clhm0twhbmvk8" path="res://BulletDisplays/RevolverBullet.glb" id="1_i4t1a"]
+[ext_resource type="PackedScene" uid="uid://c1hdthxf1pkh" path="res://BulletDisplays/RevolverBullet.glb" id="1_i4t1a"]
 [ext_resource type="Material" uid="uid://ccdht0kpfgleg" path="res://Assets/Bullet Materials/BoomBulletMaterial.tres" id="2_2skn5"]
-[ext_resource type="Texture2D" uid="uid://benrpl1vh4ssi" path="res://Assets/Bullet Symbols/boom.svg" id="3_b1sr6"]
+[ext_resource type="Texture2D" uid="uid://dpykpd5kunh2j" path="res://Assets/Bullet Symbols/boom.svg" id="3_b1sr6"]
 
 [node name="BoomBullet" instance=ExtResource("1_i4t1a")]
 

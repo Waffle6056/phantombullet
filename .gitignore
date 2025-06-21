@@ -429,5 +429,3 @@ mono_crash.*.json
 
 phantombullet.csproj.old*
 *.ai
-
-*.import

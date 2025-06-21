@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://4ua1jg5xqgag" path="res://Level/LevelManager.cs" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://bnh6be21udeui" path="res://BulletTime/BulletTime.cs" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cpn0wehjlfyr1" path="res://Level/Stage2/stage_2_level_2.tscn" id="4_kek77"]
-[ext_resource type="Texture2D" uid="uid://cgtm4ysax7x1m" path="res://BulletTime/grid.jpg" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://dgxfxn87kliqt" path="res://BulletTime/grid.jpg" id="5_7mycd"]
 [ext_resource type="Shader" uid="uid://bjs85y8sunp3n" path="res://BulletTime/BulletTimeEffect.gdshader" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cdhuukui28dgy" path="res://Main/Menu.cs" id="7_272bh"]
 [ext_resource type="Shader" uid="uid://d4dcqklc0umch" path="res://Main/pause_menu_bg.gdshader" id="9_kek77"]
