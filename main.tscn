@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://don885xwd5v3v"]
+[gd_scene load_steps=12 format=3 uid="uid://don885xwd5v3v"]
 
 [ext_resource type="PackedScene" uid="uid://2ynb80ubs6un" path="res://Player/player.tscn" id="1_6ya0i"]
 [ext_resource type="Script" uid="uid://4ua1jg5xqgag" path="res://Level/LevelManager.cs" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cyh5et2rptwvl" path="res://Level/TutorialLevel/tutorial_level.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b5wn7l14pa7tx" path="res://Level/TutorialLevel/tutorial_level.tscn" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://cyh5et2rptwvl" path="res://Level/TestLevel/test_level.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bnh6be21udeui" path="res://BulletTime/BulletTime.cs" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://crv7ta5q10d5b" path="res://BulletTime/grid.jpg" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://b81atskiblbjk" path="res://BulletTime/grid.jpg" id="5_7mycd"]
 [ext_resource type="Shader" uid="uid://bjs85y8sunp3n" path="res://BulletTime/BulletTimeEffect.gdshader" id="5_lquwl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8uy2h"]
@@ -31,7 +32,7 @@ environment = SubResource("Environment_yo784")
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
-LevelList = Array[PackedScene]([ExtResource("3_h2yge")])
+LevelList = Array[PackedScene]([ExtResource("3_272bh"), ExtResource("3_h2yge")])
 
 [node name="BulletTime" type="Node" parent="." node_paths=PackedStringArray("BlurNode")]
 script = ExtResource("4_1bvp3")

@@ -91,10 +91,10 @@ public partial class Target : Area3D
 	}
 
 	public void IsShot(Node3D body)
-	{
-		if (body.IsInGroup("bullet"))
+    {
+        HitTarget();
+        if (body.IsInGroup("bullet"))
 		{
-			HitTarget();
 			(body as Bullet).OnCollision();
 		}
 	}

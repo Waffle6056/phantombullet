@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=21 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
@@ -84,6 +84,58 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Gun/arm/R:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.312972, -0.188926, 0.72262)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/hud/cylinder_origin/Tab:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.145, -0.855)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_od3ui"]
+resource_name = "ToggleFocus"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/hud/cylinder_origin/Tab:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0, -0.145, -0.855), Vector3(0.539492, -0.197389, -0.472101)]
+}
 
 [sub_resource type="Animation" id="Animation_k53q1"]
 resource_name = "ToggleInventory"
@@ -112,15 +164,52 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.621372, 1.31594, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Gun/arm/R:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.313, -0.304, 0.723), Vector3(-0.073, -0.034, 0.723)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D/hud/cylinder_origin/Tab:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.145, -0.855)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vtle1"]
 _data = {
 &"Fire": SubResource("Animation_fhl08"),
 &"RESET": SubResource("Animation_vtle1"),
+&"ToggleFocus": SubResource("Animation_od3ui"),
 &"ToggleInventory": SubResource("Animation_k53q1")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "CylinderCursor", "Animator")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "CylinderCursor", "Label", "Animator")]
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_8d2l0")
@@ -130,6 +219,7 @@ AmmoBand = NodePath("Camera3D/Gun/arm/AmmoBand")
 Cursor = NodePath("Camera3D/Gun/arm/AmmoBand/Cursor")
 CylinderHUD = NodePath("Camera3D/hud/cylinder_origin/BarrelCylinderHUD")
 CylinderCursor = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor")
+Label = NodePath("Camera3D/hud/cylinder_origin/Tab")
 Animator = NodePath("AnimationPlayer")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -176,10 +266,41 @@ script = ExtResource("3_fhl08")
 [node name="cylinder_origin" type="Node3D" parent="Camera3D/hud"]
 transform = Transform3D(0.882988, -0.0636311, 0.465062, 0, 0.990769, 0.13556, -0.469394, -0.119698, 0.874838, 0, 0, 0)
 
+[node name="Tab" type="Label3D" parent="Camera3D/hud/cylinder_origin"]
+transform = Transform3D(-0.244085, -0.295138, -0.351733, -0.0622429, 0.415935, -0.305816, 0.454915, -0.101447, -0.230565, 0, -0.145, -0.855)
+visible = false
+billboard = 1
+modulate = Color(0.641934, 0.641934, 0.641934, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Tab
+"
+font_size = 24
+
 [node name="CylinderCursor" type="MeshInstance3D" parent="Camera3D/hud/cylinder_origin"]
-transform = Transform3D(1, -3.58201e-09, -2.86561e-08, 3.58201e-09, 1, 1.4328e-08, 2.86561e-08, -1.4328e-08, 1, 0, 0.12, -0.601)
+transform = Transform3D(1, -3.58201e-09, -2.86561e-08, 3.58201e-09, 1, 1.4328e-08, 2.86561e-08, -1.4328e-08, 1, 0, 0.155, -0.945)
 visible = false
 mesh = SubResource("CylinderMesh_k53q1")
+
+[node name="Scroll" type="Label3D" parent="Camera3D/hud/cylinder_origin/CylinderCursor"]
+transform = Transform3D(0.52, -1.86265e-09, 0, 0, 0.52, -1.49012e-08, -1.49012e-08, 0, 0.52, 0, -0.387, 0.031)
+modulate = Color(0.641934, 0.641934, 0.641934, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "<+ Scroll ->
+Q/E
+
+
+
+"
+font_size = 12
+
+[node name="LMB" type="Label3D" parent="Camera3D/hud/cylinder_origin/CylinderCursor"]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, -0.04, 0.061)
+modulate = Color(0.641934, 0.641934, 0.641934, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "LMB
+
+"
+font_size = 12
 
 [node name="BarrelCylinderHUD" parent="Camera3D/hud/cylinder_origin" node_paths=PackedStringArray("myGun") instance=ExtResource("4_vtle1")]
 process_priority = -1
@@ -213,6 +334,13 @@ Bearer = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0332632, -0.300057, 1.04456)
 mesh = SubResource("CapsuleMesh_k53q1")
 
+[node name="R" type="Label3D" parent="Camera3D/Gun/arm"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.312972, -0.188926, 0.72262)
+modulate = Color(0.641934, 0.641934, 0.641934, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "R/RMB"
+font_size = 24
+
 [node name="AmmoBand" type="Node3D" parent="Camera3D/Gun/arm"]
 transform = Transform3D(-6.55671e-08, -0.964181, -1.14907, 0, 1.14907, -0.964181, 1.5, -4.21457e-08, -5.02273e-08, -0.231294, -0.184706, 0.311259)
 
@@ -228,6 +356,26 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125079, -5.96046e-08)
 mesh = SubResource("CylinderMesh_k53q1")
 skeleton = NodePath("../..")
+
+[node name="Scroll" type="Label3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor"]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, -0.105, 0.105)
+modulate = Color(0.641934, 0.641934, 0.641934, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "<+ Scroll ->
+Q/E
+
+
+"
+font_size = 12
+
+[node name="LMB" type="Label3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor"]
+transform = Transform3D(0.52, 0, 0, 0, -2.27299e-08, 0.52, 0, -0.52, -2.27299e-08, 0, 0.035, 0.035)
+modulate = Color(0.641934, 0.641934, 0.641934, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "LMB
+
+"
+font_size = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
