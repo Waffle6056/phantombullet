@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://don885xwd5v3v"]
+[gd_scene load_steps=15 format=3 uid="uid://don885xwd5v3v"]
 
 [ext_resource type="PackedScene" uid="uid://2ynb80ubs6un" path="res://Player/player.tscn" id="1_6ya0i"]
+[ext_resource type="Script" uid="uid://bq2phetuwnpxh" path="res://Main/Main.cs" id="1_272bh"]
 [ext_resource type="Script" uid="uid://4ua1jg5xqgag" path="res://Level/LevelManager.cs" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cyh5et2rptwvl" path="res://Level/TutorialLevel/tutorial_level.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bnh6be21udeui" path="res://BulletTime/BulletTime.cs" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://crv7ta5q10d5b" path="res://BulletTime/grid.jpg" id="5_7mycd"]
 [ext_resource type="Shader" uid="uid://bjs85y8sunp3n" path="res://BulletTime/BulletTimeEffect.gdshader" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://cdhuukui28dgy" path="res://Main/Menu.cs" id="7_272bh"]
+[ext_resource type="Shader" uid="uid://d4dcqklc0umch" path="res://Main/pause_menu_bg.gdshader" id="9_kek77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8uy2h"]
 
@@ -22,7 +25,15 @@ shader_parameter/blurring_scale = 10.0
 shader_parameter/blurring_percent = 0.0
 shader_parameter/zoom_offset_percentage = 0.15
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
+shader = ExtResource("9_kek77")
+shader_parameter/blur_amount = 2.77
+shader_parameter/mix_amount = 0.41
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_272bh")
 
 [node name="Player" parent="." instance=ExtResource("1_6ya0i")]
 
@@ -56,9 +67,42 @@ material = SubResource("ShaderMaterial_7mycd")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 3.0
-offset_right = 20.0
-offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 2
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_272bh")
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_7mycd")
+expand_mode = 2
+
+[node name="bg" type="ColorRect" parent="PauseMenu"]
+material = SubResource("ShaderMaterial_4c57u")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 2
+offset_left = 284.0
+offset_top = 196.0
+offset_right = 888.0
+offset_bottom = 219.0
+text = "Hello! You have reached the pause menu. Please press <ESC> again to resume."
+horizontal_alignment = 1
