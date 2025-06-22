@@ -38,6 +38,15 @@ public partial class Gun : Node3D
 
     private HashSet<BarrelCylinder> barrelCylinders = new HashSet<BarrelCylinder>();
 
+	[Export]
+	public AudioStreamPlayer GunShot;
+	[Export]
+	public AudioStreamPlayer ShellLoad;
+	[Export]
+	public AudioStreamPlayer RevolverSpin;
+	[Export]
+	public AudioStreamPlayer ShellUnload;
+
 	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventMouseMotion motion)
@@ -113,6 +122,7 @@ public partial class Gun : Node3D
             b.RotateRight();
             // GD.Print(b.Name);
         }
+		RevolverSpin.Play();
     }
     private void RotateBarrelLeft()
     {
@@ -125,6 +135,7 @@ public partial class Gun : Node3D
             b.RotateLeft();
             // GD.Print(b.Name);
         }
+		RevolverSpin.Play();
     }
 	public void Fire()
 	{
@@ -183,6 +194,7 @@ public partial class Gun : Node3D
 
 		GD.Print("Gun: FIRED");
 
+		GunShot.Play();
 		bullet.Fired(this);
 	}
 
@@ -232,6 +244,7 @@ public partial class Gun : Node3D
 
         updateCylinders();
 
+		ShellLoad.Play();
         GD.Print("loaded up");
     }
 	public bool Unload()
@@ -255,6 +268,7 @@ public partial class Gun : Node3D
 				Bullets[i] = null;
 		//GD.Print(Bullets.Length);
 
+		ShellUnload.Play();
         updateCylinders();
 		return true;
     }

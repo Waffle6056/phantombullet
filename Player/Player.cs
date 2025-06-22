@@ -38,6 +38,8 @@ public partial class Player : CharacterBody3D
     public AnimationPlayer Animator;
 	[Export]
 	public bool Dead = false;
+	[Export]
+	public AudioStreamPlayer GunLoad;
 	public override void _Ready()
 	{
 		base._Ready();
@@ -72,7 +74,10 @@ public partial class Player : CharacterBody3D
 			if (InventoryOpen)
 				Animator.Play("ToggleInventory");
 			else
+			{
+				GunLoad.Play();
 				Animator.PlayBackwards("ToggleInventory");
+			}
         }
 
 		if (InventoryOpen && Input.IsActionJustReleased("ToggleFocus"))
@@ -206,6 +211,7 @@ public partial class Player : CharacterBody3D
 			DupedVisuals.Remove(b);
 
         }
+
         Gun.Load(b);
 		return true;
 	}
@@ -240,5 +246,13 @@ public partial class Player : CharacterBody3D
 	{
 		GetNode<AnimationPlayer>("AnimationPlayer").Stop();
 		GetNode<AnimationPlayer>("AnimationPlayer").Play("Revolver Recoil");
+	}
+
+	public void _on_animation_player_animation_finished(StringName anim_name)
+	{
+		if (anim_name == "Reset")
+		{
+			Gun.GunShot.Play();
+		}
 	}
 }

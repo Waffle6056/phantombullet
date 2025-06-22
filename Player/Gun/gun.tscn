@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://csu4gsjdxpuhm"]
+[gd_scene load_steps=13 format=3 uid="uid://csu4gsjdxpuhm"]
 
 [ext_resource type="Script" uid="uid://c68n26bn60i0u" path="res://Player/Gun/Gun.cs" id="1_by1yx"]
+[ext_resource type="AudioStream" uid="uid://bad6bf6x240wj" path="res://Assets/Sounds/gun_shot.wav" id="5_iu1ju"]
 [ext_resource type="Script" uid="uid://cak6uh5jo1qmc" path="res://Player/Gun/hit_indicator.cs" id="7_eq5df"]
 [ext_resource type="PackedScene" uid="uid://bf8xrit6xwjou" path="res://Player/Gun/RevolverGun.glb" id="7_iu1ju"]
+[ext_resource type="AudioStream" uid="uid://gw54tqrnsfcj" path="res://Assets/Sounds/shell_load.wav" id="7_pbo43"]
 [ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="8_iu1ju"]
+[ext_resource type="AudioStream" uid="uid://cjyl1a8l7uvtd" path="res://Assets/Sounds/revolver_spin.wav" id="8_une6g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq5df"]
 transparency = 1
@@ -78,9 +81,13 @@ _data = {
 &"RESET": SubResource("Animation_eq5df")
 }
 
-[node name="Gun" type="Node3D" node_paths=PackedStringArray("BulletEmitter")]
+[node name="Gun" type="Node3D" node_paths=PackedStringArray("BulletEmitter", "GunShot", "ShellLoad", "RevolverSpin", "ShellUnload")]
 script = ExtResource("1_by1yx")
 BulletEmitter = NodePath("BulletEmitter")
+GunShot = NodePath("GunShot")
+ShellLoad = NodePath("ShellLoad")
+RevolverSpin = NodePath("RevolverSpin")
+ShellUnload = NodePath("ShellUnload")
 
 [node name="Clip" type="Node" parent="."]
 
@@ -121,3 +128,23 @@ transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0, 0)
 
 [node name="BarrelCylinder" parent="RevolverGun" node_paths=PackedStringArray("myGun") instance=ExtResource("8_iu1ju")]
 myGun = NodePath("../..")
+
+[node name="GunShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iu1ju")
+volume_db = -33.0
+pitch_scale = 1.96
+
+[node name="ShellLoad" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pbo43")
+volume_db = -15.552
+pitch_scale = 1.15
+
+[node name="RevolverSpin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_une6g")
+volume_db = -5.073
+pitch_scale = 0.66
+
+[node name="ShellUnload" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pbo43")
+volume_db = -15.552
+pitch_scale = 0.55

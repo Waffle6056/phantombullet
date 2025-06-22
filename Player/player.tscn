@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=24 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csu4gsjdxpuhm" path="res://Player/Gun/gun.tscn" id="3_i70jt"]
 [ext_resource type="PackedScene" uid="uid://bs7f01mb8cofh" path="res://Player/Bullet Cylinder/BarrelCylinder.tscn" id="4_vtle1"]
 [ext_resource type="Script" uid="uid://b7ca0n1ipenl2" path="res://Player/stamina_display.cs" id="5_k53q1"]
+[ext_resource type="AudioStream" uid="uid://cffprdj4mfjgq" path="res://Assets/Sounds/gun_load.wav" id="9_5htga"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6jsmy"]
 
@@ -152,6 +153,46 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x3vf3"]
+resource_name = "Reset"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 0, 1),
+"update": 0,
+"values": [Vector3(0.451, -0.043, -0.751), Vector3(0.184403, -0.043, -0.751), Vector3(0.451, -0.043, -0.751)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:Dead")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/Gun:BaseRotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.36667, 1.5),
+"transitions": PackedFloat32Array(1, 0, 0, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.90802, 0), Vector3(0.349066, 2.90772, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_00tjw"]
@@ -358,46 +399,6 @@ tracks/6/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_x3vf3"]
-resource_name = "Reset"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Gun:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5),
-"transitions": PackedFloat32Array(1, 0, 1),
-"update": 0,
-"values": [Vector3(0.451, -0.043, -0.751), Vector3(0.184403, -0.043, -0.751), Vector3(0.451, -0.043, -0.751)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:Dead")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Gun:BaseRotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 1.36667, 1.5),
-"transitions": PackedFloat32Array(1, 0, 0, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2.90802, 0), Vector3(0.349066, 2.90772, 0), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vtle1"]
 _data = {
 &"Fire": SubResource("Animation_fhl08"),
@@ -408,7 +409,7 @@ _data = {
 &"ToggleInventory": SubResource("Animation_k53q1")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "CylinderCursor", "SwapLabel", "SlotsLabel", "Animator")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "CylinderCursor", "SwapLabel", "SlotsLabel", "Animator", "GunLoad")]
 collision_layer = 8
 script = ExtResource("1_8d2l0")
 Gun = NodePath("Camera3D/Gun")
@@ -420,6 +421,7 @@ CylinderCursor = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor")
 SwapLabel = NodePath("Camera3D/hud/cylinder_origin/Tab")
 SlotsLabel = NodePath("Camera3D/Gun/arm/R/Num")
 Animator = NodePath("AnimationPlayer")
+GunLoad = NodePath("GunLoad")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -535,7 +537,6 @@ text = "T"
 font_size = 24
 
 [node name="arm" type="Node3D" parent="Camera3D/Gun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="ArmTemp" type="MeshInstance3D" parent="Camera3D/Gun/arm"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0332632, -0.300057, 1.04456)
@@ -595,4 +596,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_vtle1")
 }
 
+[node name="GunLoad" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5htga")
+volume_db = -1.42
+
 [connection signal="SuccessfulFire" from="Camera3D/Gun" to="." method="_on_gun_successful_fire"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
