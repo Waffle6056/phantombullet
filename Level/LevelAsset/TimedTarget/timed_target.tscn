@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbhas7yl7wcqu"]
+[gd_scene load_steps=13 format=3 uid="uid://dbhas7yl7wcqu"]
 
 [ext_resource type="Script" uid="uid://cpo2wtpbkat12" path="res://Level/LevelAsset/TimedTarget/TimedTarget.cs" id="1_kkn4x"]
 [ext_resource type="Shader" uid="uid://bgjx8p8qly8p8" path="res://Level/LevelAsset/Target/target_watcharea.tres" id="2_2hyp5"]
@@ -62,13 +62,12 @@ _data = {
 &"RESET": SubResource("Animation_w21ft")
 }
 
-[node name="Target2" type="Area3D" node_paths=PackedStringArray("HitIndicator", "Light") groups=["target"]]
+[node name="Target2" type="Area3D" node_paths=PackedStringArray("Light") groups=["target"]]
 collision_layer = 5
 collision_mask = 3
 script = ExtResource("1_kkn4x")
 IsWatching = true
-Light = NodePath("WatchArea/OmniLight3D")
-lever = NodePath("Drone/Lever")
+Light = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_xdh1w")
@@ -101,7 +100,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.265993, 0)
 light_color = Color(1, 0, 0, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.5
 shadow_enabled = true
 omni_attenuation = 0.0
 

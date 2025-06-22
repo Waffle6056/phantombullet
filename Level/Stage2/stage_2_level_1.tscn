@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.791746, 0.214646, 10.0795)
 size = Vector3(10.796, 1, 4.98479)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.39902, 0.214646, 12.8696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.40142, 0.19764, 12.8839)
 size = Vector3(9.64828, 1, 10.565)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D13"]
@@ -63,16 +63,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08529, 0.214646, 16.9328)
 size = Vector3(5.61626, 1, 2.50713)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85596, 0.517319, 14.7783)
-size = Vector3(1.12632, 1.60535, 2.03547)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57633, 0.517319, 14.7783)
+size = Vector3(0.567066, 1.60535, 2.03547)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94783, 0.214646, 13.1131)
 size = Vector3(3.31006, 1, 1.30287)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="CSGBox3D13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5244, 1.80357, 14.7949)
-size = Vector3(2.15692, 4.17786, 1.96254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22678, 1.80357, 14.7949)
+size = Vector3(2.75217, 4.17786, 1.96254)
 material = ExtResource("1_1adjx")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="CSGBox3D13"]
@@ -152,7 +152,7 @@ HitDuration = 0.5
 IsWatching = false
 
 [node name="Door3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_i1ufh")]
-transform = Transform3D(2.356, 0, 0, 0, 2, 0, 0, 0, 1, 2.27368, -0.0627721, 21.2664)
+transform = Transform3D(2.636, 0, 0, 0, 2, 0, 0, 0, 1, 2.04703, -0.0627721, 21.2664)
 Target = NodePath("../Target3")
 
 [node name="Target3" parent="." instance=ExtResource("5_bv3xp")]

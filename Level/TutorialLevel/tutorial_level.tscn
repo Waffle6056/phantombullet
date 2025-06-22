@@ -174,10 +174,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55619, 0, -0.0188868)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55619, 0, -0.0188868)
 
 [node name="Target" parent="." instance=ExtResource("2_udhqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54217, -9.66923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04713, -9.66923)
 
 [node name="ShootMe" type="Label3D" parent="Target"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.431545, 0.645664)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.460481, 0.645664)
 modulate = Color(0, 1, 1, 1)
 text = "Shoot me!
 (Face me and left click)"

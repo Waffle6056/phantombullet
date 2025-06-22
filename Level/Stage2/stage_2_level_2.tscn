@@ -21,8 +21,9 @@ size = Vector3(2.25259, 1.27569, 2.19052)
 script = ExtResource("1_ctq0u")
 Targets = [NodePath("Node3D/CSGBox3D14/Target2")]
 
-[node name="CSGBox3D11" type="Node3D" parent="."]
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.50502, 0)
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02054, 0.941019, -5.25363)
