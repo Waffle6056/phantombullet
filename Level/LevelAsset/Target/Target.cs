@@ -12,9 +12,6 @@ public partial class Target : Area3D
 	public bool Hit = false;
 
 	[Export]
-	public Node3D HitIndicator;
-
-	[Export]
 	public bool IsWatching = false;
 
 	[Export]
@@ -31,14 +28,12 @@ public partial class Target : Area3D
 
 	private Rid[] excludedRids = [];
 
+	[Export]
+	public Lever lever;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		if (HitIndicator == null)
-		{
-			GD.PrintErr($"Target {Name}: HitIndicator is not set. Please set it in the inspector.");
-		}
-
 		WatchedArea = GetNodeOrNull<Area3D>("WatchArea");
 		if (WatchedArea == null)
 		{
@@ -76,7 +71,7 @@ public partial class Target : Area3D
 			}
 		}
 
-		GetNode<AnimationPlayer>("AnimationPlayer").Play("Drone Hover");
+		lever.Visible = !IsWatching;
 	}
 
 	public void WatchAreaEntered(Node3D body)
@@ -108,11 +103,6 @@ public partial class Target : Area3D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
-		if (HitIndicator != null)
-		{
-			HitIndicator.Visible = Hit;
-		}
-
 		if (WatchedArea != null)
 		{
 			WatchedArea.Visible = !Hit && IsWatching;
@@ -130,6 +120,7 @@ public partial class Target : Area3D
 	{
 		// signifies when the target is hit
 		Hit = true;
+		lever.Activate();
 	}
 
 	public void IsShot(Node3D body)

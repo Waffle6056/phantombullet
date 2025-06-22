@@ -7,7 +7,12 @@ public partial class TimedTarget : Target
 	public float HitDuration = 2f;
     public double HitDurationRemaining = 0;
     // Called when the node enters the scene tree for the first time.
-
+	public override void _Ready()
+    {
+		base._Ready();
+		lever.IsTimed = true;
+		lever.Cooldown = HitDuration;
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _PhysicsProcess(double delta)
