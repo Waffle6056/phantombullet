@@ -334,11 +334,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08735, 3.08429, -26.7187)
 AreaScale = 5.0
 
 [node name="Label3D2" type="Label3D" parent="."]
-transform = Transform3D(-0.786978, 0, -0.616981, 0, 1, 0, 0.616981, 0, -0.786978, 3.29002, 1.63221, 10.8392)
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 3.73532, 0.534784, -5.77761)
 modulate = Color(1, 1, 0, 1)
-text = "Turning bullets will rotate left
-after you shoot again
-When it would hit a target, it automatically activates Bullet Time
+text = "Deadshot Bullets act very similar to Turning Bullets.
+However, when activated by another bullet, they always
+align to the same axis regardless of the angle.
 Try it!"
 
 [node name="Killzone" parent="." instance=ExtResource("11_hgun7")]
