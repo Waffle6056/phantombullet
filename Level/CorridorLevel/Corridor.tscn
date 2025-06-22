@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_082cs"]
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="2_jy42x"]
-[ext_resource type="PackedScene" uid="uid://dmjrypduaut01" path="res://Level/LevelAsset/Final_Door.tscn" id="3_t3qf2"]
+[ext_resource type="PackedScene" uid="uid://i4w1jl2h4yih" path="res://Level/LevelAsset/Final_Door.tscn" id="3_t3qf2"]
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="4_t3qf2"]
 
 [node name="Corridor" type="Node3D" node_paths=PackedStringArray("Targets", "FinishDoor")]
