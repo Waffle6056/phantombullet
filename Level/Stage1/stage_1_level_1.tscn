@@ -216,7 +216,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41425, 0, 5.28436)
 
 [node name="Bullet2" parent="Ammo2" instance=ExtResource("4_y580u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41425, 0, 5.28436)
-HomingScaling = 5.0
 
 [node name="Bullet3" parent="Ammo2" instance=ExtResource("4_y580u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41425, 0, 5.28436)

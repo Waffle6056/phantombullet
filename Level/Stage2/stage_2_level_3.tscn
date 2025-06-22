@@ -32,8 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.29564, 2.05648, -17.6773)
 size = Vector3(55.9838, 1, 9.07513)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1407, -0.539224, -23.124)
-size = Vector3(11.3509, 6.19141, 1.98156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1407, -5.89909, -23.124)
+size = Vector3(11.3509, 16.9111, 1.98156)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.2113, -0.50065, -33.2409)
@@ -50,6 +50,10 @@ size = Vector3(1.52526, 6.18945, 8.20378)
 [node name="CSGBox3D23" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.9123, -0.560464, -28.2887)
 size = Vector3(2.0097, 6.23389, 8.20943)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.9123, -12.7309, -34.8038)
+size = Vector3(2.0097, 18.2317, 25.3973)
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1407, 23.0012, -23.124)
@@ -113,8 +117,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5345, -21.7801, -52.2395)
 size = Vector3(80.7868, 1, 9.43295)
 
 [node name="CSGBox3D31" type="CSGBox3D" parent="root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9789, -21.7801, -38.9383)
-size = Vector3(11.9202, 1, 36.0353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.376, -21.7801, -39.5602)
+size = Vector3(10.7145, 1, 34.7914)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33367, -12.437, -65.5932)
@@ -229,15 +233,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45847, 0.712871, 3.474)
 
 [node name="Bullet" parent="Ammo2" instance=ExtResource("9_mxc2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67787, 0.712872, 6.4637)
+ProjectileSpeed = 25.0
 
 [node name="Bullet2" parent="Ammo2" instance=ExtResource("9_mxc2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67787, 0.712872, 6.4637)
+ProjectileSpeed = 25.0
 
 [node name="Bullet3" parent="Ammo2" instance=ExtResource("9_mxc2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67787, 0.712872, 6.4637)
+ProjectileSpeed = 25.0
 
 [node name="Bullet4" parent="Ammo2" instance=ExtResource("9_mxc2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67787, 0.712872, 6.4637)
+ProjectileSpeed = 25.0
 
 [node name="Ammo3" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("7_20p26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.1779, -24.4783, -48.2007)
@@ -254,9 +262,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45847, 0.712871, 3.474)
 
 [node name="Bullet" parent="Ammo3" instance=ExtResource("9_mxc2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67787, 0.712872, 6.4637)
+ProjectileSpeed = 25.0
 
 [node name="Bullet2" parent="Ammo3" instance=ExtResource("9_mxc2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67787, 0.712872, 6.4637)
+ProjectileSpeed = 25.0
 
 [node name="Bullet3" parent="Ammo3" instance=ExtResource("9_mxc2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67787, 0.712872, 6.4637)
+ProjectileSpeed = 25.0

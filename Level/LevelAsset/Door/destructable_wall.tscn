@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkyxmuvignwg6"]
+
+[ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="1_1iuy0"]
+[ext_resource type="Script" uid="uid://cpo2wtpbkat12" path="res://Level/LevelAsset/TimedTarget/TimedTarget.cs" id="1_xr8os"]
+[ext_resource type="PackedScene" uid="uid://g8r1g8mxnw2i" path="res://Level/LevelAsset/Target/drone.glb" id="2_ocrjw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1iuy0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr8os"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h1w1a"]
+material = SubResource("StandardMaterial3D_xr8os")
+
+[sub_resource type="Animation" id="Animation_5p3j2"]
+resource_name = "Drone Hover"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Drone:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w21ft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Drone:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r6a28"]
+_data = {
+&"Drone Hover": SubResource("Animation_5p3j2"),
+&"RESET": SubResource("Animation_w21ft")
+}
+
+[node name="Target2" type="Area3D" node_paths=PackedStringArray("HitIndicator") groups=["target"]]
+collision_layer = 5
+collision_mask = 3
+script = ExtResource("1_xr8os")
+HitDuration = 5.0
+HitIndicator = NodePath("Node3D")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1iuy0")
+
+[node name="Door" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("1_1iuy0")]
+Target = NodePath("..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Door"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+layers = 256
+mesh = SubResource("BoxMesh_h1w1a")
+skeleton = NodePath("../..")
+
+[node name="Drone" parent="." instance=ExtResource("2_ocrjw")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r6a28")
+}
+
+[connection signal="body_entered" from="." to="." method="IsShot"]

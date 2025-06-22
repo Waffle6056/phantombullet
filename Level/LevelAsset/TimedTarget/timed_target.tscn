@@ -1,20 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbhas7yl7wcqu"]
+[gd_scene load_steps=10 format=3 uid="uid://dbhas7yl7wcqu"]
 
 [ext_resource type="Script" uid="uid://cpo2wtpbkat12" path="res://Level/LevelAsset/TimedTarget/TimedTarget.cs" id="1_kkn4x"]
 [ext_resource type="Shader" uid="uid://bgjx8p8qly8p8" path="res://Level/LevelAsset/Target/target_watcharea.tres" id="2_2hyp5"]
 [ext_resource type="PackedScene" uid="uid://g8r1g8mxnw2i" path="res://Level/LevelAsset/Target/drone.glb" id="3_2hyp5"]
-[ext_resource type="PackedScene" uid="uid://tbtkf8kwr0p6" path="res://Level/LevelAsset/Lever/Lever.tscn" id="3_c1axr"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nufe5"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xdh1w"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_gurpy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04oi4"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cflro"]
+material = SubResource("StandardMaterial3D_04oi4")
+radius = 0.675
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_usjna"]
 radius = 1.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_5p3j2"]
+[sub_resource type="SphereMesh" id="SphereMesh_h1nfs"]
 radius = 1.0
 height = 2.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w21ft"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_atthm"]
 render_priority = 0
 shader = ExtResource("2_2hyp5")
 
@@ -56,7 +62,7 @@ _data = {
 &"RESET": SubResource("Animation_w21ft")
 }
 
-[node name="Target" type="Area3D" node_paths=PackedStringArray("Light", "lever") groups=["target"]]
+[node name="Target2" type="Area3D" node_paths=PackedStringArray("HitIndicator", "Light") groups=["target"]]
 collision_layer = 5
 collision_mask = 3
 script = ExtResource("1_kkn4x")
@@ -65,13 +71,17 @@ Light = NodePath("WatchArea/OmniLight3D")
 lever = NodePath("Drone/Lever")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_nufe5")
+shape = SubResource("CapsuleShape3D_xdh1w")
 
 [node name="Drone" parent="." instance=ExtResource("3_2hyp5")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
-[node name="Lever" parent="Drone" instance=ExtResource("3_c1axr")]
-transform = Transform3D(6.66667, 0, 0, 0, 6.66667, 0, 0, 0, 6.66667, 0, 0, 0)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028801, 0.00336608, -0.00195193)
+visible = false
+layers = 256
+mesh = SubResource("SphereMesh_cflro")
+skeleton = NodePath("")
 
 [node name="WatchArea" type="Area3D" parent="."]
 collision_layer = 0
@@ -79,17 +89,19 @@ collision_mask = 65535
 monitorable = false
 
 [node name="Detector" type="CollisionShape3D" parent="WatchArea"]
-shape = SubResource("SphereShape3D_gurpy")
+shape = SubResource("SphereShape3D_usjna")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="WatchArea"]
 visible = false
-mesh = SubResource("SphereMesh_5p3j2")
-surface_material_override/0 = SubResource("ShaderMaterial_w21ft")
+mesh = SubResource("SphereMesh_h1nfs")
+surface_material_override/0 = SubResource("ShaderMaterial_atthm")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WatchArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.265993, 0)
 light_color = Color(1, 0, 0, 1)
-light_energy = 10.0
+light_energy = 5.0
 light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.5
 shadow_enabled = true
 omni_attenuation = 0.0
 
@@ -97,7 +109,6 @@ omni_attenuation = 0.0
 libraries = {
 &"": SubResource("AnimationLibrary_r6a28")
 }
-autoplay = "Drone Hover"
 
 [connection signal="body_entered" from="." to="." method="IsShot"]
 [connection signal="body_entered" from="WatchArea" to="." method="WatchAreaEntered"]

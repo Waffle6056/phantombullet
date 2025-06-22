@@ -127,7 +127,7 @@ public partial class Target : Area3D
     {
 		if (body is Bullet || body is Player)
 			HitTarget();
-		GD.Print("SHOT");
+		//GD.Print("SHOT");
 		if (body is OnTriggerOrCollisionBoomBullet)
 		{
 			handleBoom(body as OnTriggerOrCollisionBoomBullet);
