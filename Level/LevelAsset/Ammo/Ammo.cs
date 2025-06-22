@@ -89,7 +89,7 @@ public partial class Ammo : Area3D
 
             if (Storage != null)
             {
-                GD.Print("\nPicking up ammo.");
+                // GD.Print("\nPicking up ammo.");
                 Player p = body as Player;
                 Dupes = new Bullet[Storage.Length];
                 for (int i = 0; i < Storage.Length; i++) 

@@ -169,7 +169,7 @@ public partial class Player : CharacterBody3D
 	}
 	public bool PickUp(Bullet b)
 	{
-		GD.Print("Picked up");
+		// GD.Print("Picked up");
         int i = 0;
 		for (; i < Inventory.Length && Inventory[i] != null; i++)
 			continue;
@@ -196,7 +196,7 @@ public partial class Player : CharacterBody3D
             return false;
 		if (Gun.ChambersFilled && !(PickUp(Gun.Bullets[0]) && Gun.Unload()))
 			return false;
-        GD.Print("Picked down");
+        // GD.Print("Picked down");
         for (int i = 0; i < Inventory.Length; i++)
             if (Inventory[i] == b)
                 Inventory[i] = null;

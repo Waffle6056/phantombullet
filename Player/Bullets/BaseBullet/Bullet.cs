@@ -87,8 +87,13 @@ public partial class Bullet : AnimatableBody3D
 		if (col != null)
 		{
 			//GD.Print(col.GetCollider());
+			OnCollision_Teleport(col);
 			OnCollision();
 		}
+	}
+
+	public virtual void OnCollision_Teleport(KinematicCollision3D col)
+	{
 	}
 
 	public virtual void OnCollision()

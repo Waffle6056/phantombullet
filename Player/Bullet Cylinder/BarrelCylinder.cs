@@ -92,32 +92,32 @@ public partial class BarrelCylinder : Node3D
 
             if (bullet is PhotonBullet)
             {
-                GD.Print("Loading photon into slot " + slot.ToString());
+                // GD.Print("Loading photon into slot " + slot.ToString());
                 HideAllButXFromCluster("PhotonBullet", Cluster);
             }
             else if (bullet is TeleporterBullet)
             {
-                GD.Print("Loading tp into slot " + slot.ToString());
+                // GD.Print("Loading tp into slot " + slot.ToString());
                 HideAllButXFromCluster("TeleportBullet", Cluster);
             }
             else if (bullet is OnTriggerDeadshotBullet)
             {
-                GD.Print("Loading ds into slot " + slot.ToString());
+                // GD.Print("Loading ds into slot " + slot.ToString());
                 HideAllButXFromCluster("DeadshotBullet", Cluster);
             }
             else if (bullet is OnTriggerOrCollisionBoomBullet)
             {
-                GD.Print("Loading boom into slot " + slot.ToString());
+                // GD.Print("Loading boom into slot " + slot.ToString());
                 HideAllButXFromCluster("BoomBullet", Cluster);
             }
             else if (bullet is OnTriggerTurningBullet)
             {
-                GD.Print("Loading turny into slot " + slot.ToString());
+                // GD.Print("Loading turny into slot " + slot.ToString());
                 HideAllButXFromCluster("TurnyBullet", Cluster);
             }
             else if (bullet != null)
             {
-                GD.Print("Loading normie into slot " + slot.ToString());
+                // GD.Print("Loading normie into slot " + slot.ToString());
                 HideAllButXFromCluster("NormalBullet", Cluster);
             }
             else

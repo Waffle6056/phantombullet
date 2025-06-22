@@ -87,7 +87,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_w21ft")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WatchArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.265993, 0)
-light_color = Color(1, 0, 0, 1)
+light_color = Color(1, 1, 0, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
 shadow_enabled = true

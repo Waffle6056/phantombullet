@@ -111,7 +111,7 @@ public partial class Gun : Node3D
         foreach (BarrelCylinder b in barrelCylinders)
         {
             b.RotateRight();
-            GD.Print(b.Name);
+            // GD.Print(b.Name);
         }
     }
     private void RotateBarrelLeft()
@@ -123,7 +123,7 @@ public partial class Gun : Node3D
         foreach (BarrelCylinder b in barrelCylinders)
         {
             b.RotateLeft();
-            GD.Print(b.Name);
+            // GD.Print(b.Name);
         }
     }
 	public void Fire()
@@ -163,10 +163,10 @@ public partial class Gun : Node3D
 		}
 		RotateBarrelRight();
 
-		foreach (var bullet in Bullets)
-		{
-			GD.Print("\t- " + (bullet != null ? bullet.Name : "Empty"));
-		}
+		// foreach (var bullet in Bullets)
+		// {
+		// 	GD.Print("\t- " + (bullet != null ? bullet.Name : "Empty"));
+		// }
 
     }
 
