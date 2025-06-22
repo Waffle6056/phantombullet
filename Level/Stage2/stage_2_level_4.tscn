@@ -30,6 +30,7 @@ Target = NodePath("../Target")
 
 [node name="root" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.1605, 0)
+use_collision = true
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1771, 2.63738, -15.3518)

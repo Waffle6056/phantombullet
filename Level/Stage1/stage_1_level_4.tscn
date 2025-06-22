@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cduok5cosn3wf"]
+[gd_scene load_steps=10 format=3 uid="uid://cduok5cosn3wf"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_m85on"]
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="2_8aynj"]
@@ -8,10 +8,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m85on"]
 albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipkm0"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6h5b"]
 albedo_color = Color(0, 0, 0, 1)
@@ -109,12 +105,10 @@ size = Vector3(15.6788, 194.142, 8.26318)
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D2"]
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, -1.69407e-21, 1, 130.401, 74.4922, 3.037)
 size = Vector3(256.113, 0.836853, 8.26318)
-material = SubResource("StandardMaterial3D_ipkm0")
 
 [node name="Trapdoor" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -3.266, -23.783)
 size = Vector3(11.2107, 0.836853, 8.26318)
-material = SubResource("StandardMaterial3D_ipkm0")
 
 [node name="Node3D2" type="Node3D" parent="."]
 
@@ -122,41 +116,49 @@ material = SubResource("StandardMaterial3D_ipkm0")
 transform = Transform3D(1.99365, 0, 0, 0, 1.99365, 0, 0, 0, 1.99365, 7.66105, -33.5366, -17.5748)
 IsWatching = true
 AreaScale = 6.0
+MaxTimeTilAngry = 0.5
 
 [node name="Target2" parent="Node3D2" instance=ExtResource("2_8aynj")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.03691, -40.2159, -20.4839)
 IsWatching = true
 AreaScale = 6.0
+MaxTimeTilAngry = 0.5
 
 [node name="Target3" parent="Node3D2" instance=ExtResource("2_8aynj")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5.18742, -46.2349, -27.4229)
 IsWatching = true
 AreaScale = 6.0
+MaxTimeTilAngry = 0.5
 
 [node name="Target4" parent="Node3D2" instance=ExtResource("2_8aynj")]
 transform = Transform3D(-1.95669, 0, 0.38208, 0, 1.99365, 0, -0.38208, 0, -1.95669, 18.6788, -33.5366, -26.97)
 IsWatching = true
 AreaScale = 6.0
+MaxTimeTilAngry = 0.5
 
 [node name="Target5" parent="Node3D2" instance=ExtResource("2_8aynj")]
 transform = Transform3D(-1.96293, 0, 0.383297, 0, 2, 0, -0.383297, 0, -1.96293, -23.838, -40.2159, -21.6813)
 IsWatching = true
 AreaScale = 6.0
+MaxTimeTilAngry = 0.5
 
 [node name="Target6" parent="Node3D2" instance=ExtResource("2_8aynj")]
 transform = Transform3D(-1.96293, 0, 0.383297, 0, 2, 0, -0.383297, 0, -1.96293, 19.2192, -46.2349, -16.8304)
 IsWatching = true
 AreaScale = 6.0
+MaxTimeTilAngry = 0.5
 
 [node name="Target7" parent="Node3D2" instance=ExtResource("2_8aynj")]
 transform = Transform3D(-1.88613, 0, 0.645877, 0, 1.99365, 0, -0.645877, 0, -1.88613, -20.3607, -33.5366, -46.8127)
 IsWatching = true
 AreaScale = 6.0
+MaxTimeTilAngry = 0.5
 
 [node name="Target8" parent="Node3D2" instance=ExtResource("2_8aynj")]
 transform = Transform3D(-1.89214, 0, 0.647934, 0, 2, 0, -0.647934, 0, -1.89214, -11.9474, -40.2159, -39.9467)
 IsWatching = true
 AreaScale = 6.0
+MaxTimeTilAngry = 0.5
 
 [node name="Target9" parent="Node3D2" instance=ExtResource("2_8aynj")]
 transform = Transform3D(-1.89214, 0, 0.647934, 0, 2, 0, -0.647934, 0, -1.89214, 19.3604, -46.2349, -36.6943)
