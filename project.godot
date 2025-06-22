@@ -23,6 +23,10 @@ window/size/initial_position_type=4
 
 project/assembly_name="phantombullet"
 
+[editor]
+
+movie_writer/movie_file="/Users/shubhranderia/Movies/Godot/movie.avi"
+
 [global_group]
 
 target=""

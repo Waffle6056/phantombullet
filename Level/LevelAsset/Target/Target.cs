@@ -26,6 +26,9 @@ public partial class Target : Area3D
 	[Export]
 	public bool CanTriggerDeath = true;
 
+	[Export]
+	public float TimeOut = 3.0f;
+
 	public Area3D WatchedArea;
 	public CollisionShape3D WatchedAreaShape;
 	public MeshInstance3D WatchedAreaDecal;
@@ -36,6 +39,8 @@ public partial class Target : Area3D
 	public Node3D[] TheseArePartOfMe = [];
 
 	private Rid[] excludedRids = [];
+
+	private CustomTimer timer;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -83,11 +88,20 @@ public partial class Target : Area3D
 		}
 
 		GetNode<AnimationPlayer>("AnimationPlayer").Play("Drone Hover");
+		timer = GetNodeOrNull<CustomTimer>("Timer");
+		if (timer == null)
+		{
+			GD.PrintErr($"Target {Name}: Timer is not found.");
+		}
+		else
+		{
+			timer.Timeout += OnTimeOut;
+		}
 	}
 
 	public void WatchAreaEntered(Node3D body)
 	{
-		if (!Hit && IsWatching && (body is Player || body.IsInGroup("bullet")))
+		if (!Hit && IsWatching && body is Player)
 		{
 			// make a raycast to the body to check if line-of sight (uninterrupted)
 			var spaceState = GetWorld3D().DirectSpaceState;
@@ -100,19 +114,23 @@ public partial class Target : Area3D
 			{
 				// TODO: take action after a 3sec delay, during which the target can be shot to cancel
 				// GD.Print($"Target {Name}: I SEE {body.Name}.");
-
-				EmitSignal(SignalName.TargetTriggered, this);
+				timer.Start(TimeOut * 1000);
 			}
 		}
 	}
+
+	public void OnTimeOut()
+	{
+		EmitSignal(SignalName.TargetTriggered, this);
+	}
 	
-    public void CheckWatchArea()
-    {
-		if (!WatchedArea.HasOverlappingBodies())
-			return;
-		foreach (Node3D body in WatchedArea.GetOverlappingBodies())
-			WatchAreaEntered(body);
-    }
+    // public void CheckWatchArea()
+	// {
+	// 	if (!WatchedArea.HasOverlappingBodies())
+	// 		return;
+	// 	foreach (Node3D body in WatchedArea.GetOverlappingBodies())
+	// 		WatchAreaEntered(body);
+	// }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
@@ -130,34 +148,36 @@ public partial class Target : Area3D
 			Light.OmniRange = AreaScale;
 
 			// don't call this every frame.
-            CheckWatchArea();
+            // CheckWatchArea();
         }
-
-        foreach (Node3D body in GetOverlappingBodies())
-			IsShot(body);
-
     }
 
 	public virtual void HitTarget()
 	{
 		// signifies when the target is hit
+		timer.Kill();
 		Hit = true;
 		EmitSignal (SignalName.TargetCompleted, this);
 	}
 
 	public void IsShot(Node3D body)
-    {
-		if (body is Bullet || body is Player)
+	{
+		if (body is Bullet)
+		{
 			HitTarget();
-		if (body is OnTriggerOrCollisionBoomBullet)
-		{
-			handleBoom(body as OnTriggerOrCollisionBoomBullet);
+			if (body is OnTriggerOrCollisionBoomBullet)
+			{
+				handleBoom(body as OnTriggerOrCollisionBoomBullet);
+			}
+			else
+			{
+				(body as Bullet).OnCollision();
+			}
 		}
-		else if (body is Bullet)
+		else if (body is Player)
 		{
-			(body as Bullet).OnCollision();
+			//???
 		}
-		
 	}
 
 	private void handleBoom(OnTriggerOrCollisionBoomBullet bullet)

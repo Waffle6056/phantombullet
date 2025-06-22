@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://hb3x0n3mu372"]
+[gd_scene load_steps=14 format=3 uid="uid://hb3x0n3mu372"]
 
 [ext_resource type="Script" uid="uid://b4s1w1nec447t" path="res://Level/LevelAsset/Target/Target.cs" id="1_8p6v7"]
 [ext_resource type="PackedScene" uid="uid://g8r1g8mxnw2i" path="res://Level/LevelAsset/Target/drone.glb" id="2_5p3j2"]
 [ext_resource type="Shader" uid="uid://bgjx8p8qly8p8" path="res://Level/LevelAsset/Target/target_watcharea.tres" id="2_njjcb"]
+[ext_resource type="Script" uid="uid://coul023g0j4lh" path="res://Level/LevelAsset/Target/CustomTimer.cs" id="4_w21ft"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nufe5"]
 
@@ -107,6 +108,9 @@ omni_attenuation = 0.0
 libraries = {
 &"": SubResource("AnimationLibrary_r6a28")
 }
+
+[node name="Timer" type="Node" parent="."]
+script = ExtResource("4_w21ft")
 
 [connection signal="body_entered" from="." to="." method="IsShot"]
 [connection signal="body_entered" from="WatchArea" to="." method="WatchAreaEntered"]

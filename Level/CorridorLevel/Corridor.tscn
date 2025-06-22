@@ -46,6 +46,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533631, 1.86534, -0.634055)
 
 [node name="Target" parent="." instance=ExtResource("2_jy42x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24702, 0.423494, -1.90321)
+collision_layer = 0
+AreaScale = 4.0
 
 [node name="FinalDoor" parent="." instance=ExtResource("3_t3qf2")]
 transform = Transform3D(0.2, 0, 0, 0, 2.46, 0, 0, 0, 1.58, 15.3813, 0.0142282, -0.526439)
