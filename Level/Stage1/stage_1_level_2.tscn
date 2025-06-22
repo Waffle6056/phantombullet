@@ -1,19 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://db42dp3su5bj4"]
+[gd_scene load_steps=6 format=3 uid="uid://db42dp3su5bj4"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_p5ebf"]
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="2_u45k7"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="3_2abei"]
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="3_gg33y"]
+[ext_resource type="PackedScene" uid="uid://i4w1jl2h4yih" path="res://Level/LevelAsset/Final_Door.tscn" id="4_2abei"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u45k7"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2abei"]
-size = Vector3(1.32446, 1.92468, 1.60986)
-
-[node name="Stage1Level2" type="Node3D" node_paths=PackedStringArray("Targets")]
+[node name="Stage1Level2" type="Node3D" node_paths=PackedStringArray("Targets", "FinishDoor")]
 script = ExtResource("1_p5ebf")
-Targets = [NodePath("Node3D/CSGBox3D14/Target2")]
+Targets = []
+FinishDoor = NodePath("Node3D/FinalDoor")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.56382, -8.03526, -23.3659)
@@ -100,19 +96,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41425, 0, 5.28436)
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.16091, -6.73372, -21.9106)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.73674)
-size = Vector3(0.68927, 1.79159, 1.39782)
-material = SubResource("StandardMaterial3D_u45k7")
-
-[node name="Target2" parent="Node3D/CSGBox3D14" instance=ExtResource("3_gg33y")]
-visible = false
-collision_layer = 1
-collision_mask = 8
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/CSGBox3D14/Target2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162233, 0, 0)
-shape = SubResource("BoxShape3D_2abei")
+[node name="FinalDoor" parent="Node3D" instance=ExtResource("4_2abei")]
+transform = Transform3D(0.68927, 0, 0, 0, 1.79159, 0, 0, 0, 1.39782, 0, 0, 2.73674)
 
 [node name="Target" parent="." instance=ExtResource("3_gg33y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.212, 1.29522, -10.4626)

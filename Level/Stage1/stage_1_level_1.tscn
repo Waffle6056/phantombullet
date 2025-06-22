@@ -1,16 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bogxrrfiatfax"]
+[gd_scene load_steps=10 format=3 uid="uid://bogxrrfiatfax"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_mx658"]
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="3_dh458"]
 [ext_resource type="Script" uid="uid://ktnabpybesd8" path="res://BulletTime/BulletTimeAffected.cs" id="3_eass0"]
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="3_vbmy7"]
+[ext_resource type="PackedScene" uid="uid://i4w1jl2h4yih" path="res://Level/LevelAsset/Final_Door.tscn" id="3_vsimg"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="4_y580u"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbmy7"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lwa34"]
-size = Vector3(1.32446, 1.92468, 1.60986)
 
 [sub_resource type="Animation" id="Animation_dh458"]
 length = 0.001
@@ -123,9 +118,10 @@ _data = {
 &"loop": SubResource("Animation_mx658")
 }
 
-[node name="Stage1Level1Entrance" type="Node3D" node_paths=PackedStringArray("Targets")]
+[node name="Stage1Level1Entrance" type="Node3D" node_paths=PackedStringArray("Targets", "FinishDoor")]
 script = ExtResource("1_mx658")
-Targets = [NodePath("Node3D/CSGBox3D14/Target2")]
+Targets = []
+FinishDoor = NodePath("Node3D/FinalDoor")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3969, -1.81654, -33.3979)
@@ -182,19 +178,8 @@ size = Vector3(30.9072, 11.186, 13.7659)
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.74796, 11.6052, -16.071)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(0.884703, 0, 0.466155, 0, 1, 0, -0.466155, 0, 0.884703, 10.0078, -7.534, -9.91265)
-size = Vector3(0.68927, 1.79159, 1.39782)
-material = SubResource("StandardMaterial3D_vbmy7")
-
-[node name="Target2" parent="Node3D/CSGBox3D14" instance=ExtResource("3_dh458")]
-visible = false
-collision_layer = 1
-collision_mask = 8
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/CSGBox3D14/Target2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162233, 0, 0)
-shape = SubResource("BoxShape3D_lwa34")
+[node name="FinalDoor" parent="Node3D" instance=ExtResource("3_vsimg")]
+transform = Transform3D(0.609799, 0, 0.651601, 0, 1.79159, 0, -0.321307, 0, 1.23666, 10.0078, -7.534, -9.91265)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

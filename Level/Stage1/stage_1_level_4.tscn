@@ -1,22 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cduok5cosn3wf"]
+[gd_scene load_steps=7 format=3 uid="uid://cduok5cosn3wf"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_m85on"]
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="2_8aynj"]
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="3_8aynj"]
+[ext_resource type="PackedScene" uid="uid://i4w1jl2h4yih" path="res://Level/LevelAsset/Final_Door.tscn" id="3_m6h5b"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="4_m6h5b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m85on"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6h5b"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ipkm0"]
-size = Vector3(30, 100, 30)
-
-[node name="Stage1Level4" type="Node3D" node_paths=PackedStringArray("Targets")]
+[node name="Stage1Level4" type="Node3D" node_paths=PackedStringArray("FinishDoor")]
 script = ExtResource("1_m85on")
-Targets = [NodePath("Node3D/CSGBox3D14/Target2")]
+FinishDoor = NodePath("Node3D/FinalDoor")
 
 [node name="Label3D2" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.02182)
@@ -591,20 +586,8 @@ AreaScale = 6.0
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, -60.825, -164.932)
-size = Vector3(30, 1, 124.311)
-material = SubResource("StandardMaterial3D_m6h5b")
-
-[node name="Target2" parent="Node3D/CSGBox3D14" instance=ExtResource("2_8aynj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 37.1569)
-visible = false
-collision_layer = 1
-collision_mask = 8
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/CSGBox3D14/Target2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.162233, -48.9254, 0)
-shape = SubResource("BoxShape3D_ipkm0")
+[node name="FinalDoor" parent="Node3D" instance=ExtResource("3_m6h5b")]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 124.311, 0, -60.825, -164.932)
 
 [node name="Ammo2" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("3_8aynj")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.25228, -0.708236, -3.72057)
