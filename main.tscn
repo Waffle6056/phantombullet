@@ -144,24 +144,6 @@ border_color = Color(0.69069, 0.8104, 0.90524, 1)
 border_width = 1.9
 editor_only = false
 
-[node name="Padding" type="ReferenceRect" parent="CanvasLayer/PauseMenu/buttons"]
-custom_minimum_size = Vector2(19.33, 0)
-layout_mode = 2
-
-[node name="Quit" type="Button" parent="CanvasLayer/PauseMenu/buttons"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Quit this Run"
-
-[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/PauseMenu/buttons/Quit"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 65.0
-mouse_filter = 2
-border_color = Color(0.69069, 0.8104, 0.90524, 1)
-border_width = 1.9
-editor_only = false
-
 [node name="keybinds" type="HBoxContainer" parent="CanvasLayer/PauseMenu"]
 layout_mode = 0
 offset_top = 192.0
@@ -493,4 +475,3 @@ offset_bottom = 43.0
 text = "Press <Esc> or <P> to Pause"
 
 [connection signal="pressed" from="CanvasLayer/PauseMenu/buttons/Resume" to="CanvasLayer/PauseMenu" method="ResumeGame"]
-[connection signal="pressed" from="CanvasLayer/PauseMenu/buttons/Quit" to="CanvasLayer/PauseMenu" method="QuitToMain"]

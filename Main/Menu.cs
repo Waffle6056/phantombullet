@@ -9,6 +9,9 @@ public partial class Menu : Control
     [Export]
     public Node LevelManager;
 
+    [Export]
+    public PackedScene MainMenuScene;
+
     public override void _Ready()
     {
         Hide();
@@ -38,7 +41,8 @@ public partial class Menu : Control
 
     public void QuitToMain()
     {
-        GD.Print("Quit to main menu... unimplemented");
+        // GetTree().ChangeSceneToPacked(MainMenuScene);
+        GetTree().UnloadCurrentScene();
     }
 
     public override void _Process(double delta)

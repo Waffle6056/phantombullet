@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://momkjsgfubup"]
+
+[ext_resource type="Script" uid="uid://cokjmcaktqmbq" path="res://Cover.cs" id="1_6kjsr"]
+[ext_resource type="PackedScene" uid="uid://don885xwd5v3v" path="res://main.tscn" id="2_ukbvw"]
+[ext_resource type="Texture2D" uid="uid://dm7g7rjlssv3n" path="res://Assets/play.svg" id="3_qajx3"]
+[ext_resource type="Texture2D" uid="uid://cm4x4tobgiwf8" path="res://Assets/cover.png" id="3_ukbvw"]
+
+[node name="Cover" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6kjsr")
+Main = ExtResource("2_ukbvw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ukbvw")
+expand_mode = 2
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 502.0
+offset_top = 433.0
+offset_right = 1310.0
+offset_bottom = 1241.0
+scale = Vector2(0.16, 0.16)
+icon = ExtResource("3_qajx3")
+flat = true
+
+[connection signal="pressed" from="Play" to="." method="Play"]

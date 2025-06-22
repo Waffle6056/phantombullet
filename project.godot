@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="phantombullet"
-run/main_scene="res://main.tscn"
+run/main_scene="uid://momkjsgfubup"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="uid://cqeumlv0ttkrw"
+boot_splash/image="uid://cm4x4tobgiwf8"
 
 [display]
 
