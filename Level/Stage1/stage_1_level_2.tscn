@@ -133,3 +133,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.75755, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
 shape = SubResource("WorldBoundaryShape3D_tpexv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.582, 2.92874, 0.934826)
+light_volumetric_fog_energy = 0.0
+light_specular = 0.66
+omni_range = 14.0428

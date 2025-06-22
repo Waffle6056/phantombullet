@@ -22,13 +22,14 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8uy2h"]
 
-[sub_resource type="Sky" id="Sky_dhcwn"]
+[sub_resource type="Sky" id="Sky_cegan"]
 sky_material = SubResource("ProceduralSkyMaterial_8uy2h")
 
 [sub_resource type="Environment" id="Environment_yo784"]
 background_mode = 2
-sky = SubResource("Sky_dhcwn")
+sky = SubResource("Sky_cegan")
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("5_lquwl")

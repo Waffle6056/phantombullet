@@ -90,7 +90,7 @@ script = ExtResource("5_m1pqq")
 ExtraTargets = []
 Target = NodePath("../Target3")
 
-[node name="Door2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_4jxof")]
+[node name="Door2" parent="." instance=ExtResource("3_4jxof")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 0.39418, 1.7529, -24.129)
 Target = NodePath("../Target")
 
