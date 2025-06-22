@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://don885xwd5v3v"]
+[gd_scene load_steps=28 format=3 uid="uid://don885xwd5v3v"]
 
 [ext_resource type="PackedScene" uid="uid://2ynb80ubs6un" path="res://Player/player.tscn" id="1_6ya0i"]
 [ext_resource type="Script" uid="uid://bq2phetuwnpxh" path="res://Main/Main.cs" id="1_272bh"]
@@ -40,8 +40,23 @@ shader_parameter/zoom_offset_percentage = 0.15
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
 shader = ExtResource("9_kek77")
 shader_parameter/blur_amount = 2.77
-shader_parameter/mix_amount = 0.41
+shader_parameter/mix_amount = 0.53
 shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cegan"]
+shader = ExtResource("9_kek77")
+shader_parameter/blur_amount = 4.8
+shader_parameter/mix_amount = 0.87
+shader_parameter/color_over = Color(0.0850919, 0.164247, 0.221612, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82xsv"]
+shader = ExtResource("9_kek77")
+shader_parameter/blur_amount = 4.8
+shader_parameter/mix_amount = 0.87
+shader_parameter/color_over = Color(0.295831, 0.470451, 0.677775, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cegan"]
+font_size = 96
 
 [node name="Main" type="Node3D"]
 process_mode = 1
@@ -53,6 +68,7 @@ script = ExtResource("1_272bh")
 environment = SubResource("Environment_yo784")
 
 [node name="LevelManager" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("2_0xm2m")
 LevelList = Array[PackedScene]([ExtResource("4_kek77"), ExtResource("5_cegan"), ExtResource("5_efxa6"), ExtResource("6_dg77c"), ExtResource("8_82xsv"), ExtResource("9_getpj"), ExtResource("10_ryguw"), ExtResource("11_d13ii"), ExtResource("12_1u8w0"), ExtResource("13_0odxb"), ExtResource("14_lswn8")])
 
@@ -87,7 +103,7 @@ grow_vertical = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="PauseMenu" type="Control" parent="CanvasLayer"]
+[node name="PauseMenu" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("StageLabel", "LevelManager")]
 process_mode = 2
 z_index = 3
 z_as_relative = false
@@ -98,17 +114,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_272bh")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PauseMenu"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_7mycd")
-expand_mode = 2
+StageLabel = NodePath("StageLabel")
+LevelManager = NodePath("../../LevelManager")
 
 [node name="bg" type="ColorRect" parent="CanvasLayer/PauseMenu"]
 material = SubResource("ShaderMaterial_4c57u")
@@ -116,11 +123,374 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Label" type="Label" parent="CanvasLayer/PauseMenu"]
+[node name="buttons" type="HBoxContainer" parent="CanvasLayer/PauseMenu"]
+layout_mode = 0
+offset_top = 525.0
+offset_right = 1152.0
+offset_bottom = 590.0
+alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/PauseMenu/buttons"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-offset_left = 284.0
-offset_top = 196.0
-offset_right = 888.0
-offset_bottom = 219.0
-text = "Hello! You have reached the pause menu. Please press <ESC> again to resume."
+text = "Resume"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/PauseMenu/buttons/Resume"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 65.0
+mouse_filter = 2
+border_color = Color(0.69069, 0.8104, 0.90524, 1)
+border_width = 1.9
+editor_only = false
+
+[node name="Padding" type="ReferenceRect" parent="CanvasLayer/PauseMenu/buttons"]
+custom_minimum_size = Vector2(19.33, 0)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="CanvasLayer/PauseMenu/buttons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Quit this Run"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/PauseMenu/buttons/Quit"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 65.0
+mouse_filter = 2
+border_color = Color(0.69069, 0.8104, 0.90524, 1)
+border_width = 1.9
+editor_only = false
+
+[node name="keybinds" type="HBoxContainer" parent="CanvasLayer/PauseMenu"]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 1152.0
+offset_bottom = 470.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/keybinds"]
+custom_minimum_size = Vector2(446.98, 0)
+layout_mode = 2
+
+[node name="Row6" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer"]
+custom_minimum_size = Vector2(0, 43.04)
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row6"]
+material = SubResource("ShaderMaterial_cegan")
+custom_minimum_size = Vector2(330.41, 0)
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row6/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="padding" type="ReferenceRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row6/ColorRect/HSplitContainer"]
+custom_minimum_size = Vector2(11.1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row6/ColorRect/HSplitContainer"]
+z_index = 1
+layout_mode = 2
+text = "Movement"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row6"]
+material = SubResource("ShaderMaterial_82xsv")
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row6/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row6/ColorRect3/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "<W, A, S, D>"
+vertical_alignment = 1
+
+[node name="Row" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer"]
+custom_minimum_size = Vector2(0, 43.04)
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row"]
+material = SubResource("ShaderMaterial_cegan")
+custom_minimum_size = Vector2(330.41, 0)
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="padding" type="ReferenceRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row/ColorRect/HSplitContainer"]
+custom_minimum_size = Vector2(11.1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row/ColorRect/HSplitContainer"]
+z_index = 1
+layout_mode = 2
+text = "Restart Level"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row"]
+material = SubResource("ShaderMaterial_82xsv")
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row/ColorRect3/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "<T>"
+vertical_alignment = 1
+
+[node name="Row2" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer"]
+custom_minimum_size = Vector2(0, 43.04)
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row2"]
+material = SubResource("ShaderMaterial_cegan")
+custom_minimum_size = Vector2(330.41, 0)
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row2/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="padding" type="ReferenceRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row2/ColorRect/HSplitContainer"]
+custom_minimum_size = Vector2(11.1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row2/ColorRect/HSplitContainer"]
+z_index = 1
+layout_mode = 2
+text = "Pause/Resume"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row2"]
+material = SubResource("ShaderMaterial_82xsv")
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row2/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row2/ColorRect3/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "<Esc>, <P>"
+vertical_alignment = 1
+
+[node name="Row3" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer"]
+custom_minimum_size = Vector2(0, 43.04)
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row3"]
+material = SubResource("ShaderMaterial_cegan")
+custom_minimum_size = Vector2(330.41, 0)
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row3/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="padding" type="ReferenceRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row3/ColorRect/HSplitContainer"]
+custom_minimum_size = Vector2(11.1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row3/ColorRect/HSplitContainer"]
+z_index = 1
+layout_mode = 2
+text = "Enter Bullet Time"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row3"]
+material = SubResource("ShaderMaterial_82xsv")
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row3/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row3/ColorRect3/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "<F>"
+vertical_alignment = 1
+
+[node name="Row4" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer"]
+custom_minimum_size = Vector2(0, 43.04)
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row4"]
+material = SubResource("ShaderMaterial_cegan")
+custom_minimum_size = Vector2(330.41, 0)
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row4/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="padding" type="ReferenceRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row4/ColorRect/HSplitContainer"]
+custom_minimum_size = Vector2(11.1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row4/ColorRect/HSplitContainer"]
+z_index = 1
+layout_mode = 2
+text = "Fire"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row4"]
+material = SubResource("ShaderMaterial_82xsv")
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row4/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row4/ColorRect3/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "<LMB>"
+vertical_alignment = 1
+
+[node name="Row5" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer"]
+custom_minimum_size = Vector2(0, 43.04)
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row5"]
+material = SubResource("ShaderMaterial_cegan")
+custom_minimum_size = Vector2(330.41, 0)
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row5/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="padding" type="ReferenceRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row5/ColorRect/HSplitContainer"]
+custom_minimum_size = Vector2(11.1, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row5/ColorRect/HSplitContainer"]
+z_index = 1
+layout_mode = 2
+text = "Open Inventory"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row5"]
+material = SubResource("ShaderMaterial_82xsv")
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row5/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/keybinds/VBoxContainer/Row5/ColorRect3/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+text = "<R>, <RMB>"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 1152.0
+offset_bottom = 152.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseMenu/HBoxContainer"]
+layout_mode = 2
+text = "Game Paused"
+label_settings = SubResource("LabelSettings_cegan")
 horizontal_alignment = 1
+
+[node name="StageLabel" type="Label" parent="CanvasLayer/PauseMenu"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 20.0
+offset_right = 147.0
+offset_bottom = 43.0
+text = "Placeholder"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="StageLabel" type="Label" parent="CanvasLayer2"]
+offset_left = 33.0
+offset_top = 20.0
+offset_right = 246.0
+offset_bottom = 43.0
+text = "Press <Esc> or <P> to Pause"
+
+[connection signal="pressed" from="CanvasLayer/PauseMenu/buttons/Resume" to="CanvasLayer/PauseMenu" method="ResumeGame"]
+[connection signal="pressed" from="CanvasLayer/PauseMenu/buttons/Quit" to="CanvasLayer/PauseMenu" method="QuitToMain"]
