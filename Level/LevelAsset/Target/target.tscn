@@ -71,6 +71,7 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
 [node name="Lever" parent="Drone" instance=ExtResource("4_w21ft")]
 transform = Transform3D(6.66667, 0, 0, 0, 6.66667, 0, 0, 0, 6.66667, 0, 0, 0)
+IsTimed = false
 
 [node name="WatchArea" type="Area3D" parent="."]
 collision_layer = 0
