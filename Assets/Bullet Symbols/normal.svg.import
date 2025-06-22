@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://no0rw2bcw0e4"
 path.s3tc="res://.godot/imported/normal.svg-bb7e9e473d3c41c3b4a14e71d3a446bb.s3tc.ctex"
+path.etc2="res://.godot/imported/normal.svg-bb7e9e473d3c41c3b4a14e71d3a446bb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Bullet Symbols/normal.svg"
-dest_files=["res://.godot/imported/normal.svg-bb7e9e473d3c41c3b4a14e71d3a446bb.s3tc.ctex"]
+dest_files=["res://.godot/imported/normal.svg-bb7e9e473d3c41c3b4a14e71d3a446bb.s3tc.ctex", "res://.godot/imported/normal.svg-bb7e9e473d3c41c3b4a14e71d3a446bb.etc2.ctex"]
 
 [params]
 

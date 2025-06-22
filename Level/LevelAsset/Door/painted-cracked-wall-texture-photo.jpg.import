@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cr05bbqnag5t5"
 path.s3tc="res://.godot/imported/painted-cracked-wall-texture-photo.jpg-551f4bcf91385a04f63f5060557013a4.s3tc.ctex"
+path.etc2="res://.godot/imported/painted-cracked-wall-texture-photo.jpg-551f4bcf91385a04f63f5060557013a4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Level/LevelAsset/Door/painted-cracked-wall-texture-photo.jpg"
-dest_files=["res://.godot/imported/painted-cracked-wall-texture-photo.jpg-551f4bcf91385a04f63f5060557013a4.s3tc.ctex"]
+dest_files=["res://.godot/imported/painted-cracked-wall-texture-photo.jpg-551f4bcf91385a04f63f5060557013a4.s3tc.ctex", "res://.godot/imported/painted-cracked-wall-texture-photo.jpg-551f4bcf91385a04f63f5060557013a4.etc2.ctex"]
 
 [params]
 

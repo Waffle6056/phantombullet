@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0mhm3613befc"
 path.s3tc="res://.godot/imported/Photon Bullet Base Color.png-8da0263409e263e81125402c4a5d05c4.s3tc.ctex"
+path.etc2="res://.godot/imported/Photon Bullet Base Color.png-8da0263409e263e81125402c4a5d05c4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Bullet Textures/Photon Bullet Base Color.png"
-dest_files=["res://.godot/imported/Photon Bullet Base Color.png-8da0263409e263e81125402c4a5d05c4.s3tc.ctex"]
+dest_files=["res://.godot/imported/Photon Bullet Base Color.png-8da0263409e263e81125402c4a5d05c4.s3tc.ctex", "res://.godot/imported/Photon Bullet Base Color.png-8da0263409e263e81125402c4a5d05c4.etc2.ctex"]
 
 [params]
 

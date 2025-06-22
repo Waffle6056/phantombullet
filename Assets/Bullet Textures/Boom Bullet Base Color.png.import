@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://g7cgoa4yvcna"
 path.s3tc="res://.godot/imported/Boom Bullet Base Color.png-c37dd9690e16840f7155c96221386c4f.s3tc.ctex"
+path.etc2="res://.godot/imported/Boom Bullet Base Color.png-c37dd9690e16840f7155c96221386c4f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Bullet Textures/Boom Bullet Base Color.png"
-dest_files=["res://.godot/imported/Boom Bullet Base Color.png-c37dd9690e16840f7155c96221386c4f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Boom Bullet Base Color.png-c37dd9690e16840f7155c96221386c4f.s3tc.ctex", "res://.godot/imported/Boom Bullet Base Color.png-c37dd9690e16840f7155c96221386c4f.etc2.ctex"]
 
 [params]
 

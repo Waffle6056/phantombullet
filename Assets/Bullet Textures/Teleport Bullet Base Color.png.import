@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bumm3s0krtpj0"
 path.s3tc="res://.godot/imported/Teleport Bullet Base Color.png-16478a08f132b95a1255c503e913fefe.s3tc.ctex"
+path.etc2="res://.godot/imported/Teleport Bullet Base Color.png-16478a08f132b95a1255c503e913fefe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Bullet Textures/Teleport Bullet Base Color.png"
-dest_files=["res://.godot/imported/Teleport Bullet Base Color.png-16478a08f132b95a1255c503e913fefe.s3tc.ctex"]
+dest_files=["res://.godot/imported/Teleport Bullet Base Color.png-16478a08f132b95a1255c503e913fefe.s3tc.ctex", "res://.godot/imported/Teleport Bullet Base Color.png-16478a08f132b95a1255c503e913fefe.etc2.ctex"]
 
 [params]
 

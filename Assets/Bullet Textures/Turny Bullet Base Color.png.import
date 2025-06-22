@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxr0yo18fpxii"
 path.s3tc="res://.godot/imported/Turny Bullet Base Color.png-5dceb26a202a1f899236a10809a5965a.s3tc.ctex"
+path.etc2="res://.godot/imported/Turny Bullet Base Color.png-5dceb26a202a1f899236a10809a5965a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Bullet Textures/Turny Bullet Base Color.png"
-dest_files=["res://.godot/imported/Turny Bullet Base Color.png-5dceb26a202a1f899236a10809a5965a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Turny Bullet Base Color.png-5dceb26a202a1f899236a10809a5965a.s3tc.ctex", "res://.godot/imported/Turny Bullet Base Color.png-5dceb26a202a1f899236a10809a5965a.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://brt5f7xtym75h"
 path.s3tc="res://.godot/imported/Lever Base_Cylinder.png-79a2a219d408bc60f8ff9ba348dfb5a5.s3tc.ctex"
+path.etc2="res://.godot/imported/Lever Base_Cylinder.png-79a2a219d408bc60f8ff9ba348dfb5a5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Level/LevelAsset/Lever/Lever Base_Cylinder.png"
-dest_files=["res://.godot/imported/Lever Base_Cylinder.png-79a2a219d408bc60f8ff9ba348dfb5a5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Lever Base_Cylinder.png-79a2a219d408bc60f8ff9ba348dfb5a5.s3tc.ctex", "res://.godot/imported/Lever Base_Cylinder.png-79a2a219d408bc60f8ff9ba348dfb5a5.etc2.ctex"]
 
 [params]
 
