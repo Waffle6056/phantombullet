@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://don885xwd5v3v"]
+[gd_scene load_steps=23 format=3 uid="uid://don885xwd5v3v"]
 
 [ext_resource type="PackedScene" uid="uid://2ynb80ubs6un" path="res://Player/player.tscn" id="1_6ya0i"]
 [ext_resource type="Script" uid="uid://bq2phetuwnpxh" path="res://Main/Main.cs" id="1_272bh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Shader" uid="uid://d4dcqklc0umch" path="res://Main/pause_menu_bg.gdshader" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://cpn0wehjlfyr1" path="res://Level/Stage2/stage_2_level_2.tscn" id="10_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bpvkb63mab2r7" path="res://Level/Stage2/stage_2_level_3.tscn" id="11_yaehf"]
+[ext_resource type="PackedScene" uid="uid://bxev4mc77vwce" path="res://Level/Stage2/stage_2_level_4.tscn" id="12_yaehf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8uy2h"]
 
@@ -50,11 +51,12 @@ environment = SubResource("Environment_yo784")
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
-LevelList = Array[PackedScene]([ExtResource("10_2cqfq"), ExtResource("11_yaehf"), ExtResource("4_4c57u"), ExtResource("4_ycdy4"), ExtResource("4_kek77"), ExtResource("6_w48qg"), ExtResource("7_vivmo"), ExtResource("8_2cqfq")])
+LevelList = Array[PackedScene]([ExtResource("11_yaehf"), ExtResource("4_kek77"), ExtResource("12_yaehf"), ExtResource("10_2cqfq"), ExtResource("4_4c57u"), ExtResource("4_ycdy4"), ExtResource("6_w48qg"), ExtResource("7_vivmo"), ExtResource("8_2cqfq")])
 
 [node name="BulletTime" type="Node" parent="." node_paths=PackedStringArray("BlurNode")]
 script = ExtResource("4_1bvp3")
 SlowedScale = 0.02
+DurationRegen = 3.0
 BlurringPercentVelocity = 10.0
 BlurNode = NodePath("CanvasLayer/ColorRect")
 

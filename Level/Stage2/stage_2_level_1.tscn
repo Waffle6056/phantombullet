@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://coqa5i4oe1xk0"]
+[gd_scene load_steps=12 format=3 uid="uid://coqa5i4oe1xk0"]
 
 [ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="1_1adjx"]
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_5quq7"]
@@ -7,12 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="5_bv3xp"]
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="6_qgmll"]
 [ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="7_5quq7"]
+[ext_resource type="PackedScene" uid="uid://cbgm2xo215kx4" path="res://Level/LevelAsset/Killzone/killzone.tscn" id="8_q2n6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bv3xp"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qgmll"]
 size = Vector3(2.37628, 1.92468, 1.60986)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gybpl"]
 
 [node name="Stage2Level1" type="Node3D" node_paths=PackedStringArray("Targets")]
 script = ExtResource("1_5quq7")
@@ -233,3 +236,10 @@ text = "Turning bullets will rotate left
 after you shoot again
 When it would hit a target, it automatically activates Bullet Time
 Try it!"
+
+[node name="Killzone" parent="." instance=ExtResource("8_q2n6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.77267, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
+shape = SubResource("WorldBoundaryShape3D_gybpl")

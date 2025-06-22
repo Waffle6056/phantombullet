@@ -31,9 +31,13 @@ public partial class Player : CharacterBody3D
     [Export]
     public Node3D CylinderCursor;
     [Export]
-    public Node3D Label;
+    public Node3D SwapLabel;
+    [Export]
+    public Label3D SlotsLabel;
     [Export]
     public AnimationPlayer Animator;
+	[Export]
+	public bool Dead = false;
 	public override void _Ready()
 	{
 		base._Ready();
@@ -57,9 +61,13 @@ public partial class Player : CharacterBody3D
     public override void _Process(double delta)
     {
         base._Process(delta);
+		if (Input.IsActionJustPressed("Reset"))
+		{
+			Animator.Play("Reset");
+		}
 		if (Input.IsActionJustPressed("ToggleInventory"))
 		{
-            InventoryFocused = Label.Visible = Cursor.Visible = InventoryOpen = !InventoryOpen;
+            InventoryFocused = SwapLabel.Visible = Cursor.Visible = InventoryOpen = !InventoryOpen;
 
 			if (InventoryOpen)
 				Animator.Play("ToggleInventory");
@@ -75,6 +83,7 @@ public partial class Player : CharacterBody3D
             else
                 Animator.Play("ToggleFocus");
         }
+
         if (InventoryOpen && InventoryFocused)
         {
             if (Input.IsActionJustReleased("ScrollUp"))
@@ -103,13 +112,18 @@ public partial class Player : CharacterBody3D
 				Cursor.Visible = false;
                 CylinderCursor.Visible = true;
             }
-			//else
-			//{
-			//	Cursor.GlobalPosition = CylinderHUD.GlobalPosition;
-			//	Cursor.GlobalBasis = CylinderHUD.GlobalBasis.Rotated(CylinderHUD.GlobalBasis[0], (float)Math.PI/2);
-   //             Cursor.SetDisableScale(true);
-   //         }
-		}
+			int count = 0;
+			foreach (var item in Inventory)
+				if (item != null)
+					count++;
+			SlotsLabel.Text = count + "/" + Inventory.Length;
+            //else
+            //{
+            //	Cursor.GlobalPosition = CylinderHUD.GlobalPosition;
+            //	Cursor.GlobalBasis = CylinderHUD.GlobalBasis.Rotated(CylinderHUD.GlobalBasis[0], (float)Math.PI/2);
+            //             Cursor.SetDisableScale(true);
+            //         }
+        }
 
 
     }
@@ -187,10 +201,23 @@ public partial class Player : CharacterBody3D
             if (Inventory[i] == b)
                 Inventory[i] = null;
 		if (DupedVisuals.ContainsKey(b))
+		{
 			DupedVisuals[b].QueueFree();
+			DupedVisuals.Remove(b);
+
+        }
         Gun.Load(b);
 		return true;
 	}
+	public void ClearInventory()
+	{
+        for (int i = 0; i < Inventory.Length; i++)
+            Inventory[i] = null;
+		foreach (Node3D vis in DupedVisuals.Values)
+			vis.QueueFree();
+		DupedVisuals.Clear();
+		Gun.ClearInventory();
+    }
     int FloorMod(int a, int b)
     {
         return ((a % b) + b) % b;

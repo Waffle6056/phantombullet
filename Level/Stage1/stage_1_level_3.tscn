@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dljidf0skuc5c"]
+[gd_scene load_steps=12 format=3 uid="uid://dljidf0skuc5c"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_big1p"]
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="2_lap11"]
@@ -7,12 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="4_dtlan"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="5_x0e1s"]
 [ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="7_5barp"]
+[ext_resource type="PackedScene" uid="uid://cbgm2xo215kx4" path="res://Level/LevelAsset/Killzone/killzone.tscn" id="8_kssdl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yt0u1"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rolc0"]
 size = Vector3(1.32446, 1.92468, 1.60986)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ck58t"]
 
 [node name="Stage1Level3" type="Node3D" node_paths=PackedStringArray("Targets")]
 script = ExtResource("1_big1p")
@@ -213,3 +216,10 @@ Target = NodePath("../Target2")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34.2484, -2.74442, -16.3681)
 HitDuration = 10.0
 IsWatching = false
+
+[node name="Killzone" parent="." instance=ExtResource("8_kssdl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.6217, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
+shape = SubResource("WorldBoundaryShape3D_ck58t")

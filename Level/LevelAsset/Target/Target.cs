@@ -30,9 +30,12 @@ public partial class Target : Area3D
 
 	[Export]
 	public Lever lever;
+	[Export]
+	public float MaxTimeTilAngry = 1.0f;
+    public double CurrentTimeTilAngry = 1.0f;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
 		WatchedArea = GetNodeOrNull<Area3D>("WatchArea");
 		if (WatchedArea == null)
@@ -99,7 +102,22 @@ public partial class Target : Area3D
 		foreach (Node3D body in WatchedArea.GetOverlappingBodies())
 			WatchAreaEntered(body);
     }
+    public override void _PhysicsProcess(double delta)
+	{
+		Monitoring = !Hit;
+		//GD.Print(WatchedArea.OverlapsBody(Player.Instance) + " " + CurrentTimeTilAngry);
+		if (IsWatching && WatchedArea != null && WatchedArea.OverlapsBody(Player.Instance)) 
+		{
+			CurrentTimeTilAngry -= delta * BulletTime.TimeScale;
+			if (CurrentTimeTilAngry <= 0)
+				Player.Instance.Dead = true;
 
+        }
+		else
+			CurrentTimeTilAngry = MaxTimeTilAngry;
+		
+
+	}
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
@@ -111,8 +129,9 @@ public partial class Target : Area3D
 			Light.OmniRange = AreaScale;
             CheckWatchArea();
         }
-        foreach (Node3D body in GetOverlappingBodies())
-			IsShot(body);
+		if (Monitoring)
+			foreach (Node3D body in GetOverlappingBodies())
+				IsShot(body);
 
     }
 

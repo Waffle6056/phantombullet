@@ -11,7 +11,7 @@ public partial class BulletTime : Node
 	[Export]
 	public float SlowedScale = .25f;
 
-	public static float DurationMax = 3;
+	public static float DurationMax = 12;
     public static float DurationCurrent = 3;
 
     [Export]

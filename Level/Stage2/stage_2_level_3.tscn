@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpvkb63mab2r7"]
+[gd_scene load_steps=13 format=3 uid="uid://bpvkb63mab2r7"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_e1xw0"]
 [ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="2_hrqq0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="5_86523"]
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="7_20p26"]
 [ext_resource type="PackedScene" uid="uid://diomba6mxnssq" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tscn" id="8_bv7lt"]
+[ext_resource type="PackedScene" uid="uid://cbgm2xo215kx4" path="res://Level/LevelAsset/Killzone/killzone.tscn" id="9_4h076"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="9_mxc2q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtbrm"]
@@ -14,6 +15,8 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86523"]
 size = Vector3(2.25259, 1.27569, 2.19052)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sp2f0"]
 
 [node name="Stage2Level3" type="Node3D" node_paths=PackedStringArray("Targets")]
 script = ExtResource("1_e1xw0")
@@ -124,6 +127,10 @@ size = Vector3(40.3851, 1, 35.4248)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.1305, 12.8168, -45.5589)
 size = Vector3(40.3851, 24.3027, 13.8491)
 
+[node name="CSGBox3D14" type="CSGBox3D" parent="root"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.1305, 3.32107, -94.6656)
+size = Vector3(40.3851, 24.3027, 32.8406)
+
 [node name="CSGBox3D13" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.1305, 17.6875, -41.4286)
 size = Vector3(40.3851, 32.5633, 4.10765)
@@ -188,7 +195,7 @@ transform = Transform3D(8, 0, 0, 0, -3.49691e-07, -1, 0, 8, -4.37114e-08, -31.93
 Target = NodePath("../Target5")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="."]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, -0.861862, -8.85017, -81.5614)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, -4.68952, -8.85017, -81.5614)
 size = Vector3(1.94766, 1.79159, 0.813656)
 material = SubResource("StandardMaterial3D_mtbrm")
 
@@ -267,3 +274,10 @@ ProjectileSpeed = 25.0
 [node name="Bullet3" parent="Ammo3" instance=ExtResource("9_mxc2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67787, 0.712872, 6.4637)
 ProjectileSpeed = 25.0
+
+[node name="Killzone" parent="." instance=ExtResource("9_4h076")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -76.4088, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
+shape = SubResource("WorldBoundaryShape3D_sp2f0")

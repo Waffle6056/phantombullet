@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkyxmuvignwg6"]
+[gd_scene load_steps=11 format=3 uid="uid://dkyxmuvignwg6"]
 
 [ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="1_1iuy0"]
 [ext_resource type="Script" uid="uid://cpo2wtpbkat12" path="res://Level/LevelAsset/TimedTarget/TimedTarget.cs" id="1_xr8os"]
 [ext_resource type="PackedScene" uid="uid://g8r1g8mxnw2i" path="res://Level/LevelAsset/Target/drone.glb" id="2_ocrjw"]
+[ext_resource type="PackedScene" uid="uid://tbtkf8kwr0p6" path="res://Level/LevelAsset/Lever/Lever.tscn" id="4_h1w1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1iuy0"]
 
@@ -50,12 +51,12 @@ _data = {
 &"RESET": SubResource("Animation_w21ft")
 }
 
-[node name="Target2" type="Area3D" node_paths=PackedStringArray("HitIndicator") groups=["target"]]
+[node name="Target2" type="Area3D" node_paths=PackedStringArray("lever") groups=["target"]]
 collision_layer = 5
 collision_mask = 3
 script = ExtResource("1_xr8os")
 HitDuration = 5.0
-HitIndicator = NodePath("Node3D")
+lever = NodePath("Drone/Lever")
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -74,6 +75,8 @@ skeleton = NodePath("../..")
 [node name="Drone" parent="." instance=ExtResource("2_ocrjw")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 visible = false
+
+[node name="Lever" parent="Drone" instance=ExtResource("4_h1w1a")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
