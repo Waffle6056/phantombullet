@@ -38,6 +38,7 @@ public partial class LevelManager : Node
 	private void OnLevelFailed()
 	{
 		// reload
+		GD.Print("Level failed, reloading...");
 		Load(LevelList[ind-1]);
 		// maybe later, show a failure screen
 	}

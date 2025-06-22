@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="3_gg33y"]
 [ext_resource type="PackedScene" uid="uid://i4w1jl2h4yih" path="res://Level/LevelAsset/Final_Door.tscn" id="4_2abei"]
 
-[node name="Stage1Level2" type="Node3D" node_paths=PackedStringArray("Targets", "FinishDoor")]
+[node name="Stage1Level2" type="Node3D" node_paths=PackedStringArray("FinishDoor")]
 script = ExtResource("1_p5ebf")
-Targets = []
 FinishDoor = NodePath("Node3D/FinalDoor")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="."]

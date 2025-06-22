@@ -25,7 +25,7 @@ public partial class CustomTimer : Node
 
     public void Kill()
     {
-        GD.Print("CustomTimer killed.");
+        GD.Print("CustomTimer killed. State: " + IsRunning);
         IsRunning = false;
         TimeElapsed = 0;
     }

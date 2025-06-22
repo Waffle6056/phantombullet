@@ -118,9 +118,8 @@ _data = {
 &"loop": SubResource("Animation_mx658")
 }
 
-[node name="Stage1Level1Entrance" type="Node3D" node_paths=PackedStringArray("Targets", "FinishDoor")]
+[node name="Stage1Level1Entrance" type="Node3D" node_paths=PackedStringArray("FinishDoor")]
 script = ExtResource("1_mx658")
-Targets = []
 FinishDoor = NodePath("Node3D/FinalDoor")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -190,6 +189,7 @@ script = ExtResource("3_eass0")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90716, -0.912628, -2.2807)
+use_collision = true
 size = Vector3(7.7605, 1.13959, 1)
 
 [node name="Ammo2" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("3_vbmy7")]

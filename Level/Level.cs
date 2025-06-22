@@ -32,16 +32,9 @@ public partial class Level : Node3D
 
 		targetsComputed = true;
 
-		foreach (Node3D node in GetChildren())
-		{
-			if (node is Target target)
-			{
-				// connect all targets in the scene
-				if (target.CanTriggerDeath)
-					target.TargetTriggered += TargetTriggered;
-				target.Hit = false;
-			}
-		}
+		GD.Print($"Level {Name}: Targets computed: {targetsLeft} targets.");
+
+		ConnectTargets(this);
 
 		if (FinishDoor == null)
 		{
@@ -54,6 +47,22 @@ public partial class Level : Node3D
 		}
 
 		Player.Instance.GlobalPosition = Vector3.Zero; // Assuming Player is a singleton
+	}
+
+	private void ConnectTargets(Node node)
+	{
+		if (node is Target target)
+		{
+			if (target.CanTriggerDeath)
+			{
+				target.TargetTriggered += TargetTriggered;
+			}
+		}
+
+		foreach (Node child in node.GetChildren())
+		{
+			ConnectTargets(child);
+		}
 	}
 
 	public void FinishAttempted()

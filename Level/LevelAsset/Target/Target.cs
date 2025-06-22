@@ -115,6 +115,7 @@ public partial class Target : Area3D
 				// TODO: take action after a 3sec delay, during which the target can be shot to cancel
 				// GD.Print($"Target {Name}: I SEE {body.Name}.");
 				timer.Start(TimeOut * 1000);
+				Light.LightColor = new Color(1, 0, 0);
 			}
 		}
 	}
