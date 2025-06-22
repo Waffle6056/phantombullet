@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bogxrrfiatfax"]
+[gd_scene load_steps=13 format=3 uid="uid://bogxrrfiatfax"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_mx658"]
 [ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="3_dh458"]
 [ext_resource type="Script" uid="uid://ktnabpybesd8" path="res://BulletTime/BulletTimeAffected.cs" id="3_eass0"]
 [ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="3_vbmy7"]
 [ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="4_y580u"]
+[ext_resource type="PackedScene" uid="uid://cbgm2xo215kx4" path="res://Level/LevelAsset/Killzone/killzone.tscn" id="6_vsimg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbmy7"]
 albedo_color = Color(0, 0, 0, 1)
@@ -123,6 +124,8 @@ _data = {
 &"loop": SubResource("Animation_mx658")
 }
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_dsi7n"]
+
 [node name="Stage1Level1Entrance" type="Node3D" node_paths=PackedStringArray("Targets")]
 script = ExtResource("1_mx658")
 Targets = [NodePath("Node3D/CSGBox3D14/Target2")]
@@ -145,11 +148,11 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 0.939693, -0.34202, 0, 0.34202, 0.
 size = Vector3(6.199, 3.677, 14.427)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21294, 8.19885, -2.28149)
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -6.36262, 8.19885, 3.81952)
 size = Vector3(2.82065, 12.5967, 3.13557)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21294, 16.6129, -2.28149)
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -6.36262, 16.6129, 3.81952)
 size = Vector3(4, 3.907, 4)
 
 [node name="Node3D" type="Node3D" parent="CSGBox3D/CSGBox3D"]
@@ -180,7 +183,7 @@ transform = Transform3D(0.884703, 0, 0.466155, 0, 1, 0, -0.466155, 0, 0.884703, 
 size = Vector3(30.9072, 11.186, 13.7659)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.74796, 11.6052, -16.071)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.03637, 11.6052, -10.6036)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(0.884703, 0, 0.466155, 0, 1, 0, -0.466155, 0, 0.884703, 10.0078, -7.534, -9.91265)
@@ -216,10 +219,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41425, 0, 5.28436)
 
 [node name="Bullet2" parent="Ammo2" instance=ExtResource("4_y580u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41425, 0, 5.28436)
-HomingScaling = 5.0
 
 [node name="Bullet3" parent="Ammo2" instance=ExtResource("4_y580u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41425, 0, 5.28436)
 
 [node name="Bullet4" parent="Ammo2" instance=ExtResource("4_y580u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41425, 0, 5.28436)
+
+[node name="Killzone" parent="." instance=ExtResource("6_vsimg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
+shape = SubResource("WorldBoundaryShape3D_dsi7n")

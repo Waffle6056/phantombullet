@@ -1,0 +1,461 @@
+[gd_scene load_steps=27 format=3 uid="uid://b6gt421gyb8s"]
+
+[ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_0oja3"]
+[ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="2_2bq1q"]
+[ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="3_b77r6"]
+[ext_resource type="PackedScene" uid="uid://diaatub6287aj" path="res://Player/Bullets/PhotonBullet/photonbullet.tscn" id="4_d46b6"]
+[ext_resource type="PackedScene" uid="uid://cdvoq7qlryly8" path="res://Player/Bullets/OnTriggerOrCollisionBoomBullet/on_trigger_or_collision_boom_bullet.tscn" id="6_7onwk"]
+[ext_resource type="PackedScene" uid="uid://dbhas7yl7wcqu" path="res://Level/LevelAsset/TimedTarget/timed_target.tscn" id="6_1448o"]
+[ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="7_m8b42"]
+[ext_resource type="PackedScene" uid="uid://cbgm2xo215kx4" path="res://Level/LevelAsset/Killzone/killzone.tscn" id="8_m8b42"]
+[ext_resource type="Texture2D" uid="uid://dhom1ueau4i3r" path="res://icon.svg" id="9_g5tgw"]
+[ext_resource type="PackedScene" uid="uid://bmdwxe4xt0w0g" path="res://Level/LevelAsset/AnimationTrigger/animation_trigger.tscn" id="10_7onwk"]
+[ext_resource type="Script" uid="uid://ktnabpybesd8" path="res://BulletTime/BulletTimeAffected.cs" id="10_g5tgw"]
+[ext_resource type="PackedScene" uid="uid://dkyxmuvignwg6" path="res://Level/LevelAsset/Door/destructable_wall.tscn" id="12_a0u52"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5tgw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0krc"]
+size = Vector3(7.33209, 7.20337, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0u52"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7onwk"]
+albedo_texture = ExtResource("9_g5tgw")
+
+[sub_resource type="BoxMesh" id="BoxMesh_t0v3w"]
+material = SubResource("StandardMaterial3D_7onwk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7onwk"]
+size = Vector3(10.6326, 1, 11.2119)
+
+[sub_resource type="Animation" id="Animation_a0u52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.001, -4.546, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CSGBox3D15/CSGBox3D12:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.331665, 3.72369, 62.4604)]
+}
+
+[sub_resource type="Animation" id="Animation_7onwk"]
+resource_name = "fall"
+length = 0.400003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CSGBox3D15/CSGBox3D12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector3(0.331665, 15.5799, 62.4604), Vector3(0.331665, 8.26962, 62.4604)]
+}
+
+[sub_resource type="Animation" id="Animation_h0krc"]
+resource_name = "go"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 20),
+"transitions": PackedFloat32Array(3.03143, 1),
+"update": 0,
+"values": [Vector3(0.001, -4.546, -20), Vector3(0.001, -4.546, 54.8034)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0u52"]
+_data = {
+&"RESET": SubResource("Animation_a0u52"),
+&"fall": SubResource("Animation_7onwk"),
+&"go": SubResource("Animation_h0krc")
+}
+
+[sub_resource type="Animation" id="Animation_tmaf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimationPlayer2/Target9:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8, -5.45155, 20.3441)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimationPlayer2/Target10:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(16, -5.45155, 20.3441)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AnimationPlayer2/Target11:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-8, -5.45189, 20.344)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AnimationPlayer2/Target12:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-16, -5.45189, 20.344)]
+}
+
+[sub_resource type="Animation" id="Animation_t0v3w"]
+resource_name = "go"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimationPlayer2/Target9:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(8, -6.45155, 20.3441), Vector3(8, -6.45155, 26.3441), Vector3(8, -6.45155, 20.3441)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimationPlayer2/Target10:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(16, -6.45155, 26.3441), Vector3(16, -6.45155, 20.3441), Vector3(16, -6.45155, 26.3441)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AnimationPlayer2/Target11:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(-8, -6.45189, 20.344), Vector3(-8, -6.45189, 26.344), Vector3(-8, -6.45189, 20.344)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AnimationPlayer2/Target12:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(-16, -6.45189, 26.344), Vector3(-16, -6.45189, 20.344), Vector3(-16, -6.45189, 26.344)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wubud"]
+_data = {
+&"RESET": SubResource("Animation_tmaf3"),
+&"go": SubResource("Animation_t0v3w")
+}
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_t0v3w"]
+
+[node name="Stage2Level5" type="Node3D" node_paths=PackedStringArray("Targets")]
+script = ExtResource("1_0oja3")
+Targets = [NodePath("FinalDoor/Target2")]
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.2225, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0365601, 9.67386, -0.505554)
+size = Vector3(15.0763, 1, 6.897)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0365601, 14.9371, 3.48644)
+size = Vector3(15.0763, 11.5264, 1.22377)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.13564, 14.9371, -6.48238)
+size = Vector3(1.47174, 11.5264, 21.1614)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.21137, 14.9371, -6.48238)
+size = Vector3(1.47174, 11.5264, 21.1614)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0369873, 9.67386, -12.3833)
+size = Vector3(15.0378, 1, 6.897)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0369873, 15.3459, -16.4028)
+size = Vector3(15.0378, 12.3441, 1.24779)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0218, 9.67386, -6.44905)
+size = Vector3(5, 1, 4.98707)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0218, 10.3186, -6.38494)
+size = Vector3(5, 1, 1.39502)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99281, 10.3186, -6.38494)
+size = Vector3(5, 1, 1.39502)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9945, 9.67386, -6.44905)
+size = Vector3(5, 1, 4.98707)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.70366, 30.0363)
+size = Vector3(5, 1, 100.966)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4214, 3.70366, 51.0601)
+size = Vector3(39.8428, 1, 5.88894)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331665, 3.72369, 62.4604)
+size = Vector3(6.4939, 9.82959, 10.0946)
+
+[node name="Door" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0, -1.52092, -6.47832)
+Target = NodePath("../Target2")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0, -1.52092, -6.47832)
+Target = NodePath("../Target3")
+
+[node name="Door3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0, -1.52092, -6.47832)
+Target = NodePath("../Target4")
+
+[node name="Door4" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -1, 0, 5, -4.37114e-08, 0, -1.52092, -6.47832)
+Target = NodePath("../Target5")
+
+[node name="Ammo" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("3_b77r6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14589, -0.666209, -3.10435)
+Storage = [NodePath("PhotonBullet"), NodePath("PhotonBullet2"), NodePath("PhotonBullet3")]
+
+[node name="PhotonBullet" parent="Ammo" instance=ExtResource("4_d46b6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196718, 4.76837e-07, 0.889855)
+
+[node name="PhotonBullet2" parent="Ammo" instance=ExtResource("4_d46b6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196718, 4.76837e-07, 0.889855)
+
+[node name="PhotonBullet3" parent="Ammo" instance=ExtResource("4_d46b6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196718, 4.76837e-07, 0.889855)
+
+[node name="Ammo2" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("3_b77r6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77006, -6.71374, -10.3761)
+Storage = [NodePath("../Ammo/PhotonBullet"), NodePath("OnTriggerOrCollisionBoomBullet"), NodePath("../Ammo/PhotonBullet2"), NodePath("OnTriggerOrCollisionBoomBullet2"), NodePath("../Ammo/PhotonBullet3"), NodePath("OnTriggerOrCollisionBoomBullet3")]
+
+[node name="PhotonBullet" parent="Ammo2" instance=ExtResource("4_d46b6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196718, 4.76837e-07, 0.889855)
+
+[node name="PhotonBullet2" parent="Ammo2" instance=ExtResource("4_d46b6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196718, 4.76837e-07, 0.889855)
+
+[node name="PhotonBullet3" parent="Ammo2" instance=ExtResource("4_d46b6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.196718, 4.76837e-07, 0.889855)
+
+[node name="OnTriggerOrCollisionBoomBullet" parent="Ammo2" instance=ExtResource("6_7onwk")]
+
+[node name="OnTriggerOrCollisionBoomBullet2" parent="Ammo2" instance=ExtResource("6_7onwk")]
+
+[node name="OnTriggerOrCollisionBoomBullet3" parent="Ammo2" instance=ExtResource("6_7onwk")]
+
+[node name="Target2" parent="." instance=ExtResource("6_1448o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35914, -0.407736, -6.37627)
+IsWatching = false
+
+[node name="Target3" parent="." instance=ExtResource("6_1448o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80695, -0.407736, -6.37627)
+IsWatching = false
+
+[node name="Target4" parent="." instance=ExtResource("6_1448o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01245, -0.407736, -6.37627)
+IsWatching = false
+
+[node name="Target5" parent="." instance=ExtResource("6_1448o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56464, -0.407736, -6.37627)
+IsWatching = false
+
+[node name="FinalDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.4496, -3.72047, 51.3192)
+size = Vector3(7.06125, 6.78369, 1)
+material = SubResource("StandardMaterial3D_g5tgw")
+
+[node name="Target2" parent="FinalDoor" instance=ExtResource("7_m8b42")]
+collision_layer = 1
+collision_mask = 8
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FinalDoor/Target2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0577087, -0.111938, 0)
+shape = SubResource("BoxShape3D_h0krc")
+
+[node name="FinalDoor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.165123, -3.72047, 80.4134)
+size = Vector3(7.06125, 6.78369, 1)
+material = SubResource("StandardMaterial3D_g5tgw")
+
+[node name="Killzone" parent="." instance=ExtResource("8_m8b42")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.001, -4.546, -20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
+shape = SubResource("BoxShape3D_a0u52")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Killzone"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_t0v3w")
+
+[node name="AnimationTrigger" parent="." node_paths=PackedStringArray("Animator") instance=ExtResource("10_7onwk")]
+Animator = NodePath("AnimationPlayer")
+AnimationName = "fall"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimationTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136329, -2.03964, 71.2944)
+shape = SubResource("BoxShape3D_7onwk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTrigger"]
+root_node = NodePath("../../Killzone")
+libraries = {
+&"": SubResource("AnimationLibrary_a0u52")
+}
+script = ExtResource("10_g5tgw")
+
+[node name="AnimationTrigger2" parent="." node_paths=PackedStringArray("Animator") instance=ExtResource("10_7onwk")]
+Animator = NodePath("AnimationPlayer")
+AnimationName = "go"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimationTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136329, -2.03964, 15.5627)
+shape = SubResource("BoxShape3D_7onwk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTrigger2"]
+root_node = NodePath("../../Killzone")
+libraries = {
+&"": SubResource("AnimationLibrary_a0u52")
+}
+script = ExtResource("10_g5tgw")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Killzone")
+libraries = {
+&"": SubResource("AnimationLibrary_wubud")
+}
+autoplay = "go"
+script = ExtResource("10_g5tgw")
+
+[node name="Target9" parent="AnimationPlayer2" instance=ExtResource("7_m8b42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5.45155, 20.3441)
+
+[node name="Target10" parent="AnimationPlayer2" instance=ExtResource("7_m8b42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -5.45155, 20.3441)
+
+[node name="Target11" parent="AnimationPlayer2" instance=ExtResource("7_m8b42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5.45189, 20.344)
+
+[node name="Target12" parent="AnimationPlayer2" instance=ExtResource("7_m8b42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -5.45189, 20.344)
+
+[node name="Killzone2" parent="." instance=ExtResource("8_m8b42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.9436, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
+shape = SubResource("WorldBoundaryShape3D_t0v3w")
+
+[node name="Door8" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 1, 0, -4.3, 7.977)
+Target = NodePath("../Target8")
+
+[node name="Door12" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 1, 0, -4.3, 7.977)
+Target = NodePath("../Target7")
+
+[node name="Door9" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 1, 0, -4.3, 32.0597)
+Target = NodePath("../AnimationPlayer2/Target9")
+
+[node name="Door13" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 1, 0, -4.3, 32.0597)
+Target = NodePath("../AnimationPlayer2/Target10")
+
+[node name="Door14" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 1, 0, -4.3, 32.0597)
+Target = NodePath("../AnimationPlayer2/Target11")
+
+[node name="Door15" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 1, 0, -4.3, 32.0597)
+Target = NodePath("../AnimationPlayer2/Target12")
+
+[node name="Door10" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 1, 0, -4.3, 55.8624)
+Target = NodePath("../Target")
+
+[node name="Door11" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("2_2bq1q")]
+transform = Transform3D(-3.0598e-07, 0, 1, 0, 7, 0, -7, 0, -4.37114e-08, -3.49308, -4.04654, 50.9875)
+Target = NodePath("../Target")
+
+[node name="Target6" parent="." instance=ExtResource("12_a0u52")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 3.53151, 51.6075)
+
+[node name="Target" parent="." instance=ExtResource("7_m8b42")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 8.974, 51.601)
+
+[node name="Target7" parent="." instance=ExtResource("7_m8b42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.996, -14.113)
+
+[node name="Target8" parent="." instance=ExtResource("7_m8b42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.99566, -11.9543)

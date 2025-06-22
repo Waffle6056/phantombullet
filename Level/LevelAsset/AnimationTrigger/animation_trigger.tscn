@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmdwxe4xt0w0g"]
+
+[ext_resource type="Script" uid="uid://dqc2jxwtlseja" path="res://Level/LevelAsset/AnimationTrigger/AnimationTrigger.cs" id="1_fmajc"]
+
+[node name="AnimationTrigger" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, -4.546, -20)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_fmajc")
+
+[connection signal="body_entered" from="." to="." method="Entered"]

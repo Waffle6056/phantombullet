@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://tbtkf8kwr0p6"]
+
+[ext_resource type="Script" uid="uid://bgty2tfq677rl" path="res://Level/LevelAsset/Lever/Lever.cs" id="1_rnq3h"]
+[ext_resource type="PackedScene" uid="uid://c3xnwww5euvxa" path="res://Level/LevelAsset/Lever/Lever Base.glb" id="2_f33ys"]
+[ext_resource type="PackedScene" uid="uid://b7i461awqvjxa" path="res://Level/LevelAsset/Lever/Lever Arm.glb" id="3_u7d1f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytnyl"]
+albedo_color = Color(1, 0.194376, 0.144153, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ghodw"]
+
+[node name="Lever" type="Node3D" node_paths=PackedStringArray("Indicator", "LeverArm")]
+script = ExtResource("1_rnq3h")
+IsTimed = true
+UnactivatedColor = Color(1, 0, 0, 1)
+ActivatedColor = Color(0, 0.670588, 0, 1)
+Indicator = NodePath("Lever Base/Lever Arm/Level Indicator")
+LeverArm = NodePath("Lever Base/Lever Arm")
+
+[node name="Lever Base" parent="." instance=ExtResource("2_f33ys")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Lever Arm" parent="Lever Base" instance=ExtResource("3_u7d1f")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Level Indicator" type="MeshInstance3D" parent="Lever Base/Lever Arm"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 1.8, 0)
+material_override = SubResource("StandardMaterial3D_ytnyl")
+mesh = SubResource("SphereMesh_ghodw")
+skeleton = NodePath("../../../..")

@@ -157,7 +157,7 @@ public partial class Gun : Node3D
 			RotateBarrelRight();
 		if (Bullets[0] != null)
 		{
-			GetTree().Root.AddChild(Bullets[0]);
+			LevelManager.Instance.CurrentLevel.AddChild(Bullets[0]);
 			Fire(Bullets[0]);
 			Unload(Bullets[0]);
 		}
@@ -258,7 +258,12 @@ public partial class Gun : Node3D
         updateCylinders();
 		return true;
     }
-	private void updateCylinders()
+    public void ClearInventory()
+    {
+		for (int i = 0; i < Bullets.Length; i++)
+			Unload();
+    }
+    private void updateCylinders()
 	{
         foreach (BarrelCylinder b in barrelCylinders)
         {

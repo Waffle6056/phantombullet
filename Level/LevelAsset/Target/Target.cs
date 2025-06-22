@@ -12,9 +12,6 @@ public partial class Target : Area3D
 	public bool Hit = false;
 
 	[Export]
-	public Node3D HitIndicator;
-
-	[Export]
 	public bool IsWatching = false;
 
 	[Export]
@@ -31,14 +28,15 @@ public partial class Target : Area3D
 
 	private Rid[] excludedRids = [];
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		if (HitIndicator == null)
-		{
-			GD.PrintErr($"Target {Name}: HitIndicator is not set. Please set it in the inspector.");
-		}
+	[Export]
+	public Lever lever;
+	[Export]
+	public float MaxTimeTilAngry = 1.0f;
+    public double CurrentTimeTilAngry = 1.0f;
 
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+	{
 		WatchedArea = GetNodeOrNull<Area3D>("WatchArea");
 		if (WatchedArea == null)
 		{
@@ -76,7 +74,7 @@ public partial class Target : Area3D
 			}
 		}
 
-		GetNode<AnimationPlayer>("AnimationPlayer").Play("Drone Hover");
+		lever.Visible = !IsWatching;
 	}
 
 	public void WatchAreaEntered(Node3D body)
@@ -104,15 +102,25 @@ public partial class Target : Area3D
 		foreach (Node3D body in WatchedArea.GetOverlappingBodies())
 			WatchAreaEntered(body);
     }
+    public override void _PhysicsProcess(double delta)
+	{
+		Monitoring = !Hit;
+		//GD.Print(WatchedArea.OverlapsBody(Player.Instance) + " " + CurrentTimeTilAngry);
+		if (IsWatching && WatchedArea != null && WatchedArea.OverlapsBody(Player.Instance)) 
+		{
+			CurrentTimeTilAngry -= delta * BulletTime.TimeScale;
+			if (CurrentTimeTilAngry <= 0)
+				Player.Instance.Dead = true;
 
+        }
+		else
+			CurrentTimeTilAngry = MaxTimeTilAngry;
+		
+
+	}
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
-		if (HitIndicator != null)
-		{
-			HitIndicator.Visible = Hit;
-		}
-
 		if (WatchedArea != null)
 		{
 			WatchedArea.Visible = !Hit && IsWatching;
@@ -121,8 +129,9 @@ public partial class Target : Area3D
 			Light.OmniRange = AreaScale;
             CheckWatchArea();
         }
-        foreach (Node3D body in GetOverlappingBodies())
-			IsShot(body);
+		if (Monitoring)
+			foreach (Node3D body in GetOverlappingBodies())
+				IsShot(body);
 
     }
 
@@ -130,13 +139,14 @@ public partial class Target : Area3D
 	{
 		// signifies when the target is hit
 		Hit = true;
+		lever.Activate();
 	}
 
 	public void IsShot(Node3D body)
     {
 		if (body is Bullet || body is Player)
 			HitTarget();
-		GD.Print("SHOT");
+		//GD.Print("SHOT");
 		if (body is OnTriggerOrCollisionBoomBullet)
 		{
 			handleBoom(body as OnTriggerOrCollisionBoomBullet);

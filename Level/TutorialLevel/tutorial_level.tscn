@@ -15,7 +15,7 @@ size = Vector3(13.6858, 4.81238, 2.54797)
 
 [node name="TutorialLevel" type="Node3D" node_paths=PackedStringArray("Targets")]
 script = ExtResource("1_ugmoc")
-Targets = [NodePath("Node3D/Target2")]
+Targets = [NodePath("Node3D/CSGBox3D14/Target2")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.52321, -24.2839)
@@ -174,10 +174,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55619, 0, -0.0188868)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55619, 0, -0.0188868)
 
 [node name="Target" parent="." instance=ExtResource("2_udhqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54217, -9.66923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04713, -9.66923)
 
 [node name="ShootMe" type="Label3D" parent="Target"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.431545, 0.645664)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.460481, 0.645664)
 modulate = Color(0, 1, 1, 1)
 text = "Shoot me!
 (Face me and left click)"
@@ -213,16 +213,6 @@ text = "Shoot the cameras to avoid being caught"
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.7192)
 
-[node name="Target2" parent="Node3D" instance=ExtResource("2_udhqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114262, -30.1593)
-visible = false
-collision_layer = 1
-collision_mask = 8
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/Target2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34613, 0.773987)
-shape = SubResource("BoxShape3D_qmk5l")
-
 [node name="CSGBox3D14" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954356, -28.6611)
 size = Vector3(16.3167, 5.09979, 1.39782)
@@ -234,6 +224,15 @@ modulate = Color(0, 1, 1, 1)
 text = "Walk through me!
 (This is a door)
 "
+
+[node name="Target2" parent="Node3D/CSGBox3D14" instance=ExtResource("2_udhqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.06862, -1.4982)
+collision_layer = 1
+collision_mask = 8
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/CSGBox3D14/Target2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34613, 0.773987)
+shape = SubResource("BoxShape3D_qmk5l")
 
 [node name="Target2" parent="." instance=ExtResource("2_udhqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05763, 2.37393, -34.7111)
