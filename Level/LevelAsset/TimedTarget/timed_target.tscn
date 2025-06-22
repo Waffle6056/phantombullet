@@ -113,6 +113,7 @@ omni_attenuation = 0.0
 libraries = {
 &"": SubResource("AnimationLibrary_r6a28")
 }
+autoplay = "Drone Hover"
 
 [connection signal="body_entered" from="." to="." method="IsShot"]
 [connection signal="body_entered" from="WatchArea" to="." method="WatchAreaEntered"]
