@@ -26,7 +26,7 @@ public partial class Lever : Node3D
 
     public override void _Ready()
     {
-        Activate();
+        Deactivate();
     }
 
     public override void _Process(double delta)

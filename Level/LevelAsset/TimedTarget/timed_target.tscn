@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbhas7yl7wcqu"]
+[gd_scene load_steps=14 format=3 uid="uid://dbhas7yl7wcqu"]
 
 [ext_resource type="Script" uid="uid://cpo2wtpbkat12" path="res://Level/LevelAsset/TimedTarget/TimedTarget.cs" id="1_kkn4x"]
 [ext_resource type="Shader" uid="uid://bgjx8p8qly8p8" path="res://Level/LevelAsset/Target/target_watcharea.tres" id="2_2hyp5"]
 [ext_resource type="PackedScene" uid="uid://g8r1g8mxnw2i" path="res://Level/LevelAsset/Target/drone.glb" id="3_2hyp5"]
+[ext_resource type="PackedScene" uid="uid://tbtkf8kwr0p6" path="res://Level/LevelAsset/Lever/Lever.tscn" id="3_c1axr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xdh1w"]
 
@@ -62,18 +63,22 @@ _data = {
 &"RESET": SubResource("Animation_w21ft")
 }
 
-[node name="Target2" type="Area3D" node_paths=PackedStringArray("Light") groups=["target"]]
+[node name="Target2" type="Area3D" node_paths=PackedStringArray("Light", "lever") groups=["target"]]
 collision_layer = 5
 collision_mask = 3
 script = ExtResource("1_kkn4x")
 IsWatching = true
-Light = NodePath("")
+Light = NodePath("WatchArea/OmniLight3D")
+lever = NodePath("Drone/Lever")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_xdh1w")
 
 [node name="Drone" parent="." instance=ExtResource("3_2hyp5")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="Lever" parent="Drone" instance=ExtResource("3_c1axr")]
+transform = Transform3D(6.66667, 0, 0, 0, 6.66667, 0, 0, 0, 6.66667, 0, 0, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028801, 0.00336608, -0.00195193)
@@ -100,6 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.265993, 0)
 light_color = Color(1, 0, 0, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.5
 shadow_enabled = true
 omni_attenuation = 0.0
 
@@ -107,6 +113,7 @@ omni_attenuation = 0.0
 libraries = {
 &"": SubResource("AnimationLibrary_r6a28")
 }
+autoplay = "Drone Hover"
 
 [connection signal="body_entered" from="." to="." method="IsShot"]
 [connection signal="body_entered" from="WatchArea" to="." method="WatchAreaEntered"]
