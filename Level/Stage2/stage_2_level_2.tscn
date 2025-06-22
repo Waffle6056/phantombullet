@@ -41,13 +41,25 @@ size = Vector3(14.0836, 1.47852, 1.32127)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56332, 2.39369, -9.809)
 size = Vector3(2.67776, 3.90533, 7.1422)
 
+[node name="CSGBox3D27" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07064, 2.39369, -0.258778)
+size = Vector3(5.6924, 3.90533, 7.1422)
+
 [node name="CSGBox3D24" type="CSGBox3D" parent="CSGBox3D11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39489, 2.40531, -10.4082)
 size = Vector3(3.26348, 3.92859, 8.43902)
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="CSGBox3D11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.39489, 2.40531, -22.8893)
-size = Vector3(3.26348, 3.92859, 8.43902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2215, 2.40531, -22.8173)
+size = Vector3(3.61026, 3.92859, 8.58308)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12066, 4.16579, -25.9462)
+size = Vector3(5.40061, 7.44955, 2.32523)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="CSGBox3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36898, 4.16579, -25.9462)
+size = Vector3(5.40061, 7.44955, 2.32523)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="CSGBox3D11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1396, 3.63721, -12.7195)
@@ -156,15 +168,6 @@ Target = NodePath("../Target3")
 
 [node name="Target3" parent="." instance=ExtResource("6_uvo4k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6373, 0.196414, -17.4168)
-HitDuration = 6.0
-IsWatching = false
-
-[node name="Door3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
-transform = Transform3D(-3.49691e-07, 0, 1, 0, 8, 0, -8, 0, -4.37114e-08, -27.185, 0.421365, -10.2212)
-Target = NodePath("../Target2")
-
-[node name="Target2" parent="." instance=ExtResource("6_uvo4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1311, 0, -10.3077)
 HitDuration = 6.0
 IsWatching = false
 
@@ -287,6 +290,7 @@ size = Vector3(1.94766, 1.79159, 0.813656)
 material = SubResource("StandardMaterial3D_l7u34")
 
 [node name="Target2" parent="Node3D/CSGBox3D14" instance=ExtResource("5_wtnpg")]
+visible = false
 collision_layer = 1
 collision_mask = 8
 

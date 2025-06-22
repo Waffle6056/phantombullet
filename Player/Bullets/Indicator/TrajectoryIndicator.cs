@@ -29,7 +29,7 @@ public partial class TrajectoryIndicator : Node3D
 		if (Raycast.IsColliding()) {
 			end = Raycast.GetCollisionPoint();
 			//GD.Print(Raycast.GetCollider());
-			if (Raycast.GetCollider() is Target)
+			if (Raycast.GetCollider() is Target && !(Raycast.GetCollider() as Target).Hit)
 			{
 				BulletTime.IndicatorMarked = true;
 				//GD.Print("SLOW");

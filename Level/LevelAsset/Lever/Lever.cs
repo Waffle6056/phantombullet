@@ -27,6 +27,7 @@ public partial class Lever : Node3D
     public override void _Ready()
     {
         Deactivate();
+        Indicator.MaterialOverride = Indicator.MaterialOverride.Duplicate() as Material;
     }
 
     public override void _Process(double delta)

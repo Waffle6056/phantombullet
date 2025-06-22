@@ -79,10 +79,6 @@ size = Vector3(11.2842, 13.8499, 1.13552)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12054, -38.866, -23.9758)
 size = Vector3(41.5838, 83.2385, 3.54452)
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.687411, -2.06156, -17.8597)
-size = Vector3(5.52561, 83.2385, 2.78056)
-
 [node name="CSGBox3D16" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136847, 0.776278, -12.3947)
 size = Vector3(25.8489, 5.23466, 1.47762)
@@ -108,8 +104,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22988, 38.3411, -23.9758)
 size = Vector3(41.1157, 45.7988, 3.54452)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37758, 9.14301, -23.9758)
-size = Vector3(41.4912, 12.9457, 3.54452)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54579, 9.14301, -23.9758)
+size = Vector3(43.1548, 12.9457, 3.54452)
 material = ExtResource("2_hrqq0")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="root"]
@@ -220,7 +216,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45847, 0.712871, 3.474)
 
 [node name="Ammo2" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("7_20p26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3435, -0.712871, -31.0634)
-Storage = [NodePath("../Ammo/TeleporterBullet"), NodePath("TeleporterBullet2"), NodePath("TeleporterBullet3"), NodePath("Bullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet4")]
+Storage = [NodePath("TeleporterBullet3"), NodePath("Bullet"), NodePath("Bullet2"), NodePath("Bullet3"), NodePath("Bullet4")]
 
 [node name="TeleporterBullet" parent="Ammo2" instance=ExtResource("8_bv7lt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45847, 0.712871, 3.474)

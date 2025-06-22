@@ -2,5 +2,5 @@
 
 [resource]
 transparency = 4
-albedo_color = Color(0.533036, 0.533037, 0.533036, 0.8)
+albedo_color = Color(0.533333, 0.533333, 0.533333, 0.282353)
 albedo_texture_msdf = true
