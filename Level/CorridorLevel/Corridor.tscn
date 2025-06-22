@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://daxueu1vv7q2b"]
+
+[ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_082cs"]
+[ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="2_jy42x"]
+[ext_resource type="PackedScene" uid="uid://dmjrypduaut01" path="res://Level/LevelAsset/Final_Door.tscn" id="3_t3qf2"]
+[ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="4_t3qf2"]
+
+[node name="Corridor" type="Node3D" node_paths=PackedStringArray("Targets", "FinishDoor")]
+script = ExtResource("1_082cs")
+Targets = [NodePath("Target")]
+FinishDoor = NodePath("FinalDoor")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1.82, 0, 0, 0, 1.82, 0, 0, 0, 1.82, 7.14626, -1.46751, 0.0843278)
+use_collision = true
+collision_layer = 255
+collision_mask = 255
+size = Vector3(11.4058, 0.370117, 4.50781)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1.82, 0, 0, 0, 1.82, 0, 0, 0, 1.82, 4.71136, 0.381924, 3.56716)
+use_collision = true
+collision_layer = 255
+collision_mask = 255
+size = Vector3(10.4227, 2.17, 0.338867)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1.82, 0, 0, 0, 1.82, 0, 0, 0, 1.82, 4.71136, 0.381924, -4.44868)
+use_collision = true
+collision_layer = 255
+collision_mask = 255
+size = Vector3(10.4227, 2.17, 0.338867)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1.82, 0, 0, 0, 1.82, 0, 0, 0, 1.82, -3.10196, 0.512146, 0.0608141)
+use_collision = true
+collision_layer = 255
+collision_mask = 255
+size = Vector3(0.24707, 2.02429, 4.74072)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2141, 1.86534, -0.634055)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.533631, 1.86534, -0.634055)
+
+[node name="Target" parent="." instance=ExtResource("2_jy42x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24702, 0.423494, -1.90321)
+
+[node name="FinalDoor" parent="." instance=ExtResource("3_t3qf2")]
+transform = Transform3D(0.2, 0, 0, 0, 2.46, 0, 0, 0, 1.58, 15.3813, 0.0142282, -0.526439)
+
+[node name="Ammo" parent="." instance=ExtResource("4_t3qf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.91365)

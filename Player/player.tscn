@@ -60,7 +60,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Gun:position")
+tracks/0/path = NodePath("Camera3D/hud/Gun:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +72,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Gun:BaseRotation")
+tracks/1/path = NodePath("Camera3D/hud/Gun:BaseRotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -84,7 +84,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Gun/arm/R:position")
+tracks/2/path = NodePath("Camera3D/hud/Gun/arm/R:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -120,7 +120,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D/Gun:rotation")
+tracks/5/path = NodePath("Camera3D/hud/Gun:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -136,7 +136,7 @@ length = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Gun:position")
+tracks/0/path = NodePath("Camera3D/hud/Gun:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -148,7 +148,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Gun:rotation")
+tracks/1/path = NodePath("Camera3D/hud/Gun:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -180,7 +180,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/Gun:position")
+tracks/0/path = NodePath("Camera3D/hud/Gun:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -192,7 +192,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/Gun:BaseRotation")
+tracks/1/path = NodePath("Camera3D/hud/Gun:BaseRotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -204,7 +204,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D/Gun/arm/R:position")
+tracks/2/path = NodePath("Camera3D/hud/Gun/arm/R:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -250,10 +250,10 @@ _data = {
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Gun", "AmmoBand", "Cursor", "CylinderHUD", "CylinderCursor", "Label", "Animator")]
 collision_layer = 8
 script = ExtResource("1_8d2l0")
-Gun = NodePath("Camera3D/Gun")
+Gun = NodePath("Camera3D/hud/Gun")
 InventoryDistance = 0.05
-AmmoBand = NodePath("Camera3D/Gun/arm/AmmoBand")
-Cursor = NodePath("Camera3D/Gun/arm/AmmoBand/Cursor")
+AmmoBand = NodePath("Camera3D/hud/Gun/arm/AmmoBand")
+Cursor = NodePath("Camera3D/hud/Gun/arm/AmmoBand/Cursor")
 CylinderHUD = NodePath("Camera3D/hud/cylinder_origin/BarrelCylinderHUD")
 CylinderCursor = NodePath("Camera3D/hud/cylinder_origin/CylinderCursor")
 Label = NodePath("Camera3D/hud/cylinder_origin/Tab")
@@ -342,7 +342,7 @@ font_size = 12
 [node name="BarrelCylinderHUD" parent="Camera3D/hud/cylinder_origin" node_paths=PackedStringArray("myGun") instance=ExtResource("4_vtle1")]
 process_priority = -1
 transform = Transform3D(0.095, 0, -3.72529e-09, 0, 0.095, 0, 3.72529e-09, 0, 0.095, 0.000806063, -7.61151e-05, -0.990444)
-myGun = NodePath("../../../Gun")
+myGun = NodePath("../../Gun")
 
 [node name="stamina_origin" type="Node3D" parent="Camera3D/hud"]
 transform = Transform3D(0.0766534, 0.508005, 0.0803444, -0.505795, 0.0891854, -0.0813459, -0.0932494, -0.0661584, 0.507275, 0, 0, 0)
@@ -361,40 +361,40 @@ height = 0.8
 smooth_faces = false
 material = SubResource("StandardMaterial3D_k53q1")
 
-[node name="Gun" parent="Camera3D" node_paths=PackedStringArray("Bearer") instance=ExtResource("3_i70jt")]
+[node name="Gun" parent="Camera3D/hud" node_paths=PackedStringArray("Bearer") instance=ExtResource("3_i70jt")]
 transform = Transform3D(0.52, 0, 0, 0, 0.48864, -0.17785, 0, 0.17785, 0.48864, 0.451, -0.043, -0.751)
-Bearer = NodePath("../..")
+Bearer = NodePath("../../..")
 
-[node name="arm" type="Node3D" parent="Camera3D/Gun"]
+[node name="arm" type="Node3D" parent="Camera3D/hud/Gun"]
 
-[node name="ArmTemp" type="MeshInstance3D" parent="Camera3D/Gun/arm"]
+[node name="ArmTemp" type="MeshInstance3D" parent="Camera3D/hud/Gun/arm"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0332632, -0.300057, 1.04456)
 mesh = SubResource("CapsuleMesh_k53q1")
 
-[node name="R" type="Label3D" parent="Camera3D/Gun/arm"]
+[node name="R" type="Label3D" parent="Camera3D/hud/Gun/arm"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.312972, -0.188926, 0.72262)
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "R/RMB"
 font_size = 24
 
-[node name="AmmoBand" type="Node3D" parent="Camera3D/Gun/arm"]
+[node name="AmmoBand" type="Node3D" parent="Camera3D/hud/Gun/arm"]
 transform = Transform3D(-6.55671e-08, -0.964181, -1.14907, 0, 1.14907, -0.964181, 1.5, -4.21457e-08, -5.02273e-08, -0.231294, -0.184706, 0.311259)
 
-[node name="Cursor" type="MeshInstance3D" parent="Camera3D/Gun/arm/AmmoBand"]
+[node name="Cursor" type="MeshInstance3D" parent="Camera3D/hud/Gun/arm/AmmoBand"]
 visible = false
 mesh = SubResource("BoxMesh_vtle1")
 skeleton = NodePath("../..")
 
-[node name="Node3D" type="Node3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor"]
+[node name="Node3D" type="Node3D" parent="Camera3D/hud/Gun/arm/AmmoBand/Cursor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor/Node3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/hud/Gun/arm/AmmoBand/Cursor/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125079, -5.96046e-08)
 mesh = SubResource("CylinderMesh_k53q1")
 skeleton = NodePath("../..")
 
-[node name="Scroll" type="Label3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor"]
+[node name="Scroll" type="Label3D" parent="Camera3D/hud/Gun/arm/AmmoBand/Cursor"]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, -0.105, 0.105)
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 outline_modulate = Color(0, 0, 0, 0)
@@ -405,7 +405,7 @@ Q/E
 "
 font_size = 12
 
-[node name="LMB" type="Label3D" parent="Camera3D/Gun/arm/AmmoBand/Cursor"]
+[node name="LMB" type="Label3D" parent="Camera3D/hud/Gun/arm/AmmoBand/Cursor"]
 transform = Transform3D(0.52, 0, 0, 0, -2.27299e-08, 0.52, 0, -0.52, -2.27299e-08, 0, 0.035, 0.035)
 modulate = Color(0.641934, 0.641934, 0.641934, 1)
 outline_modulate = Color(0, 0, 0, 0)
@@ -419,4 +419,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_vtle1")
 }
 
-[connection signal="SuccessfulFire" from="Camera3D/Gun" to="." method="_on_gun_successful_fire"]
+[connection signal="SuccessfulFire" from="Camera3D/hud/Gun" to="." method="_on_gun_successful_fire"]

@@ -13,27 +13,27 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public float JumpVelocity = 4.5f;
 	public static Player Instance;
-    public int Ind;
-    public Bullet[] Inventory = new Bullet[12];
+	public int Ind;
+	public Bullet[] Inventory = new Bullet[12];
 	public Dictionary<Bullet, Node3D> DupedVisuals = new Dictionary<Bullet, Node3D>();
-	
+
 	public bool InventoryOpen = false;
 
-    public bool InventoryFocused = true;
-    [Export]
-    public float InventoryDistance = .1f;
-    [Export]
+	public bool InventoryFocused = true;
+	[Export]
+	public float InventoryDistance = .1f;
+	[Export]
 	public Node3D AmmoBand;
 	[Export]
 	public Node3D Cursor;
-    [Export]
-    public Node3D CylinderHUD;
-    [Export]
-    public Node3D CylinderCursor;
-    [Export]
-    public Node3D Label;
-    [Export]
-    public AnimationPlayer Animator;
+	[Export]
+	public Node3D CylinderHUD;
+	[Export]
+	public Node3D CylinderCursor;
+	[Export]
+	public Node3D Label;
+	[Export]
+	public AnimationPlayer Animator;
 	public override void _Ready()
 	{
 		base._Ready();
@@ -54,40 +54,40 @@ public partial class Player : CharacterBody3D
 		if (CylinderHUD == null)
 			GD.PrintErr("Player's CylinderHUD is not set. Please set it in the inspector.");
 	}
-    public override void _Process(double delta)
-    {
-        base._Process(delta);
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
 		if (Input.IsActionJustPressed("ToggleInventory"))
 		{
-            InventoryFocused = Label.Visible = Cursor.Visible = InventoryOpen = !InventoryOpen;
+			InventoryFocused = Label.Visible = Cursor.Visible = InventoryOpen = !InventoryOpen;
 
 			if (InventoryOpen)
 				Animator.Play("ToggleInventory");
 			else
 				Animator.PlayBackwards("ToggleInventory");
-        }
+		}
 
 		if (InventoryOpen && Input.IsActionJustReleased("ToggleFocus"))
 		{
 			InventoryFocused = !InventoryFocused;
-            if (InventoryFocused)
-                Animator.PlayBackwards("ToggleFocus");
-            else
-                Animator.Play("ToggleFocus");
-        }
-        if (InventoryOpen && InventoryFocused)
-        {
-            if (Input.IsActionJustReleased("ScrollUp"))
-                ScrollLeft();
+			if (InventoryFocused)
+				Animator.PlayBackwards("ToggleFocus");
+			else
+				Animator.Play("ToggleFocus");
+		}
+		if (InventoryOpen && InventoryFocused)
+		{
+			if (Input.IsActionJustReleased("ScrollUp"))
+				ScrollLeft();
 			if (Input.IsActionJustReleased("ScrollDown"))
 				ScrollRight();
 			if (Input.IsActionJustPressed("Fire"))
 			{
 				Bullet b = Inventory[Ind];
 				Inventory[Ind] = null;
-                LoadGun(b);
-                ScrollRight();
-            }
+				LoadGun(b);
+				ScrollRight();
+			}
 		}
 		if (InventoryOpen)
 		{
@@ -96,28 +96,28 @@ public partial class Player : CharacterBody3D
 				Cursor.Position = IndToPosition(Ind);
 				Cursor.Basis = Basis.Identity;
 				Cursor.Visible = true;
-                CylinderCursor.Visible = false;
-            }
+				CylinderCursor.Visible = false;
+			}
 			else
 			{
 				Cursor.Visible = false;
-                CylinderCursor.Visible = true;
-            }
+				CylinderCursor.Visible = true;
+			}
 			//else
 			//{
 			//	Cursor.GlobalPosition = CylinderHUD.GlobalPosition;
 			//	Cursor.GlobalBasis = CylinderHUD.GlobalBasis.Rotated(CylinderHUD.GlobalBasis[0], (float)Math.PI/2);
-   //             Cursor.SetDisableScale(true);
-   //         }
+			//             Cursor.SetDisableScale(true);
+			//         }
 		}
 
 
-    }
+	}
 	public Vector3 IndToPosition(int i)
 	{
-         return new Vector3(InventoryDistance * i, 0, 0);
-    }
-    public override void _PhysicsProcess(double delta)//this is the builtin template btw
+		return new Vector3(InventoryDistance * i, 0, 0);
+	}
+	public override void _PhysicsProcess(double delta)//this is the builtin template btw
 	{
 		Vector3 velocity = Velocity;
 
@@ -156,62 +156,68 @@ public partial class Player : CharacterBody3D
 	public bool PickUp(Bullet b)
 	{
 		GD.Print("Picked up");
-        int i = 0;
+		int i = 0;
 		for (; i < Inventory.Length && Inventory[i] != null; i++)
 			continue;
 		if (i == Inventory.Length)
 		{
 			GD.Print("inventory full");
 			return false;
-        }
+		}
 		Inventory[i] = b;
 
-        Node3D vis = b.Visual.Duplicate() as Node3D;
-        AmmoBand.AddChild(vis);
-        vis.Position = IndToPosition(i);
+		Node3D vis = b.Visual.Duplicate() as Node3D;
+		AmmoBand.AddChild(vis);
+		vis.Position = IndToPosition(i);
 
 		if (DupedVisuals.ContainsKey(b))
-            DupedVisuals.Remove(b);
-        DupedVisuals.Add(b, vis);
+			DupedVisuals.Remove(b);
+		DupedVisuals.Add(b, vis);
 		return true;
-		
+
 	}
 	public bool LoadGun(Bullet b)
-    {
-        if (b == null)
-            return false;
+	{
+		if (b == null)
+			return false;
 		if (Gun.ChambersFilled && !(PickUp(Gun.Bullets[0]) && Gun.Unload()))
 			return false;
-        GD.Print("Picked down");
-        for (int i = 0; i < Inventory.Length; i++)
-            if (Inventory[i] == b)
-                Inventory[i] = null;
+		GD.Print("Picked down");
+		for (int i = 0; i < Inventory.Length; i++)
+			if (Inventory[i] == b)
+				Inventory[i] = null;
 		if (DupedVisuals.ContainsKey(b))
 			DupedVisuals[b].QueueFree();
-        Gun.Load(b);
+		Gun.Load(b);
 		return true;
 	}
-    int FloorMod(int a, int b)
-    {
-        return ((a % b) + b) % b;
-    }
-    public void ScrollRight()
+	int FloorMod(int a, int b)
+	{
+		return ((a % b) + b) % b;
+	}
+	public void ScrollRight()
 	{
 		int i = 1;
-        for (; i < Inventory.Length && Inventory[FloorMod(Ind + i, Inventory.Length)] == null; i++)
-            continue;
+		for (; i < Inventory.Length && Inventory[FloorMod(Ind + i, Inventory.Length)] == null; i++)
+			continue;
 		Ind = FloorMod(Ind + i, Inventory.Length);
-    }
-    public void ScrollLeft()
-    {
-        int i = 1;
-        for (; i < Inventory.Length && Inventory[FloorMod(Ind - i, Inventory.Length)] == null; i++)
-            continue;
-        Ind = FloorMod(Ind - i, Inventory.Length);
-    }
+	}
+	public void ScrollLeft()
+	{
+		int i = 1;
+		for (; i < Inventory.Length && Inventory[FloorMod(Ind - i, Inventory.Length)] == null; i++)
+			continue;
+		Ind = FloorMod(Ind - i, Inventory.Length);
+	}
 	public void _on_gun_successful_fire()
 	{
 		GetNode<AnimationPlayer>("AnimationPlayer").Stop();
 		GetNode<AnimationPlayer>("AnimationPlayer").Play("Revolver Recoil");
+	}
+
+	public void Reset()
+	{
+		GlobalPosition = Vector3.Zero;
+		// handle resetting stuff (gun, inventory, etc.)
 	}
 }

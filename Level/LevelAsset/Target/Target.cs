@@ -7,7 +7,10 @@ public partial class Target : Area3D
 {
 
 	[Signal]
-	public delegate void TargetTriggeredEventHandler();
+	public delegate void TargetTriggeredEventHandler(Target target);
+
+	[Signal]
+	public delegate void TargetCompletedEventHandler(Target target);
 
 	public bool Hit = false;
 
@@ -19,6 +22,9 @@ public partial class Target : Area3D
 
 	[Export]
 	public float AreaScale = 3.0f;
+
+	[Export]
+	public bool CanTriggerDeath = true;
 
 	public Area3D WatchedArea;
 	public CollisionShape3D WatchedAreaShape;
@@ -54,7 +60,7 @@ public partial class Target : Area3D
 			else
 			{
 				WatchedAreaShape.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
-            }
+			}
 
 			WatchedAreaDecal = WatchedArea.GetNodeOrNull<MeshInstance3D>("MeshInstance");
 			if (WatchedAreaDecal == null)
@@ -93,10 +99,13 @@ public partial class Target : Area3D
 			if (result.Count == 0)
 			{
 				// TODO: take action after a 3sec delay, during which the target can be shot to cancel
-				GD.Print($"Target {Name}: I SEE {body.Name}.");
+				// GD.Print($"Target {Name}: I SEE {body.Name}.");
+
+				EmitSignal(SignalName.TargetTriggered, this);
 			}
 		}
 	}
+	
     public void CheckWatchArea()
     {
 		if (!WatchedArea.HasOverlappingBodies())
@@ -119,8 +128,11 @@ public partial class Target : Area3D
             WatchedAreaShape.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
             WatchedAreaDecal.Scale = new Vector3(AreaScale, AreaScale, AreaScale);
 			Light.OmniRange = AreaScale;
+
+			// don't call this every frame.
             CheckWatchArea();
         }
+
         foreach (Node3D body in GetOverlappingBodies())
 			IsShot(body);
 
@@ -130,13 +142,13 @@ public partial class Target : Area3D
 	{
 		// signifies when the target is hit
 		Hit = true;
+		EmitSignal (SignalName.TargetCompleted, this);
 	}
 
 	public void IsShot(Node3D body)
     {
 		if (body is Bullet || body is Player)
 			HitTarget();
-		GD.Print("SHOT");
 		if (body is OnTriggerOrCollisionBoomBullet)
 		{
 			handleBoom(body as OnTriggerOrCollisionBoomBullet);
