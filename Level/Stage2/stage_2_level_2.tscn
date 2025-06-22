@@ -177,6 +177,7 @@ Target = NodePath("../Target3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6373, 0.196414, -17.4168)
 HitDuration = 6.0
 IsWatching = false
+AreaScale = 5.0
 
 [node name="Door4" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
 transform = Transform3D(-3.49691e-07, 0, 1, 0, 8, 0, -8, 0, -4.37114e-08, -29.4233, 0.421365, -10.2212)
@@ -186,6 +187,7 @@ Target = NodePath("../Target4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9629, 0.708242, -3.16311)
 HitDuration = 6.0
 IsWatching = false
+AreaScale = 5.0
 
 [node name="Door5" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("4_uvo4k")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 3, 0, -5, 0, -4.37114e-08, -6.18819, 0.421365, -16.4668)
@@ -193,6 +195,7 @@ Target = NodePath("../Target5")
 
 [node name="Target5" parent="." instance=ExtResource("5_wtnpg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6993, 0.287328, -10.1121)
+AreaScale = 5.0
 
 [node name="Ammo" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("7_l7u34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.164277, -0.457451, -8.52424)
@@ -334,11 +337,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08735, 3.08429, -26.7187)
 AreaScale = 5.0
 
 [node name="Label3D2" type="Label3D" parent="."]
-transform = Transform3D(-0.786978, 0, -0.616981, 0, 1, 0, 0.616981, 0, -0.786978, 3.29002, 1.63221, 10.8392)
+transform = Transform3D(-0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, -0.984808, 1.63334, 0, 1.07869)
+pixel_size = 0.006
 modulate = Color(1, 1, 0, 1)
-text = "Turning bullets will rotate left
-after you shoot again
-When it would hit a target, it automatically activates Bullet Time
+text = "Deadshot bullets align with a global direction
+after you shoot again, regardless of initial orientation
+When it could hit a target, it automatically activates Bullet Time
 Try it!"
 
 [node name="Killzone" parent="." instance=ExtResource("11_hgun7")]
@@ -347,3 +351,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.93277, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
 shape = SubResource("WorldBoundaryShape3D_2jff3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9318, 3.17273, -3.35275)
+light_energy = 2.86
+light_volumetric_fog_energy = 1.42
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9318, 3.17273, -15.7384)
+light_energy = 2.86
+light_volumetric_fog_energy = 1.42
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7256, 2.2031, -8.79433)
+light_energy = 2.86
+light_volumetric_fog_energy = 1.42

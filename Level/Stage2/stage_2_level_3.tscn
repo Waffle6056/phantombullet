@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpvkb63mab2r7"]
+[gd_scene load_steps=16 format=3 uid="uid://bpvkb63mab2r7"]
 
 [ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_e1xw0"]
 [ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="2_hrqq0"]
@@ -17,6 +17,16 @@ albedo_color = Color(0, 0, 0, 1)
 size = Vector3(2.25259, 1.27569, 2.19052)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sp2f0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mxc2q"]
+
+[sub_resource type="Sky" id="Sky_cegan"]
+sky_material = SubResource("ProceduralSkyMaterial_mxc2q")
+
+[sub_resource type="Environment" id="Environment_4h076"]
+background_mode = 2
+sky = SubResource("Sky_cegan")
+volumetric_fog_enabled = true
 
 [node name="Stage2Level3" type="Node3D" node_paths=PackedStringArray("Targets")]
 script = ExtResource("1_e1xw0")
@@ -281,3 +291,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -76.4088, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
 shape = SubResource("WorldBoundaryShape3D_sp2f0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.78641, -18.757)
+light_volumetric_fog_energy = 0.0
+omni_range = 29.67
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4h076")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.42032, -28.9019)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34278, -5.74028, -75.5212)
+omni_range = 13.0117

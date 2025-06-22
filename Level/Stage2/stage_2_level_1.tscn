@@ -84,8 +84,8 @@ size = Vector3(5.23884, 4.17786, 1.96254)
 material = ExtResource("1_1adjx")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="CSGBox3D13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322842, 1.80357, 14.1265)
-size = Vector3(1.93439, 4.17786, 3.29927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.370983, 1.80357, 14.028)
+size = Vector3(2.03067, 4.17786, 3.49631)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="CSGBox3D13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322842, 1.80357, 20.0653)
