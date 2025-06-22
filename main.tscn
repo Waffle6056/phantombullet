@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://don885xwd5v3v"]
+[gd_scene load_steps=22 format=3 uid="uid://don885xwd5v3v"]
 
 [ext_resource type="PackedScene" uid="uid://2ynb80ubs6un" path="res://Player/player.tscn" id="1_6ya0i"]
 [ext_resource type="Script" uid="uid://bq2phetuwnpxh" path="res://Main/Main.cs" id="1_272bh"]
@@ -50,7 +50,7 @@ environment = SubResource("Environment_yo784")
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
-LevelList = Array[PackedScene]([ExtResource("4_ycdy4"), ExtResource("4_kek77"), ExtResource("6_w48qg"), ExtResource("7_vivmo"), ExtResource("8_2cqfq"), ExtResource("4_4c57u"), ExtResource("10_2cqfq"), ExtResource("11_yaehf"), ExtResource("8_2cqfq")])
+LevelList = Array[PackedScene]([ExtResource("7_vivmo"), ExtResource("4_ycdy4"), ExtResource("4_kek77"), ExtResource("6_w48qg"), ExtResource("8_2cqfq"), ExtResource("4_4c57u"), ExtResource("10_2cqfq"), ExtResource("11_yaehf"), ExtResource("8_2cqfq")])
 
 [node name="BulletTime" type="Node" parent="." node_paths=PackedStringArray("BlurNode")]
 script = ExtResource("4_1bvp3")
