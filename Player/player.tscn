@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://2ynb80ubs6un"]
+[gd_scene load_steps=25 format=3 uid="uid://2ynb80ubs6un"]
 
 [ext_resource type="Script" uid="uid://b6b3hl6hvpsan" path="res://Player/FirstPersonCamera.cs" id="1_1pbhj"]
 [ext_resource type="Script" uid="uid://caokuktyg7tao" path="res://Player/Player.cs" id="1_8d2l0"]
@@ -29,6 +29,8 @@ emission = Color(2.11775e-06, 0.907704, 0.00478651, 1)
 albedo_color = Color(0.0666667, 0.4, 0.333333, 1)
 emission_enabled = true
 emission = Color(0.462291, 0.462291, 0.462291, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_od3ui"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_k53q1"]
 radius = 0.22
@@ -540,6 +542,7 @@ font_size = 24
 
 [node name="ArmTemp" type="MeshInstance3D" parent="Camera3D/Gun/arm"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0332632, -0.300057, 1.04456)
+material_override = SubResource("StandardMaterial3D_od3ui")
 mesh = SubResource("CapsuleMesh_k53q1")
 
 [node name="R" type="Label3D" parent="Camera3D/Gun/arm"]
