@@ -6,7 +6,7 @@ public partial class LevelManager : Node
 	[Export]
 	PackedScene[] LevelList;
 	int ind = 0;
-	public Level CurrentLevel;
+	public static Level CurrentLevel;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -35,12 +35,22 @@ public partial class LevelManager : Node
 		}
 	}
 
+	private void OnLevelFailed()
+	{
+		// reload
+		Load(LevelList[ind-1]);
+		// maybe later, show a failure screen
+	}
+
 	public void Load(PackedScene scene)
 	{
 		if (CurrentLevel != null)
 			CurrentLevel.QueueFree();
 		AddChild(CurrentLevel = scene.Instantiate() as Level);
 		CurrentLevel.LevelCompleted += OnLevelComplete;
+		CurrentLevel.LevelFailed += OnLevelFailed;
+
+		// later, force player to reinstantiate (or reparent bullets)
 		Player.Instance.Reset();
 	}
 }

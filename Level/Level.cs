@@ -7,13 +7,17 @@ public partial class Level : Node3D
 	[Signal]
 	public delegate void LevelCompletedEventHandler();
 
+	[Signal]
+	public delegate void LevelFailedEventHandler();
+
 	[Export]
-	public Target[] Targets;
+	public Target[] Targets = [];
 
 	[Export]
 	public FinalDoor FinishDoor;
 
-	public int targetsLeft = -1;
+	public int targetsLeft = 0;
+	public bool targetsComputed = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -25,6 +29,8 @@ public partial class Level : Node3D
 			targetsLeft++;
 			t.TargetCompleted += TargetReportedComplete;
 		}
+
+		targetsComputed = true;
 
 		foreach (Node3D node in GetChildren())
 		{
@@ -50,12 +56,6 @@ public partial class Level : Node3D
 		Player.Instance.GlobalPosition = Vector3.Zero; // Assuming Player is a singleton
 	}
 
-	public void ResetLevel()
-	{
-		GD.Print($"Level {Name}: Resetting level.");
-		_Ready();
-	}
-
 	public void FinishAttempted()
 	{
 		if (IsCompleted())
@@ -79,7 +79,7 @@ public partial class Level : Node3D
 
     private bool IsCompleted()
 	{
-		return targetsLeft == 0;
+		return targetsComputed && targetsLeft <= 0;
 	}
 
 	private void CheckForCompletion()
@@ -93,7 +93,7 @@ public partial class Level : Node3D
 	public void TargetTriggered(Target target)
 	{
 		GD.Print($"Level {Name}: target {target.Name} triggered.");
-		ResetLevel();
+		EmitSignal (SignalName.LevelFailed);
 	}
 
 	public void TargetReportedComplete(Target target)
@@ -113,13 +113,12 @@ public partial class Level : Node3D
 		GD.Print($"Level {Name}: target {target.Name} completed.");
 
 		targetsLeft--;
-
-		CheckForCompletion();
 	}
 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		CheckForCompletion();
 	}
 }
