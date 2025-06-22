@@ -10,7 +10,8 @@ public partial class Ammo : Area3D
 
     [Export]
     public Bullet[] Storage;
-
+    [Export]
+    public Bullet[] Dupes;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -60,13 +61,24 @@ public partial class Ammo : Area3D
             CollectedTime += (long)(delta * 1000);
         }
 
-        if (CollectedTime > 5000 && Used)
+        if (CollectedTime > 5000 && Used && AmmoExpended())
         {
             GD.Print("Ammo resetting");
             Used = false;
         }
-	}
-
+    }
+    public bool AmmoExpended()
+    {
+        //GD.Print("Called this");
+        foreach (Bullet child in Dupes)
+            if (IsInstanceValid(child) && child.ProcessMode == ProcessModeEnum.Disabled)
+            {
+                //GD.Print(child.Name);
+                return false;
+            }
+        //GD.Print("good");
+        return true;
+    }
     public void IsEntered(Node3D body)
     {
         CollectedTime = 0;
@@ -79,11 +91,13 @@ public partial class Ammo : Area3D
             {
                 GD.Print("\nPicking up ammo.");
                 Player p = body as Player;
-                foreach (Bullet b in Storage)
+                Dupes = new Bullet[Storage.Length];
+                for (int i = 0; i < Storage.Length; i++) 
                 {
-                    Bullet d = b.Duplicate() as Bullet;
+                    Bullet d = Storage[i].Duplicate() as Bullet;
                     if (!p.LoadGun(d))
                         p.PickUp(d);
+                    Dupes[i] = d;
                 }
 
                 // mark as used

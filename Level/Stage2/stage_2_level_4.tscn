@@ -467,12 +467,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
 
 [node name="OnTriggerOrCollisionBoomBullet2" parent="Ammo2" instance=ExtResource("11_ek5q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0186, -0.432051, 31.0717)
+ProjectileSpeed = 80.0
 
 [node name="OnTriggerOrCollisionBoomBullet" parent="Ammo2" instance=ExtResource("11_ek5q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607889, 4.0423, 4.76221)
+ProjectileSpeed = 80.0
 
 [node name="OnTriggerOrCollisionBoomBullet3" parent="Ammo2" instance=ExtResource("11_ek5q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607889, 4.0423, 4.76221)
+ProjectileSpeed = 80.0
 
 [node name="Ammo3" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("9_q05u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95184, -4.0423, 40.7894)
@@ -494,9 +497,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66221, 4.0423, -0.412388)
 
 [node name="OnTriggerOrCollisionBoomBullet" parent="Ammo3" instance=ExtResource("11_ek5q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76461, 4.0423, -0.26366)
+ProjectileSpeed = 80.0
 
 [node name="OnTriggerOrCollisionBoomBullet2" parent="Ammo3" instance=ExtResource("11_ek5q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84486, 4.0423, -0.729107)
+ProjectileSpeed = 80.0
 
 [node name="FinalDoor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2626, -2.60009, 64.1679)

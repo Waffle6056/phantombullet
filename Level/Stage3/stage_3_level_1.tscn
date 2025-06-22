@@ -1,0 +1,147 @@
+[gd_scene load_steps=17 format=3 uid="uid://bxqtsg6he2fpp"]
+
+[ext_resource type="Script" uid="uid://d10y72y1nt4gq" path="res://Level/Level.cs" id="1_p3lin"]
+[ext_resource type="Material" uid="uid://cdbfym2bj4i5a" path="res://Level/LevelAsset/glass_material.tres" id="2_2hm7f"]
+[ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="3_4jxof"]
+[ext_resource type="PackedScene" uid="uid://cbgm2xo215kx4" path="res://Level/LevelAsset/Killzone/killzone.tscn" id="3_m1pqq"]
+[ext_resource type="PackedScene" uid="uid://dbhas7yl7wcqu" path="res://Level/LevelAsset/TimedTarget/timed_target.tscn" id="4_akk1f"]
+[ext_resource type="PackedScene" uid="uid://dqird0gga88bc" path="res://Level/LevelAsset/Ammo/ammo.tscn" id="5_1362f"]
+[ext_resource type="Script" uid="uid://bdjwa8t1xmui5" path="res://Level/LevelAsset/Door/OrDoor.cs" id="5_m1pqq"]
+[ext_resource type="PackedScene" uid="uid://ch07xhi1o03qa" path="res://Player/Bullets/OnTriggerTurningBullet/OnTriggerTurningBullet.tscn" id="6_4ywa8"]
+[ext_resource type="PackedScene" uid="uid://bk1d21sg8apgk" path="res://Player/Bullets/BaseBullet/bullet.tscn" id="6_ksrd0"]
+[ext_resource type="PackedScene" uid="uid://diaatub6287aj" path="res://Player/Bullets/PhotonBullet/photonbullet.tscn" id="7_ksrd0"]
+[ext_resource type="PackedScene" uid="uid://diomba6mxnssq" path="res://Player/Bullets/TeleporterBullet/TeleporterBullet.tscn" id="8_p3lin"]
+[ext_resource type="PackedScene" uid="uid://hb3x0n3mu372" path="res://Level/LevelAsset/Target/target.tscn" id="10_ksrd0"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_11rg6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ywa8"]
+size = Vector3(0.658325, 8.22327, 27.4136)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3lin"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1pqq"]
+size = Vector3(7.33209, 7.20337, 1)
+
+[node name="Stage3Level1" type="Node3D" node_paths=PackedStringArray("Targets")]
+script = ExtResource("1_p3lin")
+Targets = [NodePath("FinalDoor/Target2")]
+
+[node name="Killzone2" parent="." instance=ExtResource("3_m1pqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.4067, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
+shape = SubResource("WorldBoundaryShape3D_11rg6")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.95975, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0209045, 0.336173, -0.999023)
+size = Vector3(6.03607, 1, 6.03125)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74964, -0.247469, -0.984891)
+size = Vector3(3.53708, 1, 6.03125)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74964, -0.247469, -21.0599)
+size = Vector3(3.53708, 1, 6.03125)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.62803, 2.89252, -24.4303)
+size = Vector3(14.8859, 7.27997, 0.970825)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0209045, 0.336173, -23.0716)
+size = Vector3(6.03607, 1, 10.0117)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53521, -0.865478, -10.8984)
+size = Vector3(6.03607, 1, 25.9786)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50648, 3.62725, 2.57704)
+size = Vector3(3.06491, 7.58215, 1.42419)
+material = ExtResource("2_2hm7f")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.32065, 3.62725, -10.4678)
+size = Vector3(0.603329, 7.58215, 27.6029)
+material = ExtResource("2_2hm7f")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47924, 3.40591, -10.4678)
+size = Vector3(0.603329, 7.58215, 27.6029)
+material = ExtResource("2_2hm7f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3348, 1.45, -10.2597)
+shape = SubResource("BoxShape3D_4ywa8")
+
+[node name="Door" parent="." node_paths=PackedStringArray("ExtraTargets", "Target") instance=ExtResource("3_4jxof")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 6.36967, 0, -7.21752)
+script = ExtResource("5_m1pqq")
+ExtraTargets = []
+Target = NodePath("../Target3")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_4jxof")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 0.39418, 1.7529, -24.129)
+Target = NodePath("")
+
+[node name="Target3" parent="." instance=ExtResource("4_akk1f")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.07108, -0.21359, -7.39953)
+IsWatching = false
+
+[node name="Door3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("3_4jxof")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 6.36967, 0, -14.4787)
+Target = NodePath("../Target4")
+
+[node name="Target4" parent="." instance=ExtResource("4_akk1f")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.07108, -0.21359, -14.6607)
+IsWatching = false
+
+[node name="Ammo" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("5_1362f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75609, -0.65383, -2.96882)
+Storage = [NodePath("OnTriggerTurningBullet"), NodePath("OnTriggerTurningBullet2"), NodePath("PhotonBullet"), NodePath("PhotonBullet2"), NodePath("TeleporterBullet"), NodePath("Bullet")]
+
+[node name="Bullet" parent="Ammo" instance=ExtResource("6_ksrd0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82071, 0.65383, 5.60895)
+
+[node name="OnTriggerTurningBullet" parent="Ammo" instance=ExtResource("6_4ywa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669396, 0.65383, -0.877703)
+ProjectileSpeed = 15.0
+
+[node name="OnTriggerTurningBullet2" parent="Ammo" instance=ExtResource("6_4ywa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669396, 0.65383, -0.877703)
+ProjectileSpeed = 15.0
+
+[node name="PhotonBullet" parent="Ammo" instance=ExtResource("7_ksrd0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31081, 0.65383, -2.70789)
+
+[node name="PhotonBullet2" parent="Ammo" instance=ExtResource("7_ksrd0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31081, 0.65383, -2.70789)
+
+[node name="TeleporterBullet" parent="Ammo" instance=ExtResource("8_p3lin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53892, 0.65383, -2.19898)
+
+[node name="FinalDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.606268, 1.72874, -25.1018)
+size = Vector3(7.06125, 6.78369, 1)
+material = SubResource("StandardMaterial3D_p3lin")
+
+[node name="Target2" parent="FinalDoor" instance=ExtResource("10_ksrd0")]
+visible = false
+collision_layer = 1
+collision_mask = 8
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="FinalDoor/Target2"]
+shape = SubResource("BoxShape3D_m1pqq")
+
+[node name="Target" parent="." instance=ExtResource("10_ksrd0")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6.16986, -1.01405, -20.468)
