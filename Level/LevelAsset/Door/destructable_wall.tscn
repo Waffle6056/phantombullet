@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkyxmuvignwg6"]
+[gd_scene load_steps=12 format=3 uid="uid://dkyxmuvignwg6"]
 
 [ext_resource type="PackedScene" uid="uid://d4ffmcajbbmim" path="res://Level/LevelAsset/Door/door.tscn" id="1_1iuy0"]
 [ext_resource type="Script" uid="uid://cpo2wtpbkat12" path="res://Level/LevelAsset/TimedTarget/TimedTarget.cs" id="1_xr8os"]
 [ext_resource type="PackedScene" uid="uid://g8r1g8mxnw2i" path="res://Level/LevelAsset/Target/drone.glb" id="2_ocrjw"]
+[ext_resource type="Texture2D" uid="uid://cr05bbqnag5t5" path="res://Level/LevelAsset/Door/painted-cracked-wall-texture-photo.jpg" id="3_h61y2"]
 [ext_resource type="PackedScene" uid="uid://tbtkf8kwr0p6" path="res://Level/LevelAsset/Lever/Lever.tscn" id="4_h1w1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1iuy0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr8os"]
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0.489622, 0.489622, 0.489622, 1)
+albedo_texture = ExtResource("3_h61y2")
 
 [sub_resource type="BoxMesh" id="BoxMesh_h1w1a"]
 material = SubResource("StandardMaterial3D_xr8os")
