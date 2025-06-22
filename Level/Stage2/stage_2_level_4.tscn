@@ -30,11 +30,14 @@ Target = NodePath("../Target")
 
 [node name="root" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.1605, 0)
-use_collision = true
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1771, 2.63738, -8.72149)
-size = Vector3(18.3007, 11.0745, 21.2113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1771, 2.63738, -15.3518)
+size = Vector3(18.3007, 11.0745, 34.4719)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15364, 13.1454, -7.1277)
+size = Vector3(60.3476, 11.0745, 78.5526)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.67904, 1.88384, -14.5709)
@@ -68,8 +71,16 @@ transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -7.57942, 
 size = Vector3(17.4649, 10.1106, 7.72836)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95498, 1.08747, 12.659)
-size = Vector3(25.1347, 14.076, 7.04149)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22965, 1.08747, 12.659)
+size = Vector3(29.684, 14.076, 7.04149)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6073, 1.08747, -7.69049)
+size = Vector3(15.6445, 14.076, 47.7405)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12811, 1.08747, -39.4397)
+size = Vector3(66.603, 14.076, 16.7398)
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13085, 1.08747, 5.36911)
@@ -153,8 +164,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29694, -22.8503, 42.5101)
 size = Vector3(20.9543, 19.6996, 24.2616)
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2689, -17.8936, 43.6895)
-size = Vector3(2.36575, 30.3374, 26.4562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2689, -10.7261, 43.6895)
+size = Vector3(2.36575, 44.6725, 26.4562)
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4842, 0.0913146, 31.3533)
@@ -165,8 +176,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4248, -5.38067, 16.1922)
 size = Vector3(6.92419, 5.0249, 28.5287)
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8833, -0.449213, 14.4293)
-size = Vector3(4.42108, 5.54846, 32.0544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8833, 4.03959, 14.4293)
+size = Vector3(4.42108, 14.5261, 32.0544)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="root"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217285, 1.62505, -13.1784)
@@ -421,37 +432,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
 [node name="TeleporterBullet9" parent="Ammo" instance=ExtResource("10_r2puj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
 
-[node name="Ammo4" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("9_q05u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21663, -0.658601, 0.189565)
-Storage = [NodePath("../Ammo2/OnTriggerOrCollisionBoomBullet")]
-
-[node name="TeleporterBullet" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
-[node name="TeleporterBullet2" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
-[node name="TeleporterBullet3" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
-[node name="TeleporterBullet4" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
-[node name="TeleporterBullet5" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
-[node name="TeleporterBullet6" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
-[node name="TeleporterBullet7" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
-[node name="TeleporterBullet8" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
-[node name="TeleporterBullet9" parent="Ammo4" instance=ExtResource("10_r2puj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70636, 0.658601, -0.951478)
-
 [node name="Ammo2" parent="." node_paths=PackedStringArray("Storage") instance=ExtResource("9_q05u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5333, -5.54667, 10.0286)
 Storage = [NodePath("TeleporterBullet"), NodePath("TeleporterBullet2"), NodePath("TeleporterBullet3"), NodePath("OnTriggerOrCollisionBoomBullet"), NodePath("OnTriggerOrCollisionBoomBullet2"), NodePath("OnTriggerOrCollisionBoomBullet3")]
@@ -511,12 +491,15 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0577087, -0.111938, 0)
 shape = SubResource("BoxShape3D_f48re")
 
-[node name="Target18" parent="." instance=ExtResource("8_nhtug")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54336, -0.45545, -3.83471)
-
 [node name="Killzone" parent="." instance=ExtResource("11_q05u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -51.7952, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.58983, 0)
 shape = SubResource("WorldBoundaryShape3D_r2puj")
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.11415, -5.06807, 25.5588)
+modulate = Color(1, 1, 0, 1)
+text = "Boom bullets blow up when it hits a wall or you shoot again
+Boom bullets can blow up some walls like this"

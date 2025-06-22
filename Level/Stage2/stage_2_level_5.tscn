@@ -259,6 +259,42 @@ size = Vector3(5, 1, 4.98707)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.70366, 30.0363)
 size = Vector3(5, 1, 100.966)
 
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92962, 8.10448, 53.8026)
+size = Vector3(5, 9.80164, 53.4334)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8587, 8.104, 37.7494)
+size = Vector3(36.8574, 9.80164, 21.3261)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8587, 17.8326, 55.4293)
+size = Vector3(36.8574, 9.80164, 56.686)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8687, 17.8326, 25.5078)
+size = Vector3(50.8374, 9.80164, 43.1999)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8687, 17.8326, 77.4747)
+size = Vector3(50.8374, 9.80164, 43.1999)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8687, 17.8326, -39.6041)
+size = Vector3(50.8374, 9.80164, 43.1999)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2086, 8.104, 67.8232)
+size = Vector3(35.5571, 9.80164, 27.0938)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92962, 8.10448, -9.9909)
+size = Vector3(5, 9.80164, 59.0545)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGBox3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93, 8.104, -9.991)
+size = Vector3(5, 9.80164, 59.0545)
+
 [node name="CSGBox3D13" type="CSGBox3D" parent="CSGBox3D15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4214, 3.70366, 51.0601)
 size = Vector3(39.8428, 1, 5.88894)
@@ -459,3 +495,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.996, -14.113)
 
 [node name="Target8" parent="." instance=ExtResource("7_m8b42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.99566, -11.9543)
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.67349)
+modulate = Color(1, 1, 0, 1)
+text = "Photon bullets move instantly and pierce through targets
+Try hitting multiple at once!"

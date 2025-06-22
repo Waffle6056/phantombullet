@@ -108,7 +108,7 @@ public partial class Target : Area3D
 	{
 		Monitoring = !Hit;
 		//GD.Print(WatchedArea.OverlapsBody(Player.Instance) + " " + CurrentTimeTilAngry);
-		if (IsWatching && WatchedArea != null && WatchedArea.OverlapsBody(Player.Instance) && IsLineOfSight(Player.Instance))
+		if (IsWatching && !Hit && WatchedArea != null && WatchedArea.OverlapsBody(Player.Instance) && IsLineOfSight(Player.Instance))
 		{
 			Light.LightColor = new Color(1, 0, 0);
 			CurrentTimeTilAngry -= delta * BulletTime.TimeScale;
@@ -152,7 +152,7 @@ public partial class Target : Area3D
 	{
 		// signifies when the target is hit
 		Hit = true;
-		IsWatching = false;
+		//IsWatching = false;
 		lever.Activate();
 	}
 
